@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinh Cong Minh - Data Science Portfolio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* TÙY CHỈNH GIAO DIỆN (THEME) */
+        :root {
+            --bg-color: #4a4a4a;
+            --text-color: #ffffff;
+            --card-bg: #5c5c5c;
+            --accent-color: #ffffff; 
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Avatar */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px; /* Bo góc vuông  */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        /* Buttons  */
+        .btn-custom {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 10px 30px;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        .btn-custom:hover {
+            background: white;
+            color: #333;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background-color: var(--card-bg);
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            height: 100%;
+            color: white;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+            background-color: #888; /* Placeholder color */
+        }
+        .tech-badge {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* Contact Form */
+        .form-control {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+        .form-control:focus {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            box-shadow: none;
+            border-color: white;
+        }
+        .form-control::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">MINH'S PORTFOLIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="text-center d-flex align-items-center" style="min-height: 100vh;">
+        <div class="container">
+            <img src="images/avatar.png" alt="Dinh Cong Minh" class="profile-img">
+            
+            <h1 class="display-4 fw-bold mt-3">Dinh Cong Minh</h1>
+            <p class="lead mb-5">Data Science | Data Scientist | Data Analyst</p>
+            
+            <div class="d-flex flex-column align-items-center gap-2">
+                <a href="#about" class="btn btn-custom">About me</a>
+                <a href="#projects" class="btn btn-custom">Personal Projects</a>
+                <a href="#contact" class="btn btn-custom">Contact me</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">About Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="fs-5 mb-4">
+                        Originally from Bac Ninh and currently based in Hanoi, I stand at the intersection of Tradition and Modernity. 
+                        As a Data Science senior, I have cultivated a deep passion for harmonizing Economics and Technology. 
+                        I am driven by the challenge of using data-driven technologies to decipher economic trends and create tangible value in the digital business landscape.
+                    </p>
+                    <p class="fs-5 text-secondary-light" style="opacity: 0.9;">
+                        I possess a strong command of <strong>Mathematics, Statistics</strong>, and core tools like <strong>Python and SQL</strong>. 
+                        My experience extends to developing complex financial forecasting models and handling large-scale data processing. 
+                        With a clear career path toward Data Analysis and Data Science, I am eager to apply advanced technology to optimize operations and deliver data-driven solutions that fuel digital transformation in the modern economy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="background-color: rgba(0,0,0,0.1);">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Personal Projects</h2>
+            <p class="text-center mb-5">Những dự án Data Science tôi đã thực hiện</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card project-card">
+                        <div class="project-img d-flex align-items-center justify-content-center bg-dark">
+                            <i class="fas fa-chart-line fa-3x text-secondary"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Stock Price Prediction</h5>
+                            <div class="mb-3">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Deep Learning</span>
+                                <span class="tech-badge">LSTM</span>
+                            </div>
+                            <p class="card-text small">
+                                <strong>Mô tả:</strong> Xây dựng mô hình Hybrid Deep Learning để dự báo giá chứng khoán dựa trên dữ liệu lịch sử.
+                            </p>
+                            <p class="card-text small">
+                                <strong>Kết quả:</strong> Đạt độ chính xác cao trên tập test, hỗ trợ quyết định đầu tư.
+                            </p>
+                            <a href="https://github.com/nolanminhdinh/Historical-Stock-Price-Prediction-Model" target="_blank" class="btn btn-outline-light btn-sm w-100 mt-2">Xem trên GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card project-card">
+                        <div class="project-img d-flex align-items-center justify-content-center bg-dark">
+                            <i class="fas fa-traffic-light fa-3x text-secondary"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Traffic Congestion Analysis</h5>
+                            <div class="mb-3">
+                                <span class="tech-badge">Data Analysis</span>
+                                <span class="tech-badge">Spatio-temporal</span>
+                                <span class="tech-badge">Python</span>
+                            </div>
+                            <p class="card-text small">
+                                <strong>Mô tả:</strong> Nghiên cứu tác động của đèn tín hiệu đến tắc nghẽn giao thông sử dụng dữ liệu không gian - thời gian.
+                            </p>
+                            <p class="card-text small">
+                                <strong>Kết quả:</strong> Đề xuất giải pháp tối ưu hóa thời gian chờ đèn.
+                            </p>
+                            <a href="https://github.com/nolanminhdinh/Traffic_Analysis" target="_blank" class="btn btn-outline-light btn-sm w-100 mt-2">Xem trên GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Contact Me</h2>
+            <p class="text-center mb-5">I'm excited to work with you!</p>
+
+            <div class="row align-items-start">
+                <div class="col-md-6 mb-4">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="mb-3">
+                            <input type="text" name="name" class="form-control p-3" placeholder="Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control p-3" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" name="phone" class="form-control p-3" placeholder="Phone">
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="message" class="form-control p-3" rows="5" placeholder="Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-light w-100 py-2 fw-bold">Submit</button>
+                    </form>
+                </div>
+
+                <div class="col-md-6 ps-md-5">
+                    <div class="mb-4">
+                        <img src="https://via.placeholder.com/400x200" alt="Bac Ninh Map" class="img-fluid rounded w-100" style="opacity: 0.8;">
+                    </div>
+                    
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2 text-warning"></i> Bac Ninh, Viet Nam</p>
+                        <p><i class="far fa-clock me-2 text-warning"></i> Mon-Sat 8AM-8PM</p>
+                        <p><i class="fas fa-phone me-2 text-warning"></i> 0338 522 101</p>
+                        <p><i class="fas fa-envelope me-2 text-warning"></i> congminh311204@gmail.com</p>
+                    </div>
+
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3 fs-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3 fs-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white fs-3"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 bg-dark">
+        <div class="container">
+            <p class="mb-0 text-white-50">© 2026 Dinh Cong Minh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
