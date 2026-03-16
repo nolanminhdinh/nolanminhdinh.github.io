@@ -9,112 +9,139 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* TÙY CHỈNH GIAO DIỆN (THEME) */
+        /* TÙY CHỈNH GIAO DIỆN MỚI (MÀU SẮC ĐẸP NHƯ FRAMER) */
         :root {
-            --bg-color: #4a4a4a;
-            --text-color: #ffffff;
-            --card-bg: #5c5c5c;
-            --accent-color: #ffffff; 
+            --accent-1: #00c6ff; /* Màu xanh lơ sáng */
+            --accent-2: #0072ff; /* Màu xanh dương */
+            --glass-bg: rgba(255, 255, 255, 0.05); /* Nền kính mờ */
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Nền Gradient mượt mà */
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            background-attachment: fixed;
+            color: #f8fafc;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Navbar */
+        /* Chữ có hiệu ứng Gradient rực rỡ */
+        .gradient-text {
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Navbar kính mờ */
         .navbar {
-            background-color: rgba(0, 0, 0, 0.3) !important;
-            backdrop-filter: blur(10px);
+            background-color: rgba(15, 23, 42, 0.7) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
         }
         .navbar-brand, .nav-link {
             color: white !important;
             font-weight: 500;
+            transition: 0.3s;
         }
         .nav-link:hover {
-            opacity: 0.8;
+            color: var(--accent-1) !important;
         }
 
-        /* Avatar */
+        /* Avatar phát sáng */
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 20px; /* Bo góc vuông  */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-radius: 30px; 
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 198, 255, 0.3);
             margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 198, 255, 0.6);
         }
 
-        /* Buttons  */
+        /* Nút bấm nổi bật (Gradient Button) */
         .btn-custom {
-            border: 2px solid white;
+            background: linear-gradient(45deg, var(--accent-2), var(--accent-1));
             color: white;
-            background: transparent;
-            padding: 10px 30px;
-            border-radius: 5px;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px; 
             margin: 10px 0;
             width: 100%;
             max-width: 400px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
         }
         .btn-custom:hover {
-            background: white;
-            color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 114, 255, 0.6);
+            color: white;
         }
 
-        /* Section Styling */
-        section {
-            padding: 80px 0;
-        }
-
-        /* Project Cards */
+        /* Project Cards (Glassmorphism) */
         .project-card {
-            background-color: var(--card-bg);
-            border: none;
-            border-radius: 10px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
             height: 100%;
             color: white;
         }
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 198, 255, 0.2);
+            border: 1px solid rgba(0, 198, 255, 0.5);
         }
         .project-img {
             height: 200px;
             object-fit: cover;
             width: 100%;
-            background-color: #888; /* Placeholder color */
+            background: rgba(0,0,0,0.3);
         }
         .tech-badge {
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
+            background: linear-gradient(45deg, rgba(0, 198, 255, 0.2), rgba(0, 114, 255, 0.2));
+            border: 1px solid rgba(0, 198, 255, 0.3);
+            color: #00c6ff;
+            padding: 5px 10px;
+            border-radius: 50px;
             font-size: 0.8rem;
             margin-right: 5px;
             display: inline-block;
             margin-bottom: 5px;
+            font-weight: 600;
         }
 
-        /* Contact Form */
+        /* Contact Form Kính mờ */
         .form-control {
-            background-color: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
             color: white;
+            border-radius: 10px;
         }
         .form-control:focus {
-            background-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
             color: white;
-            box-shadow: none;
-            border-color: white;
+            box-shadow: 0 0 10px rgba(0, 198, 255, 0.3);
+            border-color: var(--accent-1);
         }
         .form-control::placeholder {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.5);
+        }
+
+        section { padding: 100px 0; }
+        
+        .hover-glow:hover {
+            color: var(--accent-1) !important;
+            text-shadow: 0 0 10px var(--accent-1);
         }
     </style>
 </head>
@@ -122,7 +149,7 @@
 
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">MINH'S PORTFOLIO</a>
+            <a class="navbar-brand fw-bold" href="#">MINH<span class="gradient-text">DS</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
@@ -141,10 +168,10 @@
         <div class="container">
             <img src="images/avatar.png" alt="Dinh Cong Minh" class="profile-img">
             
-            <h1 class="display-4 fw-bold mt-3">Dinh Cong Minh</h1>
-            <p class="lead mb-5">Data Science | Data Scientist | Data Analyst</p>
+            <h1 class="display-4 fw-bold mt-3">Dinh Cong <span class="gradient-text">Minh</span></h1>
+            <p class="lead mb-5 fw-light">Data Science | Data Analyst | Business Analyst</p>
             
-            <div class="d-flex flex-column align-items-center gap-2">
+            <div class="d-flex flex-column align-items-center gap-3">
                 <a href="#about" class="btn btn-custom">About me</a>
                 <a href="#projects" class="btn btn-custom">Personal Projects</a>
                 <a href="#contact" class="btn btn-custom">Contact me</a>
@@ -154,16 +181,16 @@
 
     <section id="about">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">About Me</h2>
+            <h2 class="text-center mb-5 fw-bold gradient-text">About Me</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <p class="fs-5 mb-4">
+                    <p class="fs-5 mb-4" style="line-height: 1.8;">
                         Originally from Bac Ninh and currently based in Hanoi, I stand at the intersection of Tradition and Modernity. 
                         As a Data Science senior, I have cultivated a deep passion for harmonizing Economics and Technology. 
                         I am driven by the challenge of using data-driven technologies to decipher economic trends and create tangible value in the digital business landscape.
                     </p>
-                    <p class="fs-5 text-secondary-light" style="opacity: 0.9;">
-                        I possess a strong command of <strong>Mathematics, Statistics</strong>, and core tools like <strong>Python and SQL</strong>. 
+                    <p class="fs-5 text-light" style="opacity: 0.8; line-height: 1.8;">
+                        I possess a strong command of <strong class="text-white">Mathematics, Statistics</strong>, and core tools like <strong class="text-white">Python and SQL</strong>. 
                         My experience extends to developing complex financial forecasting models and handling large-scale data processing. 
                         With a clear career path toward Data Analysis and Data Science, I am eager to apply advanced technology to optimize operations and deliver data-driven solutions that fuel digital transformation in the modern economy.
                     </p>
@@ -172,54 +199,51 @@
         </div>
     </section>
 
-    <section id="projects" style="background-color: rgba(0,0,0,0.1);">
+    <section id="projects">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Personal Projects</h2>
-            <p class="text-center mb-5">Những dự án Data Science tôi đã thực hiện</p>
+            <h2 class="text-center mb-5 fw-bold gradient-text">Personal Projects</h2>
             
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card project-card">
-                        <div class="project-img d-flex align-items-center justify-content-center bg-dark">
-                            <i class="fas fa-chart-line fa-3x text-secondary"></i>
+                        <div class="project-img d-flex align-items-center justify-content-center">
+                            <i class="fas fa-chart-line fa-4x" style="color: var(--accent-1);"></i>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Stock Price Prediction</h5>
+                        <div class="card-body p-4">
+                            <h4 class="card-title fw-bold mb-3">Stock Price Prediction</h4>
                             <div class="mb-3">
                                 <span class="tech-badge">Python</span>
                                 <span class="tech-badge">Deep Learning</span>
                                 <span class="tech-badge">LSTM</span>
                             </div>
-                            <p class="card-text small">
-                                <strong>Mô tả:</strong> Xây dựng mô hình Hybrid Deep Learning để dự báo giá chứng khoán dựa trên dữ liệu lịch sử.
+                            <p class="card-text text-light opacity-75">
+                                Xây dựng mô hình Hybrid Deep Learning để dự báo giá chứng khoán dựa trên dữ liệu lịch sử. Đạt độ chính xác cao trên tập test, hỗ trợ ra quyết định đầu tư.
                             </p>
-                            <p class="card-text small">
-                                <strong>Kết quả:</strong> Đạt độ chính xác cao trên tập test, hỗ trợ quyết định đầu tư.
-                            </p>
-                            <a href="https://github.com/nolanminhdinh/Historical-Stock-Price-Prediction-Model" target="_blank" class="btn btn-outline-light btn-sm w-100 mt-2">Xem trên GitHub <i class="fab fa-github"></i></a>
+                            <a href="https://github.com/nolanminhdinh/Historical-Stock-Price-Prediction-Model" target="_blank" class="btn btn-custom mt-3 w-100">
+                                Xem trên GitHub <i class="fab fa-github ms-1"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card project-card">
-                        <div class="project-img d-flex align-items-center justify-content-center bg-dark">
-                            <i class="fas fa-traffic-light fa-3x text-secondary"></i>
+                        <div class="project-img d-flex align-items-center justify-content-center">
+                            <i class="fas fa-traffic-light fa-4x" style="color: var(--accent-1);"></i>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Traffic Congestion Analysis</h5>
+                        <div class="card-body p-4">
+                            <h4 class="card-title fw-bold mb-3">Traffic Congestion Analysis</h4>
                             <div class="mb-3">
                                 <span class="tech-badge">Data Analysis</span>
                                 <span class="tech-badge">Spatio-temporal</span>
                                 <span class="tech-badge">Python</span>
                             </div>
-                            <p class="card-text small">
-                                <strong>Mô tả:</strong> Nghiên cứu tác động của đèn tín hiệu đến tắc nghẽn giao thông sử dụng dữ liệu không gian - thời gian.
+                            <p class="card-text text-light opacity-75">
+                                Nghiên cứu khoa học về tác động của đèn tín hiệu đến tắc nghẽn giao thông sử dụng dữ liệu không gian - thời gian (Spatio-temporal). Đề xuất giải pháp tối ưu.
                             </p>
-                            <p class="card-text small">
-                                <strong>Kết quả:</strong> Đề xuất giải pháp tối ưu hóa thời gian chờ đèn.
-                            </p>
-                            <a href="https://github.com/nolanminhdinh/Traffic_Analysis" target="_blank" class="btn btn-outline-light btn-sm w-100 mt-2">Xem trên GitHub <i class="fab fa-github"></i></a>
+                            <a href="https://github.com/nolanminhdinh/Traffic_Analysis" target="_blank" class="btn btn-custom mt-3 w-100">
+                                Xem trên GitHub <i class="fab fa-github ms-1"></i>
+                            </a>
                         </div>
                     </div>
                 </div>                    
@@ -229,53 +253,54 @@
 
     <section id="contact">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Contact Me</h2>
-            <p class="text-center mb-5">I'm excited to work with you!</p>
-
-            <div class="row align-items-start">
+            <h2 class="text-center mb-5 fw-bold gradient-text">Contact Me</h2>
+            <div class="row align-items-start justify-content-center">
                 <div class="col-md-6 mb-4">
-                    <form action="https://formspree.io/f/mlgppgrq" method="POST">
-                        <div class="mb-3">
-                            <input type="text" name="name" class="form-control p-3" placeholder="Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" name="email" class="form-control p-3" placeholder="Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="tel" name="phone" class="form-control p-3" placeholder="Phone">
-                        </div>
-                        <div class="mb-3">
-                            <textarea name="message" class="form-control p-3" rows="5" placeholder="Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-light w-100 py-2 fw-bold">Submit</button>
-                    </form>
+                    <div class="project-card p-4">
+                        <form action="https://formspree.io/f/mlgppgrq" method="POST">
+                            <div class="mb-3">
+                                <input type="text" name="name" class="form-control p-3" placeholder="Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" name="email" class="form-control p-3" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" name="phone" class="form-control p-3" placeholder="Phone">
+                            </div>
+                            <div class="mb-3">
+                                <textarea name="message" class="form-control p-3" rows="5" placeholder="Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-custom w-100 py-3 mt-2">Submit <i class="fas fa-paper-plane ms-2"></i></button>
+                        </form>
+                    </div>
                 </div>
 
-                <div class="col-md-6 ps-md-5">
+                <div class="col-md-5 ps-md-5 d-flex flex-column justify-content-center">
                     <div class="mb-4">
-                        <img src="images/map.png" alt="Bac Ninh Map" class="img-fluid rounded w-100" style="opacity: 0.8;">
-                    </div>
-                    
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt me-2 text-warning"></i> Bac Ninh, Viet Nam</p>
-                        <p><i class="far fa-clock me-2 text-warning"></i> Mon-Sat 8AM-8PM</p>
-                        <p><i class="fas fa-phone me-2 text-warning"></i> 0338 522 101</p>
-                        <p><i class="fas fa-envelope me-2 text-warning"></i> congminh311204@gmail.com</p>
+                        <img src="images/map.png" alt="Bac Ninh Map" class="img-fluid rounded w-100" style="opacity: 0.8; border: 1px solid var(--glass-border);">
                     </div>
 
-                    <div class="social-icons mt-4">
-                        <a href="https://www.facebook.com/nolandinhminh204" class="text-white me-3 fs-3"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/minhphieuluuky/" class="text-white me-3 fs-3"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/nolan-minh-dinh/" class="text-white fs-3"><i class="fab fa-linkedin"></i></a>
+                    <div class="contact-info fs-5">
+                        <p class="mb-3"><i class="fas fa-map-marker-alt me-3" style="color: var(--accent-1);"></i> Bac Ninh, Viet Nam</p>
+                        <p class="mb-3"><i class="far fa-clock me-3" style="color: var(--accent-1);"></i> Mon-Sat 8AM-8PM</p>
+                        <p class="mb-3"><i class="fas fa-phone me-3" style="color: var(--accent-1);"></i> 0338 522 101</p>
+                        <p class="mb-3"><i class="fas fa-envelope me-3" style="color: var(--accent-1);"></i> congminh311204@gmail.com</p>
+                    </div>
+
+                    <div class="social-icons mt-4 pt-3 border-top border-secondary">
+                        <a href="https://www.facebook.com/nolandinhminh204" target="_blank" class="text-white me-3 fs-3 text-decoration-none"><i class="fab fa-facebook hover-glow" style="transition: 0.3s;"></i></a>
+                        <a href="https://www.instagram.com/minhphieuluuky/" target="_blank" class="text-white me-3 fs-3 text-decoration-none"><i class="fab fa-instagram hover-glow" style="transition: 0.3s;"></i></a>
+                        <a href="https://www.linkedin.com/in/nolan-minh-dinh/" target="_blank" class="text-white me-3 fs-3 text-decoration-none"><i class="fab fa-linkedin hover-glow" style="transition: 0.3s;"></i></a>
+                        <a href="https://github.com/nolanminhdinh" target="_blank" class="text-white fs-3 text-decoration-none"><i class="fab fa-github hover-glow" style="transition: 0.3s;"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-4 bg-dark">
+    <footer class="text-center py-4 mt-5" style="background: rgba(0,0,0,0.3);">
         <div class="container">
-            <p class="mb-0 text-white-50">© 2026 Dinh Cong Minh. All rights reserved.</p>
+            <p class="mb-0 text-white-50">© 2026 Dinh Cong Minh. Built with Passion & Data.</p>
         </div>
     </footer>
 
