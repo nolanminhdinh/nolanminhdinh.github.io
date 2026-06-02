@@ -18,7 +18,6 @@
         }
 
         body {
-            /* Nền Gradient mượt mà */
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
             background-attachment: fixed;
             color: #f8fafc;
@@ -26,14 +25,12 @@
             overflow-x: hidden;
         }
 
-        /* Chữ có hiệu ứng Gradient rực rỡ */
         .gradient-text {
             background: linear-gradient(to right, var(--accent-1), var(--accent-2));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Navbar kính mờ */
         .navbar {
             background-color: rgba(15, 23, 42, 0.7) !important;
             backdrop-filter: blur(15px);
@@ -48,7 +45,6 @@
             color: var(--accent-1) !important;
         }
 
-        /* Avatar phát sáng */
         .profile-img {
             width: 220px;
             height: 220px;
@@ -64,7 +60,6 @@
             box-shadow: 0 0 40px rgba(0, 198, 255, 0.6);
         }
 
-        /* Nút bấm nổi bật (Gradient Button) */
         .btn-custom {
             background: linear-gradient(45deg, var(--accent-2), var(--accent-1));
             color: white;
@@ -84,7 +79,6 @@
             color: white;
         }
 
-        /* Project Cards (Glassmorphism) */
         .project-card {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
@@ -120,7 +114,77 @@
             font-weight: 600;
         }
 
-        /* Contact Form Kính mờ */
+        /* --- SKILL CARDS (MỚI) --- */
+        .skill-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0, 198, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(0, 198, 255, 0.1);
+        }
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .skill-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .skill-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Thay đổi cho About Me section */
+        .about-text-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid var(--glass-border);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .strength-item {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .strength-item h4 {
+            color: var(--accent-1);
+            font-weight: 600;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .strength-item h4 i {
+            margin-right: 12px;
+            font-size: 1.5rem;
+        }
+
         .form-control {
             background: rgba(255,255,255,0.05);
             border: 1px solid var(--glass-border);
@@ -157,6 +221,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -169,31 +234,166 @@
             <img src="images/avatar.png" alt="Dinh Cong Minh" class="profile-img">
             
             <h1 class="display-4 fw-bold mt-3">Dinh Cong <span class="gradient-text">Minh</span></h1>
-            <p class="lead mb-5 fw-light">Data Science | Business Intelligence Analyst</p>
+            <p class="lead mb-5 fw-light">Data Science | Business Intelligence Analyst </p>
             
             <div class="d-flex flex-column align-items-center gap-3">
                 <a href="#about" class="btn btn-custom">About me</a>
-                <a href="#projects" class="btn btn-custom">Personal Projects</a>
+                <a href="#skills" class="btn btn-custom">My Skills</a>
                 <a href="#contact" class="btn btn-custom">Contact me</a>
             </div>
         </div>
     </section>
 
+    <!-- ABOUT ME SECTION  -->
     <section id="about">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold gradient-text">About Me</h2>
+            <h2 class="text-center mb-5 fw-bold gradient-text">Về Bản Thân</h2>
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <p class="fs-5 mb-4" style="line-height: 1.8;">
-                        Originally from Bac Ninh and currently based in Hanoi, I stand at the intersection of Tradition and Modernity. 
-                        As a Data Science senior, I have cultivated a deep passion for harmonizing Economics and Technology. 
-                        I am driven by the challenge of using data-driven technologies to decipher economic trends and create tangible value in the digital business landscape.
-                    </p>
-                    <p class="fs-5 text-light" style="opacity: 0.8; line-height: 1.8;">
-                        I possess a strong command of <strong class="text-white">Mathematics, Statistics</strong>, and core tools like <strong class="text-white">Python and SQL</strong>. 
-                        My experience extends to developing complex financial forecasting models and handling large-scale data processing. 
-                        With a clear career path toward Data Analysis and Data Science, I am eager to apply advanced technology to optimize operations and deliver data-driven solutions that fuel digital transformation in the modern economy.
-                    </p>
+                <div class="col-lg-10">
+                    <div class="about-text-box">
+                        <p class="fs-5 mb-5 text-center" style="line-height: 1.8;">
+                            Xuất phát điểm là một sinh viên kỹ thuật tại trường Đại học Mỏ - Địa chất, mang trong mình tư duy của một kỹ sư khoa học dữ liệu. Đối với tôi, con số là những manh mối ẩn chứa lời giải cho hàng loạt bí ẩn và bài toán khác nhau; tôi đam mê với phân tích và suy luận để tìm kiếm lời giải cho những bài toán. Tôi yêu thích việc giao tiếp, trình bày, chia sẻ những gì bản thân biết đến với những người xung quanh mong muốn điều đó mang lại giá trị tốt đến với họ. Đó là động lực để tôi theo đuổi con đường trở thành một Chuyên viên Phân tích Dữ liệu (Data Analyst) mà không phải Kỹ sư dữ liệu (Data Engineer) hay Nhà khoa học dữ liệu (Data Scientist), đặc biệt hướng tới việc ứng dụng công nghệ để tối ưu hóa, tôi định hướng theo mảng Chuỗi cung ứng (Supply Chain).
+                        </p>
+
+                        <h3 class="fw-bold mb-4 text-center">Tại sao dữ liệu lại là thế mạnh của tôi?</h3>
+                        
+                        <div class="row g-4 mt-2">
+                            <div class="col-md-6">
+                                <div class="strength-item">
+                                    <h4><i class="fas fa-laptop-code"></i> Nền tảng lập trình & kỹ thuật</h4>
+                                    <p class="text-light opacity-75">Có thể với sự trở giúp của AI thì mọi người ai cũng có thể viết code được nhưng với nền tảng hiểu rõ syntax, luồng thực thi điều đó giúp tôi kiểm tra output liên tục Q&A để AI cung cấp câu trả lời tốt nhất - viết prompt tốt.  Kỹ năng SQL từ việc tối ưu truy vấn và chuẩn hóa cơ sở dữ liệu đạt chuẩn 3NF cho database trong dự án nghiên cứu khoa học, hiểu cách thức vận hành từ đó nhịn nhận ra vấn đề và đưa ra hướng giải quyết.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="strength-item">
+                                    <h4><i class="fas fa-cogs"></i> Tư duy tự động hóa</h4>
+                                    <p class="text-light opacity-75">Tôi có thói quen hệ thống hóa mọi thứ. Từ việc làm việc với PostgreSQL, Kafka, hay Docker, tôi thích xây dựng các pipeline xử lý dữ liệu và tạo ra các báo cáo cập nhật liên tục (dynamic reporting) hơn là phải lặp lại các thao tác báo cáo thủ công mỗi tuần hay mỗi tháng. Đảm bảo tính tiện lợi nhất khi sử dụng.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="strength-item">
+                                    <h4><i class="fas fa-brain"></i> Triển khai Machine Learning</h4>
+                                    <p class="text-light opacity-75">Tôi không dừng lại ở việc báo cáo những gì đã xảy ra (Descriptive Analytics). Bằng việc tự tay thiết kế các mô hình Deep Learning như LSTM để dự báo biến động, tôi có khả năng xây dựng các mô hình dự đoán (Predictive Analytics) mạnh mẽ, ứng dụng trực tiếp vào dự báo cung cầu hay phân loại khách hàng. Tận dụng tối đa giá trị của dự liệu, không chỉ trả lời câu hỏi diễn ra thế nào, tại sao nó diễn ra mà tôi còn muốn biết liệu tương tai có những điều gì có thể xảy ra để đưa ra chuẩn bị tốt nhất. </p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="strength-item">
+                                    <h4><i class="fas fa-chart-pie"></i> Tư duy Logic & Thống kê</h4>
+                                    <p class="text-light opacity-75">Giải tích, xác suất thống kê hay đại số giúp tôi hiểu bản chất, mối quan hệ đằng sau các phân phối dữ liệu hay kiểm định (A/B testing), từ đó xây dựng các tư duy tính với các logic khác nhau để luôn đưa ra kết quả diễn giải chính xác nhất.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS & TOOLS SECTION  -->
+    <section id="skills" style="background: rgba(0,0,0,0.2);">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold gradient-text">Skills & Tools</h2>
+            <div class="row g-4 justify-content-center">
+                
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-card">
+                        <i class="fab fa-python skill-icon"></i>
+                        <div class="skill-title">Python</div>
+                        <div class="skill-desc">Pandas, NumPy, EDA, Automation</div>
+                    </div>
+                </div>
+
+               <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <div class="skill-title">SQL & Querying</div>
+                        <div class="skill-desc">Query Optimization, CTEs, Window Functions</div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-card">
+                        <i class="fas fa-server skill-icon"></i>
+                        <div class="skill-title">Data Architecture</div>
+                        <div class="skill-desc">Data Modeling, Data Warehouse, DB Design, OLTP/OLAP, 3NF</div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-card">
+                        <i class="fas fa-chart-bar skill-icon"></i>
+                        <div class="skill-title">Power BI</div>
+                        <div class="skill-desc">DAX, Dynamic Dashboards</div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-card">
+                        <i class="fas fa-network-wired skill-icon"></i>
+                        <div class="skill-title">Machine Learning</div>
+                        <div class="skill-desc">Classification, Clustering, Regression, Deep Learning (Fundamentals)</div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-card">
+                        <i class="fas fa-table skill-icon"></i>
+                        <div class="skill-title">Excel/Sheets</div>
+                        <div class="skill-desc">Pivot, INDEX MATCH</div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-card">
+                        <i class="fas fa-calculator skill-icon"></i>
+                        <div class="skill-title">Statistics</div>
+                        <div class="skill-desc">A/B Testing, Descriptive, Distributions</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" style="padding-top: 50px;">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold gradient-text">Certifications</h2>
+            <div class="row g-4 justify-content-center">
+
+                   <!-- Chứng chỉ 1 -->
+                <div class="col-md-6">
+                    <div class="project-card p-4 d-flex align-items-center gap-4">
+                        <div class="fs-1 flex-shrink-0" style="color: var(--accent-2);">
+                            <i class="fas fa-award" style="filter: drop-shadow(0 0 10px rgba(0, 114, 255, 0.5));"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-2">Google Data Analytics Professional Certificate</h5>
+                            <p class="text-light opacity-75 mb-3" style="font-size: 0.9rem;">Issued by Google on Coursera</p>
+                            <a href="https://www.credly.com/badges/70adfc2b-cf90-45d7-a73e-b5a9f860880e/linked_in_profile" target="_blank" class="btn btn-sm px-4 rounded-pill" style="border: 1px solid var(--accent-2); color: var(--accent-2); transition: 0.3s;" onmouseover="this.style.background='var(--accent-2)'; this.style.color='#0f172a';" onmouseout="this.style.background='transparent'; this.style.color='var(--accent-2)';">
+                                Verify Credential <i class="fas fa-external-link-alt ms-1" style="font-size: 0.8em;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chứng chỉ 2 -->
+                <div class="col-md-6">
+                    <div class="project-card p-4 d-flex align-items-center gap-4">
+                        <div class="fs-1 flex-shrink-0" style="color: var(--accent-1);">
+                            <i class="fas fa-certificate" style="filter: drop-shadow(0 0 10px rgba(0, 198, 255, 0.5));"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-2">Google Advanced Data Analytics Professional Certificate</h5>
+                            <p class="text-light opacity-75 mb-3" style="font-size: 0.9rem;">Issued by Google on Coursera</p>
+                            <a href="https://www.credly.com/badges/5021a342-b898-4488-907a-e08e8d1922ca/linked_in_profile" target="_blank" class="btn btn-sm px-4 rounded-pill" style="border: 1px solid var(--accent-1); color: var(--accent-1); transition: 0.3s;" onmouseover="this.style.background='var(--accent-1)'; this.style.color='#0f172a';" onmouseout="this.style.background='transparent'; this.style.color='var(--accent-1)';">
+                                Verify Credential <i class="fas fa-external-link-alt ms-1" style="font-size: 0.8em;"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -217,7 +417,7 @@
                                 <span class="tech-badge">LSTM</span>
                             </div>
                             <p class="card-text text-light opacity-75">
-                                Xây dựng mô hình Hybrid Deep Learning để dự báo giá chứng khoán dựa trên dữ liệu lịch sử. Đạt độ chính xác cao trên tập test, hỗ trợ ra quyết định đầu tư.
+                                Xây dựng mô hình Hybrid Deep Learning để dự báo giá chứng khoán dựa trên dữ liệu lịch sử, đạtđộ chính xác cao trên tập test. Tìm hiểu về cách mô hình vận hành.
                             </p>
                             <a href="https://github.com/nolanminhdinh/Historical-Stock-Price-Prediction-Model" target="_blank" class="btn btn-custom mt-3 w-100">
                                 Xem trên GitHub <i class="fab fa-github ms-1"></i>
