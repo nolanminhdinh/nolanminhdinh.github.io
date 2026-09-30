@@ -3,288 +3,1323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinh Cong Minh - Data Science Portfolio</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Đinh Công Minh (Nolan) | Data Analyst & Business Intelligence Portfolio</title>
+    <meta name="description" content="Portfolio của Đinh Công Minh (Nolan Minh Dinh) - Data Analyst, Business Intelligence Specialist. Kinh nghiệm thực chiến tại KPIM, Streaming MLOps, Power BI, SQL, Python, Machine Learning.">
+    <meta name="author" content="Đinh Công Minh">
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Đinh Công Minh (Nolan) - Data Analyst & BI Portfolio">
+    <meta property="og:description" content="Chuyên viên Phân tích Dữ liệu & Business Intelligence - Xây dựng hệ thống báo cáo phân khúc khách hàng, Streaming MLOps, Deep Learning & Tối ưu hóa chuỗi cung ứng.">
+    <meta property="og:image" content="images/avatar.png">
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 & FontAwesome 6 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
-        /* TÙY CHỈNH GIAO DIỆN MỚI (MÀU SẮC ĐẸP NHƯ FRAMER) */
         :root {
-            --accent-1: #00c6ff; /* Màu xanh lơ sáng */
-            --accent-2: #0072ff; /* Màu xanh dương */
-            --glass-bg: rgba(255, 255, 255, 0.05); /* Nền kính mờ */
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --bg-base: #090d16;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(56, 189, 248, 0.4);
+            
+            --accent-cyan: #38bdf8;
+            --accent-blue: #3b82f6;
+            --accent-purple: #818cf8;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #818cf8 100%);
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-glow: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+                radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 28px 28px;
             background-attachment: fixed;
-            color: #f8fafc;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
+            line-height: 1.65;
         }
 
+        /* Gradient Typography */
         .gradient-text {
-            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
-        .navbar {
-            background-color: rgba(15, 23, 42, 0.7) !important;
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
         }
-        .navbar-brand, .nav-link {
-            color: white !important;
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.15);
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 14px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand-badge {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
             font-weight: 500;
-            transition: 0.3s;
+            font-size: 0.92rem;
+            padding: 8px 16px !important;
+            border-radius: 10px;
+            transition: all 0.25s ease;
         }
-        .nav-link:hover {
-            color: var(--accent-1) !important;
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-cyan) !important;
+            background: rgba(56, 189, 248, 0.08);
+        }
+
+        /* Buttons */
+        .btn-modern-primary {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+            text-decoration: none;
+        }
+
+        .btn-modern-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+            color: #ffffff;
+        }
+
+        .btn-modern-outline {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            border: 1px solid var(--border-glass);
+            padding: 12px 26px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-modern-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Status Pill */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            margin-bottom: 24px;
+        }
+
+        .status-pill-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        /* Profile Image */
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img-container {
+            width: 220px;
+            height: 220px;
+            border-radius: 36px;
+            padding: 6px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.8), rgba(99, 102, 241, 0.2), rgba(56, 189, 248, 0.8));
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.25);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-img-container:hover {
+            transform: scale(1.04) rotate(1deg);
+            box-shadow: 0 0 50px rgba(56, 189, 248, 0.45);
         }
 
         .profile-img {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 30px; 
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 30px rgba(0, 198, 255, 0.3);
-            margin-bottom: 20px;
-            transition: transform 0.3s;
-        }
-        .profile-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 198, 255, 0.6);
-        }
-
-        .btn-custom {
-            background: linear-gradient(45deg, var(--accent-2), var(--accent-1));
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px; 
-            margin: 10px 0;
             width: 100%;
-            max-width: 400px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
-        }
-        .btn-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 114, 255, 0.6);
-            color: white;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            background-color: #1e293b;
         }
 
-        .project-card {
-            background: var(--glass-bg);
+        .floating-badge {
+            position: absolute;
+            bottom: -10px;
+            right: -15px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #38bdf8;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            height: 100%;
-            color: white;
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 198, 255, 0.2);
-            border: 1px solid rgba(0, 198, 255, 0.5);
-        }
-        .project-img {
-            height: 200px;
-            object-fit: cover;
-            width: 100%;
-            background: rgba(0,0,0,0.3);
-        }
-        .tech-badge {
-            background: linear-gradient(45deg, rgba(0, 198, 255, 0.2), rgba(0, 114, 255, 0.2));
-            border: 1px solid rgba(0, 198, 255, 0.3);
-            color: #00c6ff;
-            padding: 5px 10px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-            display: inline-block;
-            margin-bottom: 5px;
-            font-weight: 600;
         }
 
-        /* --- SKILL CARDS (MỚI) --- */
-        .skill-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 25px;
+        /* Stat Counter Bento */
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 18px 20px;
             text-align: center;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-cyan);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 4px 14px;
+            border-radius: 30px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Bento Grid About */
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 30px;
             height: 100%;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(0, 198, 255, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-1);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(0, 198, 255, 0.1);
-        }
-        .skill-card:hover::before {
-            opacity: 1;
-        }
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .skill-title {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .skill-desc {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
+
+        .bento-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
-        /* Thay đổi cho About Me section */
-        .about-text-box {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid var(--glass-border);
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-        }
-
-        .strength-item {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-        .strength-item h4 {
-            color: var(--accent-1);
-            font-weight: 600;
-            font-size: 1.25rem;
+        .bento-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent-cyan);
             display: flex;
             align-items: center;
-        }
-        .strength-item h4 i {
-            margin-right: 12px;
-            font-size: 1.5rem;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        .form-control {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--glass-border);
-            color: white;
+        .bento-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .bento-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Timeline for Experience */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-blue), rgba(255,255,255,0.05));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-base);
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 12px var(--accent-cyan);
+        }
+
+        .timeline-date {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-role {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .timeline-highlights {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-highlights li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-highlights li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        /* Project Cards */
+        .project-filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin: 4px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .project-filter-btn:hover, .project-filter-btn.active {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.15);
+        }
+
+        .project-media {
+            height: 210px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.95));
+            border-bottom: 1px solid var(--border-glass);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-media img {
+            transform: scale(1.06);
+        }
+
+        .project-category-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            letter-spacing: 0.3px;
+        }
+
+        .project-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .tech-pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tech-pill {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: #7dd3fc;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn-project-link {
+            flex: 1;
+            text-align: center;
+            padding: 8px 14px;
             border-radius: 10px;
-        }
-        .form-control:focus {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            box-shadow: 0 0 10px rgba(0, 198, 255, 0.3);
-            border-color: var(--accent-1);
-        }
-        .form-control::placeholder {
-            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.25s ease;
         }
 
-        section { padding: 100px 0; }
-        
-        .hover-glow:hover {
-            color: var(--accent-1) !important;
-            text-shadow: 0 0 10px var(--accent-1);
+        .btn-project-github {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass);
+            color: #ffffff;
+        }
+
+        .btn-project-github:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        .btn-project-demo {
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent-cyan);
+        }
+
+        .btn-project-demo:hover {
+            background: var(--accent-cyan);
+            color: #090d16;
+            border-color: var(--accent-cyan);
+        }
+
+        /* Certificate Cards */
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .cert-badge-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.2), rgba(234, 67, 53, 0.2));
+            border: 1px solid rgba(66, 133, 244, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #60a5fa;
+            flex-shrink: 0;
+        }
+
+        .cert-info h5 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .cert-issuer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .btn-verify-badge {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: rgba(56, 189, 248, 0.06);
+            padding: 5px 14px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.25s ease;
+        }
+
+        .btn-verify-badge:hover {
+            background: var(--accent-cyan);
+            color: #090d16;
+            border-color: var(--accent-cyan);
+        }
+
+        /* Skill Cards */
+        .skill-group-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 18px;
+            padding: 24px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .skill-group-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .skill-group-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .skill-group-icon {
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+        }
+
+        .skill-group-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .skill-item-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 3px;
+            transition: 0.2s;
+        }
+
+        .skill-item-tag:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            background: rgba(56, 189, 248, 0.08);
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 36px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .contact-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-detail-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .contact-detail-value {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .copy-btn:hover {
+            color: var(--accent-cyan);
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .social-network-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .social-link-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link-btn:hover {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(59, 130, 246, 0.4);
+        }
+
+        .form-control-custom {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+        }
+
+        .form-control-custom:focus {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent-cyan);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+            outline: none;
+        }
+
+        .form-control-custom::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* Toast feedback */
+        .toast-notify {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--accent-cyan);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            backdrop-filter: blur(8px);
+        }
+
+        .back-to-top:hover {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            section { padding: 70px 0; }
+            .section-title { font-size: 1.9rem; }
+            .profile-img-container { width: 180px; height: 180px; }
+            .navbar-custom { padding: 10px 0; }
+            .navbar-collapse {
+                background: rgba(15, 23, 42, 0.98);
+                border: 1px solid var(--border-glass);
+                padding: 20px;
+                border-radius: 16px;
+                margin-top: 14px;
+            }
         }
     </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="120">
 
-    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+    <!-- NAVBAR -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">MINH<span class="gradient-text">DS</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            <a class="navbar-brand-badge" href="#hero">
+                <span class="brand-dot"></span>
+                <span>NOLAN<span class="gradient-text">.DATA</span></span>
+            </a>
+            
+            <button class="navbar-toggler border-0 shadow-none text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars-staggered"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Về tôi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Kinh nghiệm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Kỹ năng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Dự án</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Chứng chỉ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
                 </ul>
+
+                <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+                    <a href="cv/DinhCongMinh_DataAnalyst_CV.pdf" target="_blank" class="btn-modern-outline py-2 px-3 fs-6">
+                        <i class="fas fa-file-arrow-down"></i> Tải CV
+                    </a>
+                    <a href="https://www.linkedin.com/in/nolan-minh-dinh/" target="_blank" class="social-link-btn" title="LinkedIn Profile">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/nolanminhdinh" target="_blank" class="social-link-btn" title="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="text-center d-flex align-items-center" style="min-height: 100vh;">
+    <!-- HERO SECTION -->
+    <section id="hero" class="d-flex align-items-center" style="min-height: 100vh; padding-top: 140px;">
         <div class="container">
-            <img src="images/avatar.png" alt="Dinh Cong Minh" class="profile-img">
-            
-            <h1 class="display-4 fw-bold mt-3">Dinh Cong <span class="gradient-text">Minh</span></h1>
-            <p class="lead mb-5 fw-light">Data Science | Business Intelligence Analyst </p>
-            
-            <div class="d-flex flex-column align-items-center gap-3">
-                <a href="#about" class="btn btn-custom">About me</a>
-                <a href="#skills" class="btn btn-custom">My Skills</a>
-                <a href="#contact" class="btn btn-custom">Contact me</a>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    
+                    <div class="status-pill">
+                        <span class="status-pill-dot"></span>
+                        <span>Sẵn sàng cho cơ hội mới • Data Analyst / Business Intelligence</span>
+                    </div>
+
+                    <h1 class="display-4 fw-bold mb-3" style="letter-spacing: -1px;">
+                        Xin chào, tôi là <br class="d-none d-sm-inline">
+                        <span class="gradient-text">Đinh Công Minh</span> (Nolan)
+                    </h1>
+
+                    <p class="fs-5 text-light opacity-90 fw-light mb-4" style="line-height: 1.8;">
+                        Sinh viên năm cuối ngành <strong>Khoa học Dữ liệu</strong> (Đại học Mỏ - Địa chất - HUMG). Đam mê phân tích và hệ thống hóa dữ liệu, giải quyết bài toán vận hành, chuỗi cung ứng (Supply Chain) và hành vi khách hàng thông qua <strong>SQL</strong>, <strong>Power BI</strong>, <strong>Python</strong> và <strong>MLOps/Streaming</strong>.
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mb-5">
+                        <a href="#projects" class="btn-modern-primary">
+                            <i class="fas fa-layer-group"></i> Khám phá dự án
+                        </a>
+                        <a href="cv/DinhCongMinh_DataAnalyst_CV.pdf" target="_blank" class="btn-modern-outline">
+                            <i class="fas fa-file-pdf"></i> Xem CV / Resume
+                        </a>
+                        <a href="https://www.linkedin.com/in/nolan-minh-dinh/" target="_blank" class="btn-modern-outline">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+
+                    <!-- Micro Bento Stats -->
+                    <div class="row g-3">
+                        <div class="col-6 col-sm-3">
+                            <div class="stat-card">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label">Google Certs</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="stat-card">
+                                <div class="stat-number">20</div>
+                                <div class="stat-label">Bank Segments</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="stat-card">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">End-to-End Tasks</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="stat-card">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Data-Driven</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5 text-center">
+                    <div class="profile-wrapper">
+                        <div class="profile-img-container mx-auto">
+                            <img src="images/avatar.png" alt="Đinh Công Minh - Nolan Minh Dinh" class="profile-img">
+                        </div>
+                        <div class="floating-badge">
+                            <i class="fas fa-chart-line text-info"></i>
+                            <span>Data Analyst & BI Specialist</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 d-flex justify-content-center gap-3">
+                        <span class="badge bg-secondary bg-opacity-25 text-light px-3 py-2 rounded-pill border border-secondary border-opacity-25">
+                            <i class="fas fa-university me-1 text-primary"></i> HUMG Data Science '26
+                        </span>
+                        <span class="badge bg-secondary bg-opacity-25 text-light px-3 py-2 rounded-pill border border-secondary border-opacity-25">
+                            <i class="fas fa-briefcase me-1 text-info"></i> Ex-Intern KPIM
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT ME SECTION  -->
+    <!-- ABOUT SECTION -->
     <section id="about">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold gradient-text">Về Bản Thân</h2>
+            <div class="text-center mb-5">
+                <span class="section-tag">Về Bản Thân</span>
+                <h2 class="section-title">Khám Phá Giá Trị Đằng Sau Mỗi Con Số</h2>
+                <p class="section-subtitle">
+                    Không chỉ dừng lại ở việc báo cáo những gì đã xảy ra, mục tiêu của tôi là biến dữ liệu thành công cụ dự đoán và vũ khí ra quyết định chiến lược.
+                </p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-12">
+                    <div class="glass-panel p-4 p-md-5">
+                        <p class="fs-5 text-light opacity-90 mb-4" style="line-height: 1.85;">
+                            Xuất phát điểm là sinh viên kỹ thuật chuyên ngành Khoa học Dữ liệu tại Trường Đại học Mỏ - Địa chất (HUMG), tôi luôn nhìn nhận dữ liệu như những manh mối ẩn chứa lời giải cho bài toán kinh doanh. Động lực lớn nhất của tôi là khả năng chuyển hóa các luồng dữ liệu phức tạp thành bảng điều khiển (Dashboards) trực quan, tường minh, giúp nhà quản trị tối ưu hóa chi phí vận hành và nâng cao hiệu suất. Định hướng dài hạn của tôi gắn liền với việc ứng dụng công nghệ trong <strong>Chuỗi cung ứng (Supply Chain)</strong>, <strong>Thương mại điện tử</strong> và <strong>Tối ưu hóa Vận hành Doanh nghiệp</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Strengths -->
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="bento-card">
+                        <div class="bento-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="bento-title">Kỹ Thuật & Tối Ưu SQL</h4>
+                        <p class="bento-desc">
+                            Thành thạo tối ưu truy vấn SQL (CTEs, Window Functions), chuẩn hóa cơ sở dữ liệu quan hệ 3NF và thiết kế lược đồ Star Schema phục vụ Data Warehouse.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="bento-card">
+                        <div class="bento-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4 class="bento-title">Hạ Tầng & Tự Động Hóa</h4>
+                        <p class="bento-desc">
+                            Tư duy hệ thống hóa toàn diện: xây dựng pipeline dữ liệu thời gian thực với Apache Kafka, MinIO, Docker và PostgreSQL thay vì xử lý báo cáo thủ công.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="bento-card">
+                        <div class="bento-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="bento-title">Machine Learning Dự Báo</h4>
+                        <p class="bento-desc">
+                            Ứng dụng mô hình dự đoán (LightGBM, XGBoost, Deep Learning CNN/Bi-LSTM Attention) vào dự báo nhu cầu hàng hóa, chuỗi cung ứng và biến động thị trường.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="bento-card">
+                        <div class="bento-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h4 class="bento-title">Thống Kê & Phân Tích Nghiệp Vụ</h4>
+                        <p class="bento-desc">
+                            Áp dụng phương pháp thống kê (Youden's J statistic, A/B Testing, RFM Clustering) để giải quyết bài toán nợ xấu (NPL), phân khúc và giữ chân khách hàng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE & JOURNEY SECTION -->
+    <section id="experience" style="background: rgba(0, 0, 0, 0.2);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Kinh Nghiệm Thực Chiến</span>
+                <h2 class="section-title">Hành Trình Chuyên Môn</h2>
+                <p class="section-subtitle">
+                    Kinh nghiệm thực tập chuyên sâu tại doanh nghiệp kết hợp cùng các đề tài nghiên cứu khoa học cấp trường.
+                </p>
+            </div>
+
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="about-text-box">
-                        <p class="fs-5 mb-5 text-center" style="line-height: 1.8;">
-                            Xuất phát điểm là một sinh viên kỹ thuật tại trường Đại học Mỏ - Địa chất, mang trong mình tư duy của một kỹ sư khoa học dữ liệu. Đối với tôi, con số là những manh mối ẩn chứa lời giải cho hàng loạt bí ẩn và bài toán khác nhau; tôi đam mê với phân tích và suy luận để tìm kiếm lời giải cho những bài toán. Tôi yêu thích việc giao tiếp, trình bày, chia sẻ những gì bản thân biết đến với những người xung quanh mong muốn điều đó mang lại giá trị tốt đến với họ. Đó là động lực để tôi theo đuổi con đường trở thành một Chuyên viên Phân tích Dữ liệu (Data Analyst) mà không phải Kỹ sư dữ liệu (Data Engineer) hay Nhà khoa học dữ liệu (Data Scientist), đặc biệt hướng tới việc ứng dụng công nghệ để tối ưu hóa, tôi định hướng theo mảng Chuỗi cung ứng (Supply Chain).
-                        </p>
-
-                        <h3 class="fw-bold mb-4 text-center">Tại sao dữ liệu lại là thế mạnh của tôi?</h3>
+                    <div class="timeline">
                         
-                        <div class="row g-4 mt-2">
-                            <div class="col-md-6">
-                                <div class="strength-item">
-                                    <h4><i class="fas fa-laptop-code"></i> Nền tảng lập trình & kỹ thuật</h4>
-                                    <p class="text-light opacity-75">Có thể với sự trở giúp của AI thì mọi người ai cũng có thể viết code được nhưng với nền tảng hiểu rõ syntax, luồng thực thi điều đó giúp tôi kiểm tra output liên tục Q&A để AI cung cấp câu trả lời tốt nhất - viết prompt tốt.  Kỹ năng SQL từ việc tối ưu truy vấn và chuẩn hóa cơ sở dữ liệu đạt chuẩn 3NF cho database trong dự án nghiên cứu khoa học, hiểu cách thức vận hành từ đó nhịn nhận ra vấn đề và đưa ra hướng giải quyết.</p>
-                                </div>
+                        <!-- Timeline Item 1: KPIM -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">04/2026 – 08/2026</div>
+                            <h3 class="timeline-role">Business Intelligence Analyst Intern</h3>
+                            <div class="timeline-company"><i class="fas fa-building me-2"></i>KPIM (Knowledge & Process Intelligence Management)</div>
+                            <div class="glass-panel p-4 mb-3">
+                                <ul class="timeline-highlights">
+                                    <li>
+                                        <strong>Phân khúc khách hàng 5 trục:</strong> Trực tiếp tham gia thiết kế logic và phát triển hệ thống phân khúc khách hàng ngân hàng (KPIM Bank Customer 360) dựa trên 5 trục chiến lược: Giá trị (Value), Quan hệ tiền gửi/tiền vay (Relationship), Vòng đời (Life-Cycle), Rủi ro (Risk) và Độ sâu sản phẩm (Product).
+                                    </li>
+                                    <li>
+                                        <strong>Áp dụng thống kê tối ưu ngưỡng rủi ro:</strong> Sử dụng chỉ số thống kê <em>Youden's J Statistic</em> để tìm điểm cắt tối ưu (Cutoff 491) phân loại nợ xấu (NPL), tối đa hóa tỷ lệ nhận diện đúng rủi ro và giảm thiểu nhận định nhầm lẫn.
+                                    </li>
+                                    <li>
+                                        <strong>Xây dựng Dashboard Quản trị 360 độ:</strong> Triển khai bộ báo cáo quản trị toàn diện trên Power BI (Customer 360, Customer Individual Profile tra cứu theo mã CIF, Risk Management Boxplot, Ma trận bán chéo Cross-Sell, Giữ chân khách hàng và Kích hoạt tài khoản ngủ đông).
+                                    </li>
+                                    <li>
+                                        <strong>Tài liệu quản lý dự án (PM Documentation):</strong> Khảo sát nhu cầu nghiệp vụ từ các khối ban, tài liệu hóa cấu trúc dữ liệu và quy chuẩn hóa luồng logic nghiệp vụ bằng SQL Server CTEs & CASE WHEN.
+                                    </li>
+                                </ul>
+                                <a href="https://compaclass.com/blog/p/kpim-bank-xay-dung-he-thong-bao-cao-phan-khuc-khach-hang-2QvPA" target="_blank" class="btn-verify-badge mt-2">
+                                    <i class="fas fa-arrow-up-right-from-square"></i> Đọc bài viết case study chi tiết trên Compaclass
+                                </a>
                             </div>
-                            
-                            <div class="col-md-6">
-                                <div class="strength-item">
-                                    <h4><i class="fas fa-cogs"></i> Tư duy tự động hóa</h4>
-                                    <p class="text-light opacity-75">Tôi có thói quen hệ thống hóa mọi thứ. Từ việc làm việc với PostgreSQL, Kafka, hay Docker, tôi thích xây dựng các pipeline xử lý dữ liệu và tạo ra các báo cáo cập nhật liên tục (dynamic reporting) hơn là phải lặp lại các thao tác báo cáo thủ công mỗi tuần hay mỗi tháng. Đảm bảo tính tiện lợi nhất khi sử dụng.</p>
-                                </div>
+                        </div>
+
+                        <!-- Timeline Item 2: Graduation Thesis -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2026 (Đang Thực Hiện)</div>
+                            <h3 class="timeline-role">Đồ Án Tốt Nghiệp: Streaming MLOps Pipeline & Demand Forecasting</h3>
+                            <div class="timeline-company"><i class="fas fa-graduation-cap me-2"></i>Khoa Công Nghệ Thông Tin - Đại học Mỏ - Địa chất</div>
+                            <div class="glass-panel p-4 mb-3">
+                                <ul class="timeline-highlights">
+                                    <li>
+                                        <strong>Kiến trúc Streaming & Data Lakehouse:</strong> Xây dựng hệ thống thu thập đơn hàng E-Commerce thời gian thực qua Apache Kafka, đẩy vào Data Lake (MinIO) dạng Parquet và nạp vào Data Warehouse PostgreSQL theo chuẩn Star Schema.
+                                    </li>
+                                    <li>
+                                        <strong>Dự báo nhu cầu hàng hóa:</strong> Huấn luyện và đánh giá mô hình chuỗi thời gian (LightGBM/XGBoost baseline so sánh với LSTM/GRU Deep Learning) sử dụng kỹ thuật Walk-Forward Validation.
+                                    </li>
+                                    <li>
+                                        <strong>MLOps & Giám sát dữ liệu:</strong> Quản lý vòng đời mô hình với MLflow, triển khai Model Serving qua FastAPI (/predict/demand, /inventory/reorder-alert), giám sát hệ thống với Prometheus/Grafana và phát hiện trôi dữ liệu (Data Drift) bằng Evidently AI.
+                                    </li>
+                                </ul>
+                                <a href="https://github.com/nolanminhdinh/Streaming-MLOps-Ecommerce" target="_blank" class="btn-verify-badge mt-2">
+                                    <i class="fab fa-github"></i> Khám phá mã nguồn dự án trên GitHub
+                                </a>
                             </div>
-                            
-                            <div class="col-md-6">
-                                <div class="strength-item">
-                                    <h4><i class="fas fa-brain"></i> Triển khai Machine Learning</h4>
-                                    <p class="text-light opacity-75">Tôi không dừng lại ở việc báo cáo những gì đã xảy ra (Descriptive Analytics). Bằng việc tự tay thiết kế các mô hình Deep Learning như LSTM để dự báo biến động, tôi có khả năng xây dựng các mô hình dự đoán (Predictive Analytics) mạnh mẽ, ứng dụng trực tiếp vào dự báo cung cầu hay phân loại khách hàng. Tận dụng tối đa giá trị của dự liệu, không chỉ trả lời câu hỏi diễn ra thế nào, tại sao nó diễn ra mà tôi còn muốn biết liệu tương tai có những điều gì có thể xảy ra để đưa ra chuẩn bị tốt nhất. </p>
-                                </div>
+                        </div>
+
+                        <!-- Timeline Item 3: Scientific Research -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2025 - 2026</div>
+                            <h3 class="timeline-role">Đề Tài Nghiên Cứu Khoa Học Sinh Viên</h3>
+                            <div class="timeline-company"><i class="fas fa-flask me-2"></i>Đại học Mỏ - Địa chất (HUMG)</div>
+                            <div class="glass-panel p-4">
+                                <ul class="timeline-highlights">
+                                    <li>
+                                        <strong>Đề tài:</strong> Nghiên cứu ứng dụng dữ liệu không gian - thời gian (Spatio-Temporal Data) nhằm phân tích và đánh giá ảnh hưởng của chu kỳ đèn tín hiệu giao thông đến tình trạng ùn tắc cục bộ trên các tuyến đường đô thị trọng điểm.
+                                    </li>
+                                    <li>
+                                        <strong>Xử lý dữ liệu & Chuẩn hóa:</strong> Thiết kế cơ sở dữ liệu quan hệ đạt chuẩn 3NF, xử lý pipeline dữ liệu tọa độ GPS lớn từ ứng dụng thu thập dữ liệu tự xây dựng bằng Python và Docker.
+                                    </li>
+                                </ul>
+                                <a href="https://github.com/nolanminhdinh/Traffic_Analysis" target="_blank" class="btn-verify-badge mt-2">
+                                    <i class="fab fa-github"></i> Xem repository nghiên cứu khoa học
+                                </a>
                             </div>
-                            
-                            <div class="col-md-6">
-                                <div class="strength-item">
-                                    <h4><i class="fas fa-chart-pie"></i> Tư duy Logic & Thống kê</h4>
-                                    <p class="text-light opacity-75">Giải tích, xác suất thống kê hay đại số giúp tôi hiểu bản chất, mối quan hệ đằng sau các phân phối dữ liệu hay kiểm định (A/B testing), từ đó xây dựng các tư duy tính với các logic khác nhau để luôn đưa ra kết quả diễn giải chính xác nhất.</p>
-                                </div>
-                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Hệ Sinh Thái Kỹ Năng</span>
+                <h2 class="section-title">Kỹ Năng & Công Cụ Chuyên Môn</h2>
+                <p class="section-subtitle">
+                    Bộ kỹ năng kết hợp giữa nền tảng kỹ thuật công nghệ thông tin và tư duy phân tích chiến lược kinh doanh.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Group 1: SQL & Database -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group-card">
+                        <div class="skill-group-header">
+                            <i class="fas fa-database skill-group-icon"></i>
+                            <h3 class="skill-group-title">SQL & Data Warehousing</h3>
+                        </div>
+                        <div>
+                            <span class="skill-item-tag">SQL (T-SQL, PostgreSQL, MySQL)</span>
+                            <span class="skill-item-tag">CTEs & Subqueries</span>
+                            <span class="skill-item-tag">Window Functions</span>
+                            <span class="skill-item-tag">Data Modeling</span>
+                            <span class="skill-item-tag">Star Schema / Snowflake</span>
+                            <span class="skill-item-tag">Chuẩn hóa 3NF</span>
+                            <span class="skill-item-tag">Query Optimization</span>
+                            <span class="skill-item-tag">OLTP & OLAP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 2: Business Intelligence -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group-card">
+                        <div class="skill-group-header">
+                            <i class="fas fa-chart-line skill-group-icon"></i>
+                            <h3 class="skill-group-title">Business Intelligence & Viz</h3>
+                        </div>
+                        <div>
+                            <span class="skill-item-tag">Microsoft Power BI</span>
+                            <span class="skill-item-tag">Advanced DAX (Iterators)</span>
+                            <span class="skill-item-tag">Data Modeling (Star)</span>
+                            <span class="skill-item-tag">Executive Dashboard Design</span>
+                            <span class="skill-item-tag">Drill-Through & Bookmarks</span>
+                            <span class="skill-item-tag">Excel & Google Sheets</span>
+                            <span class="skill-item-tag">Power Query</span>
+                            <span class="skill-item-tag">Google Looker Studio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 3: Programming & Data Science -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group-card">
+                        <div class="skill-group-header">
+                            <i class="fab fa-python skill-group-icon"></i>
+                            <h3 class="skill-group-title">Python & Data Analysis</h3>
+                        </div>
+                        <div>
+                            <span class="skill-item-tag">Python</span>
+                            <span class="skill-item-tag">Pandas & NumPy</span>
+                            <span class="skill-item-tag">Exploratory Data Analysis (EDA)</span>
+                            <span class="skill-item-tag">GeoPandas (Spatial Data)</span>
+                            <span class="skill-item-tag">Matplotlib / Seaborn</span>
+                            <span class="skill-item-tag">FastAPI</span>
+                            <span class="skill-item-tag">Streamlit App</span>
+                            <span class="skill-item-tag">Automation Scripts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 4: MLOps & Data Engineering -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group-card">
+                        <div class="skill-group-header">
+                            <i class="fas fa-server skill-group-icon"></i>
+                            <h3 class="skill-group-title">Data Engineering & MLOps</h3>
+                        </div>
+                        <div>
+                            <span class="skill-item-tag">Apache Kafka (Streaming)</span>
+                            <span class="skill-item-tag">MinIO (Data Lake)</span>
+                            <span class="skill-item-tag">Docker & Docker Compose</span>
+                            <span class="skill-item-tag">MLflow Tracking</span>
+                            <span class="skill-item-tag">Prometheus & Grafana</span>
+                            <span class="skill-item-tag">Evidently AI (Data Drift)</span>
+                            <span class="skill-item-tag">ETL / ELT Pipelines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 5: Machine Learning & Modeling -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group-card">
+                        <div class="skill-group-header">
+                            <i class="fas fa-microchip skill-group-icon"></i>
+                            <h3 class="skill-group-title">Machine Learning & Forecast</h3>
+                        </div>
+                        <div>
+                            <span class="skill-item-tag">Scikit-learn</span>
+                            <span class="skill-item-tag">LightGBM & XGBoost</span>
+                            <span class="skill-item-tag">Time Series Forecasting</span>
+                            <span class="skill-item-tag">Deep Learning (CNN, Bi-LSTM)</span>
+                            <span class="skill-item-tag">Attention Mechanism</span>
+                            <span class="skill-item-tag">K-Means Clustering</span>
+                            <span class="skill-item-tag">Feature Engineering (Lags)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 6: Analytics & Domain Knowledge -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group-card">
+                        <div class="skill-group-header">
+                            <i class="fas fa-calculator skill-group-icon"></i>
+                            <h3 class="skill-group-title">Nghiệp Vụ & Thống Kê</h3>
+                        </div>
+                        <div>
+                            <span class="skill-item-tag">Phân tích Chuỗi Cung Ứng</span>
+                            <span class="skill-item-tag">Phân khúc Khách hàng 360°</span>
+                            <span class="skill-item-tag">Thống kê Youden's J (Nợ xấu)</span>
+                            <span class="skill-item-tag">Phân loại ABC/XYZ</span>
+                            <span class="skill-item-tag">Mô hình RFM</span>
+                            <span class="skill-item-tag">A/B Testing & Giả thuyết</span>
+                            <span class="skill-item-tag">Phân tích Biến động Nhân sự (HR)</span>
                         </div>
                     </div>
                 </div>
@@ -292,65 +1327,218 @@
         </div>
     </section>
 
-    <!-- SKILLS & TOOLS SECTION  -->
-    <section id="skills" style="background: rgba(0,0,0,0.2);">
+    <!-- FEATURED PROJECTS SECTION -->
+    <section id="projects" style="background: rgba(0, 0, 0, 0.2);">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold gradient-text">Skills & Tools</h2>
-            <div class="row g-4 justify-content-center">
+            <div class="text-center mb-5">
+                <span class="section-tag">Sản Phẩm & Dự Án</span>
+                <h2 class="section-title">Các Dự Án Tiêu Biểu</h2>
+                <p class="section-subtitle">
+                    Tuyển tập các dự án thực tế về Business Intelligence, Streaming Data Pipelines, Machine Learning và Nghiên cứu khoa học.
+                </p>
                 
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card">
-                        <i class="fab fa-python skill-icon"></i>
-                        <div class="skill-title">Python</div>
-                        <div class="skill-desc">Pandas, NumPy, EDA, Automation</div>
+                <!-- Filter Tabs -->
+                <div class="d-flex flex-wrap justify-content-center mt-4">
+                    <button class="project-filter-btn active" data-filter="all">Tất cả dự án</button>
+                    <button class="project-filter-btn" data-filter="bi">Business Intelligence</button>
+                    <button class="project-filter-btn" data-filter="mlops">Streaming & MLOps</button>
+                    <button class="project-filter-btn" data-filter="ml">Machine Learning</button>
+                    <button class="project-filter-btn" data-filter="research">Nghiên cứu khoa học</button>
+                </div>
+            </div>
+
+            <div class="row g-4 project-container">
+                
+                <!-- Project 1: Streaming MLOps E-commerce -->
+                <div class="col-lg-6 project-item" data-category="mlops">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="images/diagram_2_pipeline_flow.svg" alt="Streaming MLOps Pipeline Flow" style="background: #0f172a; padding: 12px; object-fit: contain;">
+                            <span class="project-category-badge"><i class="fas fa-stream me-1"></i> Streaming & MLOps</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Streaming MLOps Pipeline: Dự Báo Nhu Cầu E-Commerce</h3>
+                            <p class="project-desc">
+                                Đồ án tốt nghiệp xây dựng kiến trúc dữ liệu luồng hoàn chỉnh: thu thập dữ liệu đơn hàng realtime qua Apache Kafka, lưu trữ Data Lake MinIO, chuyển hóa vào PostgreSQL Star Schema. Huấn luyện mô hình LightGBM/LSTM với MLflow, phục vụ dự báo qua FastAPI, tự động phát hiện Data Drift với Evidently AI và hiển thị trên Power BI Executive Dashboard.
+                            </p>
+                            <div class="tech-pill-group">
+                                <span class="tech-pill">Apache Kafka</span>
+                                <span class="tech-pill">MinIO</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">MLflow</span>
+                                <span class="tech-pill">FastAPI</span>
+                                <span class="tech-pill">Evidently AI</span>
+                                <span class="tech-pill">Power BI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nolanminhdinh/Streaming-MLOps-Ecommerce" target="_blank" class="btn-project-link btn-project-github">
+                                    <i class="fab fa-github"></i> Mã nguồn GitHub
+                                </a>
+                                <a href="https://github.com/nolanminhdinh/Streaming-MLOps-Ecommerce/blob/main/docs/architecture.md" target="_blank" class="btn-project-link btn-project-demo">
+                                    <i class="fas fa-sitemap"></i> Kiến trúc Hệ thống
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-               <div class="col-6 col-md-4 col-lg-3">
-                    <div class="skill-card">
-                        <i class="fas fa-database skill-icon"></i>
-                        <div class="skill-title">SQL & Querying</div>
-                        <div class="skill-desc">Query Optimization, CTEs, Window Functions</div>
+                <!-- Project 2: KPIM Bank Customer 360 -->
+                <div class="col-lg-6 project-item" data-category="bi">
+                    <div class="project-card">
+                        <div class="project-media d-flex align-items-center justify-content-center" style="background: radial-gradient(circle, #1e3a8a 0%, #0f172a 100%);">
+                            <div class="text-center p-4">
+                                <i class="fas fa-users-viewfinder fa-4x mb-3 text-info" style="filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));"></i>
+                                <div class="fw-bold text-white fs-5">KPIM Bank Customer 360</div>
+                                <div class="text-white-50 small">5 Trục Phân Khúc • 20 Nhóm Nghiệp Vụ • Youden's J</div>
+                            </div>
+                            <span class="project-category-badge"><i class="fas fa-building-columns me-1"></i> Ngân Hàng & BI</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">KPIM Bank: Hệ Thống Báo Cáo Phân Khúc Khách Hàng 360°</h3>
+                            <p class="project-desc">
+                                Dự án thực chiến tại KPIM: Xây dựng logic phân loại danh mục khách hàng theo 5 trục (Giá trị, Quan hệ, Vòng đời, Rủi ro, Sản phẩm). Tối ưu hóa ngưỡng nợ xấu (NPL cutoff 491) bằng chỉ số Youden's J. Thiết kế hệ thống Power BI tương tác (Ma trận bán chéo Cross-Sell, Giữ chân khách hàng, Điểm ưu tiên kích hoạt tài khoản).
+                            </p>
+                            <div class="tech-pill-group">
+                                <span class="tech-pill">SQL Server</span>
+                                <span class="tech-pill">Complex CTEs</span>
+                                <span class="tech-pill">Power BI</span>
+                                <span class="tech-pill">Advanced DAX</span>
+                                <span class="tech-pill">Youden's J Statistic</span>
+                                <span class="tech-pill">Customer 360</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://compaclass.com/blog/p/kpim-bank-xay-dung-he-thong-bao-cao-phan-khuc-khach-hang-2QvPA" target="_blank" class="btn-project-link btn-project-demo">
+                                    <i class="fas fa-newspaper"></i> Đọc Case Study Chi Tiết
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-6 col-md-4 col-lg-3">
-                    <div class="skill-card">
-                        <i class="fas fa-server skill-icon"></i>
-                        <div class="skill-title">Data Architecture</div>
-                        <div class="skill-desc">Data Modeling, Data Warehouse, DB Design, OLTP/OLAP, 3NF</div>
+                <!-- Project 3: Traffic Analysis -->
+                <div class="col-lg-6 project-item" data-category="research">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="images/map.png" alt="Bản đồ phân tích giao thông" style="opacity: 0.85;">
+                            <span class="project-category-badge"><i class="fas fa-traffic-light me-1"></i> Nghiên Cứu Khoa Học</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Nghiên Cứu Dữ Liệu Không Gian - Thời Gian Giao Thông Đô Thị</h3>
+                            <p class="project-desc">
+                                Đề tài NCKH cấp trường đánh giá ảnh hưởng của chu kỳ đèn tín hiệu đến tình trạng ùn tắc giao thông cục bộ. Tự xây dựng app thu thập GPS, thiết kế cơ sở dữ liệu quan hệ chuẩn 3NF, xử lý dữ liệu lớn không gian - thời gian (Spatio-Temporal Data) trên Python và Docker.
+                            </p>
+                            <div class="tech-pill-group">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Spatio-Temporal</span>
+                                <span class="tech-pill">GeoPandas</span>
+                                <span class="tech-pill">PostgreSQL / 3NF</span>
+                                <span class="tech-pill">Docker Compose</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nolanminhdinh/Traffic_Analysis" target="_blank" class="btn-project-link btn-project-github">
+                                    <i class="fab fa-github"></i> Mã nguồn GitHub
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card">
-                        <i class="fas fa-chart-bar skill-icon"></i>
-                        <div class="skill-title">Power BI</div>
-                        <div class="skill-desc">DAX, Dynamic Dashboards</div>
+                <!-- Project 4: Stock Price Prediction -->
+                <div class="col-lg-6 project-item" data-category="ml">
+                    <div class="project-card">
+                        <div class="project-media d-flex align-items-center justify-content-center" style="background: radial-gradient(circle, #064e3b 0%, #0f172a 100%);">
+                            <div class="text-center p-4">
+                                <i class="fas fa-chart-line fa-4x mb-3 text-success" style="filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.4));"></i>
+                                <div class="fw-bold text-white fs-5">SOTA Stock Forecasting</div>
+                                <div class="text-white-50 small">CNN + Bi-LSTM + Attention Mechanism</div>
+                            </div>
+                            <span class="project-category-badge"><i class="fas fa-brain me-1"></i> Deep Learning</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Mô Hình Lai Deep Learning Dự Báo Giá Chứng Khoán</h3>
+                            <p class="project-desc">
+                                Xây dựng mô hình Hybrid Deep Learning State-of-the-Art mô phỏng quá trình tư duy của nhà đầu tư chứng khoán: CNN trích xuất đặc trưng xu hướng ngắn hạn, Bi-LSTM học phụ thuộc chuỗi thời gian 2 chiều, và cơ chế Attention tự động đánh trọng số các mốc biến động quan trọng cho cổ phiếu HPG và MBB.
+                            </p>
+                            <div class="tech-pill-group">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Deep Learning</span>
+                                <span class="tech-pill">CNN + Bi-LSTM</span>
+                                <span class="tech-pill">Attention Mechanism</span>
+                                <span class="tech-pill">Time-Series</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nolanminhdinh/Historical-Stock-Price-Prediction-Model" target="_blank" class="btn-project-link btn-project-github">
+                                    <i class="fab fa-github"></i> Mã nguồn GitHub
+                                </a>
+                                <a href="https://colab.research.google.com/github/nolanminhdinh/Historical-Stock-Price-Prediction-Model/blob/main/SOTA.ipynb" target="_blank" class="btn-project-link btn-project-demo">
+                                    <i class="fas fa-code"></i> Chạy trên Colab
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card">
-                        <i class="fas fa-network-wired skill-icon"></i>
-                        <div class="skill-title">Machine Learning</div>
-                        <div class="skill-desc">Classification, Clustering, Regression, Deep Learning (Fundamentals)</div>
+                <!-- Project 5: HR Turnover & Operations -->
+                <div class="col-lg-6 project-item" data-category="bi">
+                    <div class="project-card">
+                        <div class="project-media d-flex align-items-center justify-content-center" style="background: radial-gradient(circle, #581c87 0%, #0f172a 100%);">
+                            <div class="text-center p-4">
+                                <i class="fas fa-user-check fa-4x mb-3 text-warning" style="filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.4));"></i>
+                                <div class="fw-bold text-white fs-5">HR & Operations Dashboard</div>
+                                <div class="text-white-50 small">10 Năm Dữ Liệu • Tỷ Lệ Biến Động Nhân Sự • DAX Iterators</div>
+                            </div>
+                            <span class="project-category-badge"><i class="fas fa-chart-column me-1"></i> Vận Hành & Nhân Sự</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">HR Turnover & Operations Analytics Dashboard</h3>
+                            <p class="project-desc">
+                                Xây dựng Dashboard Vận hành & Phân tích chuyên sâu từ tập dữ liệu lịch sử 10 năm (2014-2023). Sử dụng các công thức DAX lặp theo dòng (per-row iterators) đo lường chính xác Turnover Rate, Retention Rate, Punctuality Rate, và đánh giá áp lực vận hành trên từng chi nhánh cửa hàng.
+                            </p>
+                            <div class="tech-pill-group">
+                                <span class="tech-pill">Power BI</span>
+                                <span class="tech-pill">Advanced DAX</span>
+                                <span class="tech-pill">HR Analytics</span>
+                                <span class="tech-pill">Data Modeling</span>
+                                <span class="tech-pill">KPI Monitoring</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nolanminhdinh/HR-Turnover-Operations-Analytics" target="_blank" class="btn-project-link btn-project-github">
+                                    <i class="fab fa-github"></i> Mã nguồn GitHub
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card">
-                        <i class="fas fa-table skill-icon"></i>
-                        <div class="skill-title">Excel/Sheets</div>
-                        <div class="skill-desc">Pivot, INDEX MATCH</div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="skill-card">
-                        <i class="fas fa-calculator skill-icon"></i>
-                        <div class="skill-title">Statistics</div>
-                        <div class="skill-desc">A/B Testing, Descriptive, Distributions</div>
+                <!-- Project 6: KMeans MiniMart -->
+                <div class="col-lg-6 project-item" data-category="ml">
+                    <div class="project-card">
+                        <div class="project-media d-flex align-items-center justify-content-center" style="background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);">
+                            <div class="text-center p-4">
+                                <i class="fas fa-cart-shopping fa-4x mb-3 text-info" style="filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));"></i>
+                                <div class="fw-bold text-white fs-5">MiniMart Customer Clustering</div>
+                                <div class="text-white-50 small">RFM Analysis • Thuật Toán K-Means • Streamlit App</div>
+                            </div>
+                            <span class="project-category-badge"><i class="fas fa-shop me-1"></i> Bán Lẻ & ML</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Web App Phân Cụm Khách Hàng Chuỗi Cửa Hàng Tiện Lợi</h3>
+                            <p class="project-desc">
+                                Xây dựng ứng dụng web phân nhóm khách hàng tự động cho chuỗi MiniMart dựa trên thuật toán K-Means và mô hình RFM (Recency, Frequency, Monetary). Trực quan hóa các cụm khách hàng giúp đội ngũ kinh doanh đưa ra chiến dịch Marketing cá nhân hóa theo từng nhóm hành vi.
+                            </p>
+                            <div class="tech-pill-group">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Streamlit</span>
+                                <span class="tech-pill">Scikit-learn</span>
+                                <span class="tech-pill">K-Means</span>
+                                <span class="tech-pill">RFM Model</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nolanminhdinh/WebAppKMeansMiniMart" target="_blank" class="btn-project-link btn-project-github">
+                                    <i class="fab fa-github"></i> Mã nguồn GitHub
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -359,152 +1547,300 @@
     </section>
 
     <!-- CERTIFICATIONS SECTION -->
-    <section id="certifications" style="padding-top: 50px;">
+    <section id="certifications">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold gradient-text">Certifications</h2>
+            <div class="text-center mb-5">
+                <span class="section-tag">Chứng Chỉ Quốc Tế</span>
+                <h2 class="section-title">Chứng Chỉ Chuyên Môn</h2>
+                <p class="section-subtitle">
+                    Bộ chứng chỉ chuyên nghiệp được cấp bởi Google thông qua nền tảng Coursera, được xác thực chính thức trên Credly.
+                </p>
+            </div>
+
             <div class="row g-4 justify-content-center">
-
-                   <!-- Chứng chỉ 1 -->
-                <div class="col-md-6">
-                    <div class="project-card p-4 d-flex align-items-center gap-4">
-                        <div class="fs-1 flex-shrink-0" style="color: var(--accent-2);">
-                            <i class="fas fa-award" style="filter: drop-shadow(0 0 10px rgba(0, 114, 255, 0.5));"></i>
-                        </div>
-                        <div>
-                            <h5 class="fw-bold mb-2">Google Data Analytics Professional Certificate</h5>
-                            <p class="text-light opacity-75 mb-3" style="font-size: 0.9rem;">Issued by Google on Coursera</p>
-                            <a href="https://www.credly.com/badges/70adfc2b-cf90-45d7-a73e-b5a9f860880e/linked_in_profile" target="_blank" class="btn btn-sm px-4 rounded-pill" style="border: 1px solid var(--accent-2); color: var(--accent-2); transition: 0.3s;" onmouseover="this.style.background='var(--accent-2)'; this.style.color='#0f172a';" onmouseout="this.style.background='transparent'; this.style.color='var(--accent-2)';">
-                                Verify Credential <i class="fas fa-external-link-alt ms-1" style="font-size: 0.8em;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
                 
-                <!-- Chứng chỉ 2 -->
-                <div class="col-md-6">
-                    <div class="project-card p-4 d-flex align-items-center gap-4">
-                        <div class="fs-1 flex-shrink-0" style="color: var(--accent-1);">
-                            <i class="fas fa-certificate" style="filter: drop-shadow(0 0 10px rgba(0, 198, 255, 0.5));"></i>
+                <!-- Cert 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="cert-card">
+                        <div class="cert-badge-icon">
+                            <i class="fab fa-google"></i>
                         </div>
-                        <div>
-                            <h5 class="fw-bold mb-2">Google Advanced Data Analytics Professional Certificate</h5>
-                            <p class="text-light opacity-75 mb-3" style="font-size: 0.9rem;">Issued by Google on Coursera</p>
-                            <a href="https://www.credly.com/badges/5021a342-b898-4488-907a-e08e8d1922ca/linked_in_profile" target="_blank" class="btn btn-sm px-4 rounded-pill" style="border: 1px solid var(--accent-1); color: var(--accent-1); transition: 0.3s;" onmouseover="this.style.background='var(--accent-1)'; this.style.color='#0f172a';" onmouseout="this.style.background='transparent'; this.style.color='var(--accent-1)';">
-                                Verify Credential <i class="fas fa-external-link-alt ms-1" style="font-size: 0.8em;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2 class="text-center mb-5 fw-bold gradient-text">Personal Projects</h2>
-            
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card project-card">
-                        <div class="project-img d-flex align-items-center justify-content-center">
-                            <i class="fas fa-chart-line fa-4x" style="color: var(--accent-1);"></i>
-                        </div>
-                        <div class="card-body p-4">
-                            <h4 class="card-title fw-bold mb-3">Stock Price Prediction</h4>
-                            <div class="mb-3">
-                                <span class="tech-badge">Python</span>
-                                <span class="tech-badge">Deep Learning</span>
-                                <span class="tech-badge">LSTM</span>
-                            </div>
-                            <p class="card-text text-light opacity-75">
-                                Xây dựng mô hình Hybrid Deep Learning để dự báo giá chứng khoán dựa trên dữ liệu lịch sử, đạtđộ chính xác cao trên tập test. Tìm hiểu về cách mô hình vận hành.
-                            </p>
-                            <a href="https://github.com/nolanminhdinh/Historical-Stock-Price-Prediction-Model" target="_blank" class="btn btn-custom mt-3 w-100">
-                                Xem trên GitHub <i class="fab fa-github ms-1"></i>
+                        <div class="cert-info">
+                            <h5>Google Data Analytics</h5>
+                            <div class="cert-issuer">Google • Coursera</div>
+                            <a href="https://www.credly.com/badges/70adfc2b-cf90-45d7-a73e-b5a9f860880e/linked_in_profile" target="_blank" class="btn-verify-badge">
+                                <i class="fas fa-certificate"></i> Xác thực Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="card project-card">
-                        <div class="project-img d-flex align-items-center justify-content-center">
-                            <i class="fas fa-traffic-light fa-4x" style="color: var(--accent-1);"></i>
+                <!-- Cert 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="cert-card">
+                        <div class="cert-badge-icon" style="background: linear-gradient(135deg, rgba(52, 168, 83, 0.2), rgba(66, 133, 244, 0.2)); color: #34d399;">
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <div class="card-body p-4">
-                            <h4 class="card-title fw-bold mb-3">Traffic Congestion Analysis</h4>
-                            <div class="mb-3">
-                                <span class="tech-badge">Data Analysis</span>
-                                <span class="tech-badge">Spatio-temporal</span>
-                                <span class="tech-badge">Python</span>
-                            </div>
-                            <p class="card-text text-light opacity-75">
-                                Nghiên cứu khoa học về tác động của đèn tín hiệu đến tắc nghẽn giao thông sử dụng dữ liệu không gian - thời gian (Spatio-temporal). Đề xuất giải pháp tối ưu.
-                            </p>
-                            <a href="https://github.com/nolanminhdinh/Traffic_Analysis" target="_blank" class="btn btn-custom mt-3 w-100">
-                                Xem trên GitHub <i class="fab fa-github ms-1"></i>
+                        <div class="cert-info">
+                            <h5>Google Advanced Data Analytics</h5>
+                            <div class="cert-issuer">Google • Coursera</div>
+                            <a href="https://www.credly.com/badges/5021a342-b898-4488-907a-e08e8d1922ca/linked_in_profile" target="_blank" class="btn-verify-badge">
+                                <i class="fas fa-certificate"></i> Xác thực Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i>
                             </a>
                         </div>
                     </div>
-                </div>                    
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="cert-card">
+                        <div class="cert-badge-icon" style="background: linear-gradient(135deg, rgba(251, 188, 5, 0.2), rgba(234, 67, 53, 0.2)); color: #fbbf24;">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h5>Google Business Intelligence</h5>
+                            <div class="cert-issuer">Google • Coursera</div>
+                            <a href="https://www.credly.com/badges/e0f8dca8-a5e6-4699-b914-f09f65e35862/public_url" target="_blank" class="btn-verify-badge">
+                                <i class="fas fa-certificate"></i> Xác thực Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <!-- CONTACT SECTION -->
+    <section id="contact" style="background: rgba(0, 0, 0, 0.2);">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold gradient-text">Contact Me</h2>
-            <div class="row align-items-start justify-content-center">
-                <div class="col-md-6 mb-4">
-                    <div class="project-card p-4">
+            <div class="text-center mb-5">
+                <span class="section-tag">Kết Nối Với Tôi</span>
+                <h2 class="section-title">Liên Hệ & Trao Đổi Công Việc</h2>
+                <p class="section-subtitle">
+                    Tôi luôn sẵn sàng đón nhận những cơ hội hợp tác mới, vị trí tuyển dụng Data Analyst / BI Analyst hoặc trao đổi về các bài toán phân tích dữ liệu.
+                </p>
+            </div>
+
+            <div class="row g-5 justify-content-center">
+                
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <div class="contact-card">
+                        <h3 class="fs-4 fw-bold mb-4 text-white">Gửi tin nhắn trực tiếp</h3>
                         <form action="https://formspree.io/f/mlgppgrq" method="POST">
                             <div class="mb-3">
-                                <input type="text" name="name" class="form-control p-3" placeholder="Name" required>
+                                <label class="form-label text-light opacity-75 small">Họ và tên</label>
+                                <input type="text" name="name" class="form-control form-control-custom" placeholder="Ví dụ: Nguyễn Văn A" required>
                             </div>
                             <div class="mb-3">
-                                <input type="email" name="email" class="form-control p-3" placeholder="Email" required>
+                                <label class="form-label text-light opacity-75 small">Địa chỉ Email</label>
+                                <input type="email" name="email" class="form-control form-control-custom" placeholder="name@company.com" required>
                             </div>
                             <div class="mb-3">
-                                <input type="tel" name="phone" class="form-control p-3" placeholder="Phone">
+                                <label class="form-label text-light opacity-75 small">Số điện thoại</label>
+                                <input type="tel" name="phone" class="form-control form-control-custom" placeholder="0912 xxx xxx">
                             </div>
-                            <div class="mb-3">
-                                <textarea name="message" class="form-control p-3" rows="5" placeholder="Message" required></textarea>
+                            <div class="mb-4">
+                                <label class="form-label text-light opacity-75 small">Nội dung tin nhắn</label>
+                                <textarea name="message" class="form-control form-control-custom" rows="5" placeholder="Chia sẻ về dự án hoặc vị trí công việc của bạn..." required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-custom w-100 py-3 mt-2">Submit <i class="fas fa-paper-plane ms-2"></i></button>
+                            <button type="submit" class="btn-modern-primary w-100 justify-content-center py-3">
+                                <i class="fas fa-paper-plane me-2"></i> Gửi thông tin ngay
+                            </button>
                         </form>
                     </div>
                 </div>
 
-                <div class="col-md-5 ps-md-5 d-flex flex-column justify-content-center">
-                    <div class="mb-4">
-                        <img src="images/map.png" alt="Bac Ninh Map" class="img-fluid rounded w-100" style="opacity: 0.8; border: 1px solid var(--glass-border);">
-                    </div>
+                <!-- Contact Details & Map -->
+                <div class="col-lg-6">
+                    <div class="contact-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="fs-4 fw-bold mb-4 text-white">Thông tin liên lạc</h3>
+                            
+                            <div class="contact-info-item">
+                                <div class="contact-icon-box">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="contact-detail-label">Email trực tiếp</div>
+                                    <div class="contact-detail-value">
+                                        <span>congminh311204@gmail.com</span>
+                                        <button class="copy-btn" onclick="copyToClipboard('congminh311204@gmail.com', 'Đã sao chép email!')" title="Sao chép Email">
+                                            <i class="far fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="contact-info fs-5">
-                        <p class="mb-3"><i class="fas fa-map-marker-alt me-3" style="color: var(--accent-1);"></i> Bac Ninh, Viet Nam</p>
-                        <p class="mb-3"><i class="far fa-clock me-3" style="color: var(--accent-1);"></i> Mon-Sat 8AM-8PM</p>
-                        <p class="mb-3"><i class="fas fa-phone me-3" style="color: var(--accent-1);"></i> 0338 522 101</p>
-                        <p class="mb-3"><i class="fas fa-envelope me-3" style="color: var(--accent-1);"></i> congminh311204@gmail.com</p>
-                    </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon-box">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="contact-detail-label">Số điện thoại / Zalo</div>
+                                    <div class="contact-detail-value">
+                                        <span>0338 522 101</span>
+                                        <button class="copy-btn" onclick="copyToClipboard('0338522101', 'Đã sao chép số điện thoại!')" title="Sao chép SĐT">
+                                            <i class="far fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="social-icons mt-4 pt-4 border-top border-secondary d-flex gap-4">
-                        <a href="https://www.facebook.com/nolandinhminh204" target="_blank" class="text-white fs-3 text-decoration-none"><i class="fab fa-facebook hover-glow" style="transition: 0.3s;"></i></a>
-                        <a href="https://www.instagram.com/minhphieuluuky/" target="_blank" class="text-white fs-3 text-decoration-none"><i class="fab fa-instagram hover-glow" style="transition: 0.3s;"></i></a>
-                        <a href="https://www.linkedin.com/in/nolan-minh-dinh/" target="_blank" class="text-white fs-3 text-decoration-none"><i class="fab fa-linkedin hover-glow" style="transition: 0.3s;"></i></a>
-                        <a href="https://github.com/nolanminhdinh" target="_blank" class="text-white fs-3 text-decoration-none"><i class="fab fa-github hover-glow" style="transition: 0.3s;"></i></a>
-                        <a href="https://www.kaggle.com/nolanminhdinh" target="_blank" class="text-white fs-3 text-decoration-none"><i class="fab fa-kaggle hover-glow" style="transition: 0.3s;"></i></a>
+                            <div class="contact-info-item">
+                                <div class="contact-icon-box">
+                                    <i class="fas fa-map-location-dot"></i>
+                                </div>
+                                <div>
+                                    <div class="contact-detail-label">Địa bàn hoạt động</div>
+                                    <div class="contact-detail-value">
+                                        <span>Hà Nội & Bắc Ninh, Việt Nam</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon-box">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <div class="contact-detail-label">Thời gian làm việc</div>
+                                    <div class="contact-detail-value">
+                                        <span>Thứ 2 - Thứ 7 (8:00 - 20:00)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-top border-secondary border-opacity-25 mt-4">
+                            <div class="contact-detail-label mb-2">Mạng xã hội & Kênh cá nhân</div>
+                            <div class="social-network-links">
+                                <a href="https://www.linkedin.com/in/nolan-minh-dinh/" target="_blank" class="social-link-btn" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/nolanminhdinh" target="_blank" class="social-link-btn" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.kaggle.com/nolanminhdinh" target="_blank" class="social-link-btn" title="Kaggle">
+                                    <i class="fab fa-kaggle"></i>
+                                </a>
+                                <a href="https://www.facebook.com/nolandinhminh204" target="_blank" class="social-link-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/minhphieuluuky/" target="_blank" class="social-link-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+
+                            <div class="mt-4">
+                                <a href="cv/DinhCongMinh_DataAnalyst_CV.pdf" target="_blank" class="btn-modern-primary w-100 justify-content-center">
+                                    <i class="fas fa-file-arrow-down me-2"></i> Tải CV dạng PDF (Data Analyst)
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-4 mt-5" style="background: rgba(0,0,0,0.3);">
+    <!-- FOOTER -->
+    <footer class="py-4 text-center border-top border-secondary border-opacity-10" style="background: rgba(9, 13, 22, 0.95);">
         <div class="container">
-            <p class="mb-0 text-white-50">© 2026 Dinh Cong Minh. Built with Passion & Data.</p>
+            <p class="mb-1 text-secondary small">
+                © 2026 <strong>Đinh Công Minh (Nolan Minh Dinh)</strong>. Thiết kế với tinh thần dữ liệu và tư duy kỹ thuật.
+            </p>
+            <p class="mb-0 text-muted" style="font-size: 0.78rem;">
+                Xây dựng và lưu trữ trên <a href="https://pages.github.com/" target="_blank" class="text-secondary text-decoration-none">GitHub Pages</a> • <a href="https://github.com/nolanminhdinh/nolanminhdinh.github.io" target="_blank" class="text-secondary text-decoration-none">Source Code</a>
+            </p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Back to top button -->
+    <button id="backToTopBtn" class="back-to-top" title="Cuộn lên đầu">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast notification element -->
+    <div id="toastNotification" class="toast-notify">
+        <i class="fas fa-check-circle text-success fs-5"></i>
+        <span id="toastMessage">Đã sao chép vào bộ nhớ tạm!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Copy to clipboard helper with toast
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(function() {
+                const toast = document.getElementById('toastNotification');
+                const toastMsg = document.getElementById('toastMessage');
+                toastMsg.innerText = message || 'Đã sao chép vào bộ nhớ tạm!';
+                toast.style.display = 'flex';
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2800);
+            }).catch(function(err) {
+                console.error('Không thể sao chép: ', err);
+            });
+        }
+
+        // Back to top behavior
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Project filter tabs
+        const filterBtns = document.querySelectorAll('.project-filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.style.display = 'block';
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.transition = 'opacity 0.35s ease';
+                            item.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Close mobile navbar on link click
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const navbarCollapse = document.getElementById('navbarContent');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) {
+                        bsCollapse.hide();
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
