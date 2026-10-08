@@ -606,6 +606,110 @@
             border-color: var(--accent-cyan);
         }
 
+        /* Scannable Project Structured Rows */
+        .project-meta-box {
+            background: rgba(0, 0, 0, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .project-meta-row {
+            display: flex;
+            align-items: baseline;
+            gap: 9px;
+            font-size: 0.85rem;
+            line-height: 1.48;
+        }
+
+        .project-meta-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            padding: 2px 7px;
+            border-radius: 5px;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .meta-label-problem {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+        }
+
+        .meta-label-solution {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .meta-label-impact {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .project-meta-val {
+            color: var(--text-secondary);
+        }
+
+        .project-meta-val strong {
+            color: #f1f5f9;
+        }
+
+        /* Experience Visual Chips */
+        .exp-chip-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0 14px 0;
+        }
+
+        .exp-chip {
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .exp-chip-gold {
+            background: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #fbbf24;
+        }
+
+        .exp-chip-cyan {
+            background: rgba(56, 189, 248, 0.12);
+            border-color: rgba(56, 189, 248, 0.3);
+            color: #38bdf8;
+        }
+
+        .exp-chip-emerald {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #34d399;
+        }
+
+        .exp-chip-purple {
+            background: rgba(129, 140, 248, 0.12);
+            border-color: rgba(129, 140, 248, 0.3);
+            color: #a5b4fc;
+        }
+
         /* Certificate Cards */
         .cert-card {
             background: var(--bg-card);
@@ -1203,69 +1307,83 @@
         <div class="container">
             <div class="text-center mb-5">
                 <span class="section-tag">Về Bản Thân</span>
-                <h2 class="section-title">Khám Phá Giá Trị Đằng Sau Mỗi Con Số</h2>
+                <h2 class="section-title">Hồ Sơ Năng Lực &amp; Giá Trị Cốt Lõi</h2>
                 <p class="section-subtitle">
-                    Không chỉ dừng lại ở việc báo cáo những gì đã xảy ra, mục tiêu của tôi là biến dữ liệu thành công cụ dự đoán và vũ khí ra quyết định chiến lược.
+                    Chuyển hóa dữ liệu thô phức tạp thành hệ thống Business Intelligence trực quan và Data Pipelines tự động hóa phục vụ ra quyết định kinh doanh.
                 </p>
             </div>
 
-            <div class="row g-4 mb-5">
-                <div class="col-lg-12">
-                    <div class="glass-panel p-4 p-md-5">
-                        <p class="fs-5 text-light opacity-90 mb-4" style="line-height: 1.85;">
-                            Xuất phát điểm là sinh viên kỹ thuật chuyên ngành Khoa học Dữ liệu tại Trường Đại học Mỏ - Địa chất (HUMG), tôi luôn nhìn nhận dữ liệu như những manh mối ẩn chứa lời giải cho bài toán kinh doanh. Động lực lớn nhất của tôi là khả năng chuyển hóa các luồng dữ liệu phức tạp thành bảng điều khiển (Dashboards) trực quan, tường minh, giúp nhà quản trị tối ưu hóa chi phí vận hành và nâng cao hiệu suất. Định hướng dài hạn của tôi gắn liền với việc ứng dụng công nghệ trong <strong>Chuỗi cung ứng (Supply Chain)</strong>, <strong>Thương mại điện tử</strong> và <strong>Tối ưu hóa Vận hành Doanh nghiệp</strong>.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bento Strengths -->
+            <!-- Bento Capabilities -->
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <i class="fas fa-laptop-code"></i>
+                    <div class="bento-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="bento-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4 class="bento-title">Cơ Sở Dữ Liệu &amp; DWH</h4>
+                            <p class="text-secondary small mb-3">Tối ưu truy vấn SQL phức tạp, chuẩn hóa 3NF và thiết kế Star Schema phục vụ báo cáo quản trị.</p>
                         </div>
-                        <h4 class="bento-title">Kỹ Thuật & Tối Ưu SQL</h4>
-                        <p class="bento-desc">
-                            Thành thạo tối ưu truy vấn SQL (CTEs, Window Functions), chuẩn hóa cơ sở dữ liệu quan hệ 3NF và thiết kế lược đồ Star Schema phục vụ Data Warehouse.
-                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-pill">T-SQL</span>
+                            <span class="tech-pill">PostgreSQL</span>
+                            <span class="tech-pill">Star Schema</span>
+                            <span class="tech-pill">Window Funcs</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <i class="fas fa-network-wired"></i>
+                    <div class="bento-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="bento-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h4 class="bento-title">Business Intelligence</h4>
+                            <p class="text-secondary small mb-3">Trực quan hóa dashboard đa chiều, phân tích phân khúc khách hàng 360° và ma trận bán chéo.</p>
                         </div>
-                        <h4 class="bento-title">Hạ Tầng & Tự Động Hóa</h4>
-                        <p class="bento-desc">
-                            Tư duy hệ thống hóa toàn diện: xây dựng pipeline dữ liệu thời gian thực với Apache Kafka, MinIO, Docker và PostgreSQL thay vì xử lý báo cáo thủ công.
-                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-pill">Power BI</span>
+                            <span class="tech-pill">Dynamic DAX</span>
+                            <span class="tech-pill">Youden's J</span>
+                            <span class="tech-pill">Storytelling</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <i class="fas fa-brain"></i>
+                    <div class="bento-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="bento-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4 class="bento-title">AI &amp; Computer Vision</h4>
+                            <p class="text-secondary small mb-3">Thực chiến Level 2-3 tại Vingroup AI: gán nhãn chuẩn hóa CVAT, Video Tracking MOT/ReID và Pose.</p>
                         </div>
-                        <h4 class="bento-title">Machine Learning Dự Báo</h4>
-                        <p class="bento-desc">
-                            Ứng dụng mô hình dự đoán (LightGBM, XGBoost, Deep Learning CNN/Bi-LSTM Attention) vào dự báo nhu cầu hàng hóa, chuỗi cung ứng và biến động thị trường.
-                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-pill">Vingroup L2-3</span>
+                            <span class="tech-pill">CVAT Pipeline</span>
+                            <span class="tech-pill">COCO-17</span>
+                            <span class="tech-pill">Tracking MOT</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
-                    <div class="bento-card">
-                        <div class="bento-icon">
-                            <i class="fas fa-chart-pie"></i>
+                    <div class="bento-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="bento-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h4 class="bento-title">Streaming &amp; MLOps</h4>
+                            <p class="text-secondary small mb-3">Xây dựng kiến trúc dữ liệu luồng 1.000 tx/s, lưu trữ Lakehouse Parquet và container hóa hệ thống.</p>
                         </div>
-                        <h4 class="bento-title">Thống Kê & Phân Tích Nghiệp Vụ</h4>
-                        <p class="bento-desc">
-                            Áp dụng phương pháp thống kê (Youden's J statistic, A/B Testing, RFM Clustering) để giải quyết bài toán nợ xấu (NPL), phân khúc và giữ chân khách hàng.
-                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-pill">Apache Kafka</span>
+                            <span class="tech-pill">MinIO S3</span>
+                            <span class="tech-pill">Docker</span>
+                            <span class="tech-pill">FastAPI</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1294,22 +1412,23 @@
                             <h3 class="timeline-role">Học Viên Chương Trình AI Thực Chiến (Level 2 - Level 3)</h3>
                             <div class="timeline-company" style="color: #fbbf24;"><i class="fas fa-building-flag me-2"></i>Tập Đoàn Vingroup • Cohort 4</div>
                             <div class="glass-panel p-4 mb-3" style="border-color: rgba(245, 158, 11, 0.3);">
+                                <div class="exp-chip-group">
+                                    <span class="exp-chip exp-chip-gold"><i class="fas fa-certificate"></i> Level 2 &amp; 3</span>
+                                    <span class="exp-chip"><i class="fas fa-video"></i> Video Tracking (MOT / ReID)</span>
+                                    <span class="exp-chip"><i class="fas fa-vector-square"></i> COCO-17 Keypoint Pose</span>
+                                    <span class="exp-chip"><i class="fas fa-shield-halved"></i> Privacy Masks</span>
+                                    <span class="exp-chip"><i class="fas fa-check-double"></i> CVAT Structural Validator</span>
+                                </div>
                                 <ul class="timeline-highlights">
                                     <li>
-                                        <strong>Đào tạo & Thực chiến AI quy mô lớn:</strong> Được tuyển chọn tham gia chương trình đào tạo và thực chiến AI chuyên sâu của Tập đoàn Vingroup, vượt qua đánh giá để tiến vào <strong>Level 2 và Level 3</strong>, tập trung vào lĩnh vực Thị giác máy tính (Computer Vision) và Xử lý dữ liệu AI công nghiệp.
+                                        <strong>Đào tạo &amp; Thực chiến cấp cao:</strong> Vượt qua các vòng đánh giá chuyên môn để tiến vào <strong>Level 2 &amp; 3</strong> chương trình AI Thực chiến Vingroup, tập trung vào Thị giác máy tính (Computer Vision) và xử lý dữ liệu AI chuẩn công nghiệp.
                                     </li>
                                     <li>
-                                        <strong>Video Tracking & Multi-Object Tracking (MOT):</strong> Thực hiện các bài lab chuyên sâu về video tracking, đánh giá hiệu năng mô hình MOT, Re-Identification (ReID) trên luồng dữ liệu video thực tế.
-                                    </li>
-                                    <li>
-                                        <strong>Keypoint Pose & Instance Segmentation:</strong> Triển khai quy trình gán nhãn và kiểm định dữ liệu tư thế người COCO-17 Keypoint Pose dưới privacy masks; phân đoạn đối tượng (Segmentation) kết hợp công cụ Segment Anything Model (SAM).
-                                    </li>
-                                    <li>
-                                        <strong>Chuẩn hóa Tooling & Data Quality Validator:</strong> Làm chủ công cụ gán nhãn chuẩn công nghiệp CVAT, xây dựng script tự động kiểm thử tính hợp lệ và cấu trúc dữ liệu nhãn (Structural Validator) phục vụ huấn luyện mô hình xe tự hành và thị giác thông minh.
+                                        <strong>Xây dựng Tooling &amp; Đánh giá mô hình:</strong> Thiết lập quy trình kiểm thử tính hợp lệ của cấu trúc nhãn dữ liệu (Structural Validator) với CVAT; thực hiện đánh giá hiệu năng các bài lab Video Tracking, Multi-Object Tracking (MOT) và Re-Identification (ReID).
                                     </li>
                                 </ul>
-                                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill border border-warning border-opacity-25">
-                                    <i class="fas fa-award me-1"></i> Chương trình AI Thực Chiến Vingroup - Level 2 & 3
+                                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill border border-warning border-opacity-25 mt-2">
+                                    <i class="fas fa-award me-1"></i> Chương trình AI Thực Chiến Vingroup - Level 2 &amp; 3
                                 </span>
                             </div>
                         </div>
@@ -1319,20 +1438,21 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-date">04/2026 – 08/2026</div>
                             <h3 class="timeline-role">Business Intelligence Analyst Intern</h3>
-                            <div class="timeline-company"><i class="fas fa-building me-2"></i>KPIM (Knowledge & Process Intelligence Management)</div>
+                            <div class="timeline-company"><i class="fas fa-building me-2"></i>KPIM (Knowledge &amp; Process Intelligence Management)</div>
                             <div class="glass-panel p-4 mb-3">
+                                <div class="exp-chip-group">
+                                    <span class="exp-chip exp-chip-cyan"><i class="fas fa-users-viewfinder"></i> KPIM Bank 360</span>
+                                    <span class="exp-chip"><i class="fas fa-calculator"></i> Youden's J Cutoff 491</span>
+                                    <span class="exp-chip"><i class="fas fa-chart-pie"></i> Power BI &amp; DAX</span>
+                                    <span class="exp-chip"><i class="fas fa-database"></i> T-SQL CTEs &amp; Star Schema</span>
+                                    <span class="exp-chip"><i class="fas fa-folder-tree"></i> PM Documentation</span>
+                                </div>
                                 <ul class="timeline-highlights">
                                     <li>
-                                        <strong>Phân khúc khách hàng 5 trục:</strong> Trực tiếp tham gia thiết kế logic và phát triển hệ thống phân khúc khách hàng ngân hàng (KPIM Bank Customer 360) dựa trên 5 trục chiến lược: Giá trị (Value), Quan hệ tiền gửi/tiền vay (Relationship), Vòng đời (Life-Cycle), Rủi ro (Risk) và Độ sâu sản phẩm (Product).
+                                        <strong>Hệ thống Phân khúc Khách hàng 360°:</strong> Thiết kế logic phân tầng khách hàng theo 5 trục (Giá trị, Quan hệ, Vòng đời, Rủi ro, Sản phẩm) với 20 nhóm danh mục; ứng dụng thống kê Youden's J tìm điểm cắt nợ xấu tối ưu 491 điểm (J=0.55).
                                     </li>
                                     <li>
-                                        <strong>Áp dụng thống kê tối ưu ngưỡng rủi ro:</strong> Sử dụng chỉ số thống kê <em>Youden's J Statistic</em> để tìm điểm cắt tối ưu (Cutoff 491) phân loại nợ xấu (NPL), tối đa hóa tỷ lệ nhận diện đúng rủi ro và giảm thiểu nhận định nhầm lẫn.
-                                    </li>
-                                    <li>
-                                        <strong>Xây dựng Dashboard Quản trị 360 độ:</strong> Triển khai bộ báo cáo quản trị toàn diện trên Power BI (Customer 360, Customer Individual Profile tra cứu theo mã CIF, Risk Management Boxplot, Ma trận bán chéo Cross-Sell, Giữ chân khách hàng và Kích hoạt tài khoản ngủ đông).
-                                    </li>
-                                    <li>
-                                        <strong>Tài liệu quản lý dự án (PM Documentation):</strong> Khảo sát nhu cầu nghiệp vụ từ các khối ban, tài liệu hóa cấu trúc dữ liệu và quy chuẩn hóa luồng logic nghiệp vụ bằng SQL Server CTEs & CASE WHEN.
+                                        <strong>Dashboard Quản trị &amp; Tài liệu Bàn giao:</strong> Phát triển bộ báo cáo Power BI tương tác (Ma trận bán chéo Cross-Sell, Giữ chân khách hàng, Profile CIF) và hoàn thiện hệ thống tài liệu quản trị dự án (PM Docs) theo chuẩn doanh nghiệp.
                                     </li>
                                 </ul>
                                 <a href="https://compaclass.com/blog/p/kpim-bank-xay-dung-he-thong-bao-cao-phan-khuc-khach-hang-2QvPA" target="_blank" class="btn-verify-badge mt-2">
@@ -1341,43 +1461,53 @@
                             </div>
                         </div>
 
-                        <!-- Timeline Item 2: Graduation Thesis -->
+                        <!-- Timeline Item 3: Graduation Thesis -->
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div class="timeline-date">2026 (Đang Thực Hiện)</div>
-                            <h3 class="timeline-role">Đồ Án Tốt Nghiệp: Streaming MLOps Pipeline & Demand Forecasting</h3>
-                            <div class="timeline-company"><i class="fas fa-graduation-cap me-2"></i>Khoa Công Nghệ Thông Tin - Đại học Mỏ - Địa chất</div>
+                            <h3 class="timeline-role">Đồ Án Tốt Nghiệp: Streaming MLOps Pipeline &amp; Demand Forecasting</h3>
+                            <div class="timeline-company"><i class="fas fa-graduation-cap me-2"></i>Khoa Công Nghệ Thông Tin - Đại học Mỏ - Địa chất (HUMG)</div>
                             <div class="glass-panel p-4 mb-3">
+                                <div class="exp-chip-group">
+                                    <span class="exp-chip exp-chip-emerald"><i class="fas fa-bolt"></i> Kafka 1.000 tx/s</span>
+                                    <span class="exp-chip"><i class="fas fa-database"></i> MinIO Parquet Lakehouse</span>
+                                    <span class="exp-chip"><i class="fas fa-server"></i> FastAPI Serving</span>
+                                    <span class="exp-chip"><i class="fas fa-chart-line"></i> Evidently AI Drift</span>
+                                    <span class="exp-chip"><i class="fab fa-docker"></i> Docker Compose</span>
+                                </div>
                                 <ul class="timeline-highlights">
                                     <li>
-                                        <strong>Kiến trúc Streaming & Data Lakehouse:</strong> Xây dựng hệ thống thu thập đơn hàng E-Commerce thời gian thực qua Apache Kafka, đẩy vào Data Lake (MinIO) dạng Parquet và nạp vào Data Warehouse PostgreSQL theo chuẩn Star Schema.
+                                        <strong>Kiến trúc Streaming &amp; Data Lakehouse:</strong> Thu thập đơn hàng realtime qua Apache Kafka, lưu trữ dạng Parquet tại MinIO và nạp vào PostgreSQL theo chuẩn Star Schema phục vụ báo cáo phân tích.
                                     </li>
                                     <li>
-                                        <strong>Dự báo nhu cầu hàng hóa:</strong> Huấn luyện và đánh giá mô hình chuỗi thời gian (LightGBM/XGBoost baseline so sánh với LSTM/GRU Deep Learning) sử dụng kỹ thuật Walk-Forward Validation.
-                                    </li>
-                                    <li>
-                                        <strong>MLOps & Giám sát dữ liệu:</strong> Quản lý vòng đời mô hình với MLflow, triển khai Model Serving qua FastAPI (/predict/demand, /inventory/reorder-alert), giám sát hệ thống với Prometheus/Grafana và phát hiện trôi dữ liệu (Data Drift) bằng Evidently AI.
+                                        <strong>MLOps &amp; Closed-Loop Retraining:</strong> Quản lý vòng đời mô hình LightGBM/Deep Learning bằng MLflow, phục vụ dự báo qua FastAPI, đo lường trôi dữ liệu tự động và giám sát qua Prometheus/Grafana.
                                     </li>
                                 </ul>
-                                <a href="https://github.com/nolanminhdinh/Streaming-MLOps-Ecommerce" target="_blank" class="btn-verify-badge mt-2">
+                                <a href="https://github.com/nolanminhdinh/Capstone-Streaming-MLOps-Pipeline-for-Real-Time-E-Commerce-Clickstream-Anomaly-Detection" target="_blank" class="btn-verify-badge mt-2">
                                     <i class="fab fa-github"></i> Khám phá mã nguồn dự án trên GitHub
                                 </a>
                             </div>
                         </div>
 
-                        <!-- Timeline Item 3: Scientific Research -->
+                        <!-- Timeline Item 4: Scientific Research -->
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div class="timeline-date">2025 - 2026</div>
                             <h3 class="timeline-role">Đề Tài Nghiên Cứu Khoa Học Sinh Viên</h3>
                             <div class="timeline-company"><i class="fas fa-flask me-2"></i>Đại học Mỏ - Địa chất (HUMG)</div>
                             <div class="glass-panel p-4">
+                                <div class="exp-chip-group">
+                                    <span class="exp-chip exp-chip-purple"><i class="fas fa-trophy"></i> Giải Nhì NCKH Cấp Trường 2024</span>
+                                    <span class="exp-chip"><i class="fas fa-location-dot"></i> 1.000+ Điểm Đo Camera</span>
+                                    <span class="exp-chip"><i class="fas fa-table"></i> Chuẩn Hóa 3NF</span>
+                                    <span class="exp-chip"><i class="fas fa-map"></i> GeoPandas &amp; Docker</span>
+                                </div>
                                 <ul class="timeline-highlights">
                                     <li>
-                                        <strong>Đề tài:</strong> Nghiên cứu ứng dụng dữ liệu không gian - thời gian (Spatio-Temporal Data) nhằm phân tích và đánh giá ảnh hưởng của chu kỳ đèn tín hiệu giao thông đến tình trạng ùn tắc cục bộ trên các tuyến đường đô thị trọng điểm.
+                                        <strong>Phân tích Chuỗi Không gian - Thời gian:</strong> Ứng dụng dữ liệu Spatio-Temporal phân tích tác động chu kỳ đèn tín hiệu đến tình trạng ùn tắc giao thông đô thị; xuất sắc đạt <strong>Giải Nhì NCKH cấp Trường năm 2024</strong>.
                                     </li>
                                     <li>
-                                        <strong>Xử lý dữ liệu & Chuẩn hóa:</strong> Thiết kế cơ sở dữ liệu quan hệ đạt chuẩn 3NF, xử lý pipeline dữ liệu tọa độ GPS lớn từ ứng dụng thu thập dữ liệu tự xây dựng bằng Python và Docker.
+                                        <strong>Thu thập &amp; Chuẩn hóa Dữ liệu:</strong> Tự phát triển app thu thập tọa độ GPS, chuẩn hóa cơ sở dữ liệu quan hệ đạt chuẩn 3NF quản lý hơn 1.000 điểm đo camera và xử lý dữ liệu lớn với GeoPandas.
                                     </li>
                                 </ul>
                                 <a href="https://github.com/nolanminhdinh/Traffic_Analysis" target="_blank" class="btn-verify-badge mt-2">
@@ -1564,22 +1694,19 @@
                         <div class="skill-group-header">
                             <i class="fas fa-database skill-group-icon"></i>
                             <div>
-                                <h3 class="skill-group-title">1. DATA (Dữ Liệu & Mô Hình Hóa)</h3>
-                                <span class="text-secondary small">Quản trị, mô hình hóa & chuẩn hóa kiến trúc dữ liệu</span>
+                                <h3 class="skill-group-title">1. DATA (Dữ Liệu &amp; Mô Hình Hóa)</h3>
+                                <span class="text-secondary small">Quản trị, mô hình hóa &amp; chuẩn hóa kiến trúc dữ liệu</span>
                             </div>
-                        </div>
-                        <div class="skill-group-subtitle">
-                            Các kỹ năng cốt lõi về cơ sở dữ liệu quan hệ, thiết kế kho dữ liệu (DWH), kiểm soát chất lượng và tối ưu hóa truy vấn:
                         </div>
                         <div class="mb-3">
                             <span class="skill-item-tag">SQL (T-SQL, PostgreSQL, MySQL)</span>
-                            <span class="skill-item-tag">CTEs & Subqueries</span>
+                            <span class="skill-item-tag">CTEs &amp; Subqueries</span>
                             <span class="skill-item-tag">Window Functions</span>
                             <span class="skill-item-tag">Star Schema / Snowflake</span>
                             <span class="skill-item-tag">Chuẩn Hóa 3NF</span>
-                            <span class="skill-item-tag">Data Quality & Cleaning</span>
+                            <span class="skill-item-tag">Data Quality &amp; Cleaning</span>
                             <span class="skill-item-tag">Data Warehousing (DWH)</span>
-                            <span class="skill-item-tag">OLTP & OLAP</span>
+                            <span class="skill-item-tag">OLTP &amp; OLAP</span>
                         </div>
 
                         <!-- Minh Chứng Đi Kèm -->
@@ -1611,22 +1738,19 @@
                         <div class="skill-group-header">
                             <i class="fas fa-server skill-group-icon"></i>
                             <div>
-                                <h3 class="skill-group-title">2. ENGINEER (Kỹ Nghệ Dữ Liệu & MLOps)</h3>
-                                <span class="text-secondary small">Xây dựng luồng dữ liệu thời gian thực & hệ thống ML phục vụ</span>
+                                <h3 class="skill-group-title">2. ENGINEER (Kỹ Nghệ Dữ Liệu &amp; MLOps)</h3>
+                                <span class="text-secondary small">Xây dựng luồng dữ liệu thời gian thực &amp; hệ thống ML phục vụ</span>
                             </div>
-                        </div>
-                        <div class="skill-group-subtitle">
-                            Năng lực kỹ nghệ xây dựng pipeline streaming, container hóa dịch vụ và quy trình vận hành mô hình máy học:
                         </div>
                         <div class="mb-3">
                             <span class="skill-item-tag">Apache Kafka (Streaming Ingestion)</span>
                             <span class="skill-item-tag">MinIO (S3 Lakehouse / Parquet)</span>
-                            <span class="skill-item-tag">Docker & Docker Compose</span>
+                            <span class="skill-item-tag">Docker &amp; Docker Compose</span>
                             <span class="skill-item-tag">FastAPI Model Serving</span>
                             <span class="skill-item-tag">MLflow Experiment Tracking</span>
-                            <span class="skill-item-tag">Prometheus & Grafana</span>
+                            <span class="skill-item-tag">Prometheus &amp; Grafana</span>
                             <span class="skill-item-tag">Evidently AI (Data Drift)</span>
-                            <span class="skill-item-tag">CVAT & Annotation Pipeline</span>
+                            <span class="skill-item-tag">CVAT &amp; Annotation Pipeline</span>
                         </div>
 
                         <!-- Minh Chứng Đi Kèm -->
@@ -1644,7 +1768,7 @@
                                     <a href="#experience" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem lộ trình</a>
                                 </li>
                                 <li class="evidence-item">
-                                    <strong>Giám Sát Hệ Thống & Trôi Dạt Dữ Liệu</strong>: Kết nối Prometheus đo lường độ trễ API, Grafana hiển thị metric thời gian thực và Evidently AI cảnh báo phân phối dữ liệu thay đổi.
+                                    <strong>Giám Sát Hệ Thống &amp; Trôi Dạt Dữ Liệu</strong>: Kết nối Prometheus đo lường độ trễ API, Grafana hiển thị metric thời gian thực và Evidently AI cảnh báo phân phối dữ liệu thay đổi.
                                     <a href="https://github.com/nolanminhdinh/Capstone-Streaming-MLOps-Pipeline-for-Real-Time-E-Commerce-Clickstream-Anomaly-Detection" target="_blank" rel="noopener noreferrer" class="evidence-link ms-1"><i class="fab fa-github"></i> Xem GitHub Repo</a>
                                 </li>
                             </ul>
@@ -1658,12 +1782,9 @@
                         <div class="skill-group-header">
                             <i class="fas fa-chart-line skill-group-icon"></i>
                             <div>
-                                <h3 class="skill-group-title">3. ANALYST (Phân Tích Dữ Liệu & BI)</h3>
-                                <span class="text-secondary small">Khai phá insight, thống kê kinh doanh & báo cáo trực quan</span>
+                                <h3 class="skill-group-title">3. ANALYST (Phân Tích Dữ Liệu &amp; BI)</h3>
+                                <span class="text-secondary small">Khai phá insight, thống kê kinh doanh &amp; báo cáo trực quan</span>
                             </div>
-                        </div>
-                        <div class="skill-group-subtitle">
-                            Phân tích sâu dữ liệu định lượng, xây dựng dashboard tương tác hỗ trợ ra quyết định kinh doanh chiến lược:
                         </div>
                         <div class="mb-3">
                             <span class="skill-item-tag">Microsoft Power BI</span>
@@ -1672,8 +1793,8 @@
                             <span class="skill-item-tag">Phân Tích Youden's J (Tín dụng)</span>
                             <span class="skill-item-tag">Phân Tích Chuỗi Cung Ứng (ABC/XYZ)</span>
                             <span class="skill-item-tag">Mô Hình Phân Khúc RFM</span>
-                            <span class="skill-item-tag">HR Turnover & Chi Phí Nghỉ Việc</span>
-                            <span class="skill-item-tag">Advanced Excel & Financial Modeling</span>
+                            <span class="skill-item-tag">HR Turnover &amp; Chi Phí Nghỉ Việc</span>
+                            <span class="skill-item-tag">Advanced Excel &amp; Financial Modeling</span>
                         </div>
 
                         <!-- Minh Chứng Đi Kèm -->
@@ -1687,11 +1808,11 @@
                                     <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem báo cáo</a>
                                 </li>
                                 <li class="evidence-item">
-                                    <strong>Dashboard Biến Động Nhân Sự (HR) & Chuỗi Cung Ứng</strong>: Phân tích 10 năm dữ liệu nhân sự, mô hình hóa chi phí thay thế nhân sự và phân loại tồn kho ABC/XYZ phục vụ ban giám đốc.
+                                    <strong>Dashboard Biến Động Nhân Sự (HR) &amp; Chuỗi Cung Ứng</strong>: Phân tích 10 năm dữ liệu nhân sự, mô hình hóa chi phí thay thế nhân sự và phân loại tồn kho ABC/XYZ phục vụ ban giám đốc.
                                     <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem chi tiết</a>
                                 </li>
                                 <li class="evidence-item">
-                                    <strong>Google Advanced Data Analytics & BI Certificate</strong>: Nắm vững kỹ thuật phân tích thống kê hồi quy, phân tích phân cụm và quy chuẩn trực quan hóa số liệu trực tiếp.
+                                    <strong>Google Advanced Data Analytics &amp; BI Certificate</strong>: Nắm vững kỹ thuật phân tích thống kê hồi quy, phân tích phân cụm và quy chuẩn trực quan hóa số liệu trực tiếp.
                                     <a href="https://coursera.org/verify/professional-cert/UYYQ9R3V7J03" target="_blank" rel="noopener noreferrer" class="evidence-link ms-1"><i class="fas fa-external-link-alt"></i> Xác thực chứng chỉ</a>
                                 </li>
                             </ul>
@@ -1705,21 +1826,18 @@
                         <div class="skill-group-header">
                             <i class="fas fa-users-cog skill-group-icon"></i>
                             <div>
-                                <h3 class="skill-group-title">4. SOFT SKILL (Kỹ Năng Mềm & Quản Trị)</h3>
-                                <span class="text-secondary small">Giao tiếp số liệu, giải quyết vấn đề & quản lý tiến độ</span>
+                                <h3 class="skill-group-title">4. SOFT SKILL (Kỹ Năng Mềm &amp; Quản Trị)</h3>
+                                <span class="text-secondary small">Giao tiếp số liệu, giải quyết vấn đề &amp; quản lý tiến độ</span>
                             </div>
-                        </div>
-                        <div class="skill-group-subtitle">
-                            Khả năng kết nối giữa ngôn ngữ kỹ thuật và ngôn ngữ kinh doanh, dẫn dắt câu chuyện qua từng bảng biểu:
                         </div>
                         <div class="mb-3">
                             <span class="skill-item-tag">Business Acumen (Banking, Retail, HR)</span>
                             <span class="skill-item-tag">Data Storytelling (Trình Bày Dữ Liệu)</span>
                             <span class="skill-item-tag">Lập Tài Liệu Quản Trị Dự Án (PM Docs)</span>
                             <span class="skill-item-tag">Phân Tích Nguyên Nhân Gốc (RCA)</span>
-                            <span class="skill-item-tag">Làm Việc Nhóm & Phối Hợp Đa Bộ Phận</span>
+                            <span class="skill-item-tag">Làm Việc Nhóm &amp; Phối Hợp Đa Bộ Phận</span>
                             <span class="skill-item-tag">Thuyết Trình Bảo Vệ Đề Tài</span>
-                            <span class="skill-item-tag">Quản Lý Tiến Độ & Quản Lý Phiên Bản</span>
+                            <span class="skill-item-tag">Quản Lý Tiến Độ &amp; Quản Lý Phiên Bản</span>
                         </div>
 
                         <!-- Minh Chứng Đi Kèm -->
@@ -1773,22 +1891,70 @@
                 <!-- Project 1: Streaming MLOps E-commerce -->
                 <div class="col-lg-6 project-item" data-category="mlops">
                     <div class="project-card">
-                        <div class="project-media d-flex align-items-center justify-content-center" style="background: radial-gradient(circle, #0284c7 0%, #0f172a 100%);">
-                            <div class="text-center p-4">
-                                <i class="fas fa-network-wired fa-4x mb-3 text-info" style="filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));"></i>
-                                <div class="fw-bold text-white fs-5">Streaming MLOps Pipeline</div>
-                                <div class="text-white-50 small">Kafka • MinIO • MLflow • FastAPI • Power BI</div>
+                        <div class="project-media position-relative" style="background: radial-gradient(circle at 50% 50%, #0369a1 0%, #090d16 85%);">
+                            <div class="d-flex align-items-center justify-content-center w-100 h-100 p-3">
+                                <svg width="100%" height="160" viewBox="0 0 460 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 440px;">
+                                    <rect x="15" y="55" width="75" height="50" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+                                    <text x="52" y="77" fill="#38bdf8" font-size="11" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', monospace">KAFKA</text>
+                                    <text x="52" y="93" fill="#94a3b8" font-size="9" text-anchor="middle">1k tx/s Ingest</text>
+
+                                    <path d="M95 80 H 125" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2"/>
+                                    <polygon points="125,76 133,80 125,84" fill="#38bdf8"/>
+
+                                    <rect x="135" y="55" width="80" height="50" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="2"/>
+                                    <text x="175" y="77" fill="#34d399" font-size="11" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', monospace">MinIO</text>
+                                    <text x="175" y="93" fill="#94a3b8" font-size="9" text-anchor="middle">S3 Lakehouse</text>
+
+                                    <path d="M220 80 H 245" stroke="#34d399" stroke-width="2" stroke-dasharray="4 2"/>
+                                    <polygon points="245,76 253,80 245,84" fill="#34d399"/>
+
+                                    <rect x="255" y="55" width="80" height="50" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+                                    <text x="295" y="77" fill="#fbbf24" font-size="11" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', monospace">MLFLOW</text>
+                                    <text x="295" y="93" fill="#94a3b8" font-size="9" text-anchor="middle">LightGBM/DL</text>
+
+                                    <path d="M340 80 H 365" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+                                    <polygon points="365,76 373,80 365,84" fill="#f59e0b"/>
+
+                                    <rect x="375" y="55" width="75" height="50" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+                                    <text x="412" y="77" fill="#818cf8" font-size="11" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', monospace">FASTAPI</text>
+                                    <text x="412" y="93" fill="#94a3b8" font-size="9" text-anchor="middle">Serving API</text>
+
+                                    <rect x="15" y="15" width="135" height="24" rx="12" fill="rgba(56,189,248,0.15)" stroke="rgba(56,189,248,0.3)"/>
+                                    <circle cx="28" cy="27" r="4" fill="#38bdf8"/>
+                                    <text x="38" y="31" fill="#7dd3fc" font-size="9.5" font-weight="600">Real-Time Ingestion</text>
+
+                                    <rect x="295" y="15" width="155" height="24" rx="12" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.3)"/>
+                                    <circle cx="308" cy="27" r="4" fill="#34d399"/>
+                                    <text x="318" y="31" fill="#6ee7b7" font-size="9.5" font-weight="600">Evidently Drift Monitor</text>
+
+                                    <rect x="150" y="120" width="170" height="24" rx="12" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.3)"/>
+                                    <text x="235" y="136" fill="#fcd34d" font-size="9.5" font-weight="600" text-anchor="middle">Power BI Executive Dashboard</text>
+                                </svg>
                             </div>
-                            <span class="project-category-badge"><i class="fas fa-crown text-warning me-1"></i> Đồ Án Tốt Nghiệp • Streaming & MLOps</span>
+                            <span class="project-category-badge"><i class="fas fa-crown text-warning me-1"></i> Đồ Án Tốt Nghiệp • MLOps</span>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Streaming MLOps Pipeline: Dự Báo Nhu Cầu E-Commerce</h3>
-                            <p class="project-desc">
-                                Xây dựng kiến trúc dữ liệu luồng hoàn chỉnh: thu thập dữ liệu đơn hàng realtime qua Apache Kafka, lưu trữ Data Lake MinIO, chuyển hóa vào PostgreSQL Star Schema. Huấn luyện mô hình chuỗi thời gian (LightGBM baseline so sánh LSTM/GRU Deep Learning) với MLflow tracking, phục vụ dự báo qua FastAPI, tự động phát hiện Data Drift với Evidently AI và hiển thị trên Power BI Executive Dashboard.
-                            </p>
+                            
+                            <!-- Scannable Meta Box -->
+                            <div class="project-meta-box">
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-problem"><i class="fas fa-bullseye"></i> Bài toán</span>
+                                    <span class="project-meta-val">Xử lý luồng đơn hàng E-Commerce thời gian thực, loại bỏ độ trễ dữ liệu và dự báo sớm nguy cơ thiếu hàng tồn kho.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-solution"><i class="fas fa-bolt"></i> Giải pháp</span>
+                                    <span class="project-meta-val">Pipeline Kafka 1.000 tx/s, lưu trữ Parquet tại MinIO S3 Lakehouse, nạp PostgreSQL Star Schema. Huấn luyện LightGBM/Deep Learning qua MLflow, API FastAPI và giám sát Data Drift qua Evidently AI.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-impact"><i class="fas fa-chart-line"></i> Kết quả</span>
+                                    <span class="project-meta-val"><strong>Giảm 40% độ trễ dữ liệu</strong>, tự động tính ngưỡng an toàn (Safety Stock &amp; ROP) và hiển thị trực quan trên Power BI Dashboard.</span>
+                                </div>
+                            </div>
+
                             <div class="tech-pill-group">
                                 <span class="tech-pill">Apache Kafka</span>
-                                <span class="tech-pill">MinIO (Data Lake)</span>
+                                <span class="tech-pill">MinIO Lakehouse</span>
                                 <span class="tech-pill">PostgreSQL</span>
                                 <span class="tech-pill">MLflow</span>
                                 <span class="tech-pill">FastAPI</span>
@@ -1796,7 +1962,7 @@
                                 <span class="tech-pill">Power BI</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/nolanminhdinh/Streaming-MLOps-Ecommerce" target="_blank" class="btn-project-link btn-project-github">
+                                <a href="https://github.com/nolanminhdinh/Capstone-Streaming-MLOps-Pipeline-for-Real-Time-E-Commerce-Clickstream-Anomaly-Detection" target="_blank" class="btn-project-link btn-project-github">
                                     <i class="fab fa-github"></i> Mã nguồn GitHub
                                 </a>
                                 <a href="images/diagram_2_pipeline_flow.svg" target="_blank" class="btn-project-link btn-project-demo">
@@ -1810,19 +1976,63 @@
                 <!-- Project 2: KPIM Bank Customer 360 -->
                 <div class="col-lg-6 project-item" data-category="bi">
                     <div class="project-card">
-                        <div class="project-media d-flex align-items-center justify-content-center" style="background: radial-gradient(circle, #1e3a8a 0%, #0f172a 100%);">
-                            <div class="text-center p-4">
-                                <i class="fas fa-users-viewfinder fa-4x mb-3 text-info" style="filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));"></i>
-                                <div class="fw-bold text-white fs-5">KPIM Bank Customer 360</div>
-                                <div class="text-white-50 small">5 Trục Phân Khúc • 20 Nhóm Nghiệp Vụ • Youden's J</div>
+                        <div class="project-media position-relative" style="background: radial-gradient(circle at 50% 50%, #1e3a8a 0%, #090d16 85%);">
+                            <div class="d-flex align-items-center justify-content-center w-100 h-100 p-3">
+                                <svg width="100%" height="160" viewBox="0 0 460 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 440px;">
+                                    <rect x="20" y="15" width="420" height="130" rx="12" fill="#0f172a" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
+                                    <rect x="20" y="15" width="420" height="28" rx="12" fill="#1e293b"/>
+                                    <circle cx="36" cy="29" r="4" fill="#ef4444"/>
+                                    <circle cx="48" cy="29" r="4" fill="#f59e0b"/>
+                                    <circle cx="60" cy="29" r="4" fill="#10b981"/>
+                                    <text x="80" y="33" fill="#cbd5e1" font-size="10" font-weight="600">KPIM Bank • Customer 360 &amp; Risk Dashboard</text>
+
+                                    <!-- Donut Segment Chart mockup -->
+                                    <circle cx="85" cy="90" r="32" stroke="#1e293b" stroke-width="12" fill="none"/>
+                                    <circle cx="85" cy="90" r="32" stroke="#38bdf8" stroke-width="12" stroke-dasharray="75 125" fill="none"/>
+                                    <circle cx="85" cy="90" r="32" stroke="#818cf8" stroke-width="12" stroke-dasharray="50 150" stroke-dashoffset="-75" fill="none"/>
+                                    <circle cx="85" cy="90" r="32" stroke="#10b981" stroke-width="12" stroke-dasharray="40 160" stroke-dashoffset="-125" fill="none"/>
+                                    <text x="85" y="94" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">5 Trục</text>
+
+                                    <!-- Youden's J Cutoff Curve mockup -->
+                                    <rect x="145" y="55" width="135" height="75" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+                                    <text x="155" y="70" fill="#94a3b8" font-size="9" font-weight="600">Youden's J Cutoff (NPL)</text>
+                                    <path d="M155 115 Q 195 65, 265 115" stroke="#38bdf8" stroke-width="2" fill="none"/>
+                                    <line x1="210" y1="72" x2="210" y2="115" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="2 2"/>
+                                    <circle cx="210" cy="72" r="3" fill="#f59e0b"/>
+                                    <text x="215" y="75" fill="#fbbf24" font-size="8.5" font-weight="700">Cutoff 491</text>
+                                    <text x="155" y="125" fill="#64748b" font-size="7.5">J = 0.55 (Tối ưu rủi ro)</text>
+
+                                    <!-- Cross-Sell KPI Cards -->
+                                    <rect x="295" y="55" width="130" height="34" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+                                    <text x="305" y="68" fill="#94a3b8" font-size="8">Cross-Sell Matrix</text>
+                                    <text x="305" y="83" fill="#38bdf8" font-size="11" font-weight="700">6 Khối Ban Phối Hợp</text>
+
+                                    <rect x="295" y="96" width="130" height="34" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+                                    <text x="305" y="109" fill="#94a3b8" font-size="8">Phân Nhóm CIF</text>
+                                    <text x="305" y="124" fill="#34d399" font-size="11" font-weight="700">20 Phân Khúc Chi Tiết</text>
+                                </svg>
                             </div>
-                            <span class="project-category-badge"><i class="fas fa-building-columns me-1"></i> Ngân Hàng & BI</span>
+                            <span class="project-category-badge"><i class="fas fa-building-columns me-1"></i> Ngân Hàng &amp; BI</span>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">KPIM Bank: Hệ Thống Báo Cáo Phân Khúc Khách Hàng 360°</h3>
-                            <p class="project-desc">
-                                Dự án thực chiến tại KPIM: Xây dựng logic phân loại danh mục khách hàng theo 5 trục (Giá trị, Quan hệ, Vòng đời, Rủi ro, Sản phẩm). Tối ưu hóa ngưỡng nợ xấu (NPL cutoff 491) bằng chỉ số Youden's J. Thiết kế hệ thống Power BI tương tác (Ma trận bán chéo Cross-Sell, Giữ chân khách hàng, Điểm ưu tiên kích hoạt tài khoản).
-                            </p>
+                            
+                            <!-- Scannable Meta Box -->
+                            <div class="project-meta-box">
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-problem"><i class="fas fa-bullseye"></i> Bài toán</span>
+                                    <span class="project-meta-val">Ngân hàng cần phân khúc khách hàng đa chiều từ kho dữ liệu giao dịch lớn và tối ưu hóa ngưỡng nhận diện rủi ro nợ xấu (NPL).</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-solution"><i class="fas fa-bolt"></i> Giải pháp</span>
+                                    <span class="project-meta-val">Thiết kế logic phân khúc 5 trục với 20 nhóm danh mục qua SQL CTEs &amp; DAX; ứng dụng thống kê Youden's J tìm điểm cắt nợ xấu tối ưu 491 điểm (J=0.55).</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-impact"><i class="fas fa-chart-line"></i> Kết quả</span>
+                                    <span class="project-meta-val"><strong>Bộ Dashboard Power BI 360°</strong> tra cứu theo mã CIF, hỗ trợ 6 khối ban phân tích bán chéo (Cross-Sell) và kích hoạt khách hàng ngủ đông.</span>
+                                </div>
+                            </div>
+
                             <div class="tech-pill-group">
                                 <span class="tech-pill">SQL Server</span>
                                 <span class="tech-pill">Complex CTEs</span>
@@ -1843,15 +2053,39 @@
                 <!-- Project 3: Traffic Analysis -->
                 <div class="col-lg-6 project-item" data-category="research">
                     <div class="project-card">
-                        <div class="project-media">
-                            <img src="images/map.png" alt="Bản đồ phân tích giao thông" style="opacity: 0.85;">
+                        <div class="project-media position-relative">
+                            <img src="images/map.png" alt="Bản đồ phân tích giao thông HUMG" style="object-fit: cover; opacity: 0.85;">
+                            <div class="position-absolute bottom-0 start-0 end-0 p-3" style="background: linear-gradient(to top, rgba(9,13,22,0.95), transparent);">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <span class="badge" style="background: rgba(16,185,129,0.25); color: #34d399; border: 1px solid rgba(16,185,129,0.4);">
+                                        <i class="fas fa-award me-1"></i> Giải Nhì NCKH Cấp Trường 2024
+                                    </span>
+                                    <span class="badge" style="background: rgba(56,189,248,0.25); color: #7dd3fc; border: 1px solid rgba(56,189,248,0.4);">
+                                        <i class="fas fa-location-crosshairs me-1"></i> 1.000+ Điểm Đo Camera
+                                    </span>
+                                </div>
+                            </div>
                             <span class="project-category-badge"><i class="fas fa-traffic-light me-1"></i> Nghiên Cứu Khoa Học</span>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Nghiên Cứu Dữ Liệu Không Gian - Thời Gian Giao Thông Đô Thị</h3>
-                            <p class="project-desc">
-                                Đề tài NCKH cấp trường đánh giá ảnh hưởng của chu kỳ đèn tín hiệu đến tình trạng ùn tắc giao thông cục bộ. Tự xây dựng app thu thập GPS, thiết kế cơ sở dữ liệu quan hệ chuẩn 3NF, xử lý dữ liệu lớn không gian - thời gian (Spatio-Temporal Data) trên Python và Docker.
-                            </p>
+                            
+                            <!-- Scannable Meta Box -->
+                            <div class="project-meta-box">
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-problem"><i class="fas fa-bullseye"></i> Bài toán</span>
+                                    <span class="project-meta-val">Đánh giá ảnh hưởng thực tế của chu kỳ đèn tín hiệu giao thông đến tình trạng ùn tắc cục bộ tại các tuyến đường đô thị trọng điểm.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-solution"><i class="fas fa-bolt"></i> Giải pháp</span>
+                                    <span class="project-meta-val">Tự xây dựng app GPS thu thập dữ liệu, chuẩn hóa cơ sở dữ liệu quan hệ chuẩn 3NF quản lý hơn 1.000 điểm đo camera và xử lý Spatio-Temporal với GeoPandas.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-impact"><i class="fas fa-chart-line"></i> Kết quả</span>
+                                    <span class="project-meta-val"><strong>Đạt Giải Nhì NCKH cấp Trường 2024</strong>; mô hình hóa chính xác lưu lượng xe và đề xuất chu kỳ đèn tín hiệu tối ưu.</span>
+                                </div>
+                            </div>
+
                             <div class="tech-pill-group">
                                 <span class="tech-pill">Python</span>
                                 <span class="tech-pill">Spatio-Temporal</span>
@@ -1871,19 +2105,66 @@
                 <!-- Project 4: Stock Price Prediction -->
                 <div class="col-lg-6 project-item" data-category="ml">
                     <div class="project-card">
-                        <div class="project-media d-flex align-items-center justify-content-center" style="background: radial-gradient(circle, #064e3b 0%, #0f172a 100%);">
-                            <div class="text-center p-4">
-                                <i class="fas fa-chart-line fa-4x mb-3 text-success" style="filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.4));"></i>
-                                <div class="fw-bold text-white fs-5">SOTA Stock Forecasting</div>
-                                <div class="text-white-50 small">CNN + Bi-LSTM + Attention Mechanism</div>
+                        <div class="project-media position-relative" style="background: radial-gradient(circle at 50% 50%, #064e3b 0%, #090d16 85%);">
+                            <div class="d-flex align-items-center justify-content-center w-100 h-100 p-3">
+                                <svg width="100%" height="160" viewBox="0 0 460 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 440px;">
+                                    <rect x="20" y="15" width="420" height="130" rx="12" fill="#0f172a" stroke="rgba(16,185,129,0.25)" stroke-width="1.5"/>
+                                    <rect x="20" y="15" width="420" height="28" rx="12" fill="#1e293b"/>
+                                    <circle cx="36" cy="29" r="4" fill="#ef4444"/>
+                                    <circle cx="48" cy="29" r="4" fill="#f59e0b"/>
+                                    <circle cx="60" cy="29" r="4" fill="#10b981"/>
+                                    <text x="80" y="33" fill="#cbd5e1" font-size="10" font-weight="600">Hybrid SOTA Model • CNN + Bi-LSTM + Attention (HPG &amp; MBB)</text>
+
+                                    <!-- Candlesticks mockup -->
+                                    <line x1="50" y1="55" x2="50" y2="120" stroke="#34d399" stroke-width="1"/>
+                                    <rect x="45" y="70" width="10" height="35" fill="#34d399" rx="2"/>
+
+                                    <line x1="75" y1="50" x2="75" y2="125" stroke="#f87171" stroke-width="1"/>
+                                    <rect x="70" y="65" width="10" height="40" fill="#f87171" rx="2"/>
+
+                                    <line x1="100" y1="60" x2="100" y2="115" stroke="#34d399" stroke-width="1"/>
+                                    <rect x="95" y="68" width="10" height="30" fill="#34d399" rx="2"/>
+
+                                    <line x1="125" y1="45" x2="125" y2="110" stroke="#34d399" stroke-width="1"/>
+                                    <rect x="120" y="55" width="10" height="45" fill="#34d399" rx="2"/>
+
+                                    <!-- Attention Weights Heatmap Line -->
+                                    <path d="M45 100 Q 80 50, 110 80 T 160 60 T 210 95" stroke="#f59e0b" stroke-width="2.5" fill="none"/>
+                                    <circle cx="160" cy="60" r="4" fill="#fbbf24"/>
+                                    <text x="165" y="55" fill="#fbbf24" font-size="8.5" font-weight="700">Attention Peak</text>
+
+                                    <!-- Model Architecture Blocks -->
+                                    <rect x="235" y="55" width="190" height="75" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+                                    <text x="245" y="72" fill="#94a3b8" font-size="9" font-weight="600">Model Pipeline Stack</text>
+                                    <rect x="245" y="80" width="50" height="22" rx="4" fill="#065f46"/><text x="270" y="94" fill="#34d399" font-size="8" font-weight="700" text-anchor="middle">1D CNN</text>
+                                    <text x="300" y="94" fill="#64748b" font-size="10">→</text>
+                                    <rect x="312" y="80" width="55" height="22" rx="4" fill="#1e3a8a"/><text x="339" y="94" fill="#60a5fa" font-size="8" font-weight="700" text-anchor="middle">Bi-LSTM</text>
+                                    <text x="372" y="94" fill="#64748b" font-size="10">→</text>
+                                    <rect x="382" y="80" width="35" height="22" rx="4" fill="#78350f"/><text x="399" y="94" fill="#fbbf24" font-size="8" font-weight="700" text-anchor="middle">Attn</text>
+                                    <text x="245" y="120" fill="#34d399" font-size="8.5" font-weight="600">✓ SOTA MAE/RMSE vượt trội</text>
+                                </svg>
                             </div>
                             <span class="project-category-badge"><i class="fas fa-brain me-1"></i> Deep Learning</span>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Mô Hình Lai Deep Learning Dự Báo Giá Chứng Khoán</h3>
-                            <p class="project-desc">
-                                Xây dựng mô hình Hybrid Deep Learning State-of-the-Art mô phỏng quá trình tư duy của nhà đầu tư chứng khoán: CNN trích xuất đặc trưng xu hướng ngắn hạn, Bi-LSTM học phụ thuộc chuỗi thời gian 2 chiều, và cơ chế Attention tự động đánh trọng số các mốc biến động quan trọng cho cổ phiếu HPG và MBB.
-                            </p>
+                            
+                            <!-- Scannable Meta Box -->
+                            <div class="project-meta-box">
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-problem"><i class="fas fa-bullseye"></i> Bài toán</span>
+                                    <span class="project-meta-val">Dự báo biến động giá cổ phiếu lớn (HPG, MBB) có tính chất phi tuyến tính cao và độ trễ phản ứng thị trường.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-solution"><i class="fas fa-bolt"></i> Giải pháp</span>
+                                    <span class="project-meta-val">Kiến trúc Hybrid: 1D CNN trích xuất đặc trưng vi mô, Bi-LSTM học phụ thuộc chuỗi 2 chiều, Attention đánh trọng số thời điểm nhạy cảm.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-impact"><i class="fas fa-chart-line"></i> Kết quả</span>
+                                    <span class="project-meta-val"><strong>Đạt độ chính xác SOTA (MAE/RMSE)</strong> so với mô hình đơn lẻ; notebook tương tác chạy trực tiếp trên Google Colab.</span>
+                                </div>
+                            </div>
+
                             <div class="tech-pill-group">
                                 <span class="tech-pill">Python</span>
                                 <span class="tech-pill">Deep Learning</span>
@@ -1906,19 +2187,64 @@
                 <!-- Project 5: HR Turnover & Operations -->
                 <div class="col-lg-6 project-item" data-category="bi">
                     <div class="project-card">
-                        <div class="project-media d-flex align-items-center justify-content-center" style="background: radial-gradient(circle, #581c87 0%, #0f172a 100%);">
-                            <div class="text-center p-4">
-                                <i class="fas fa-user-check fa-4x mb-3 text-warning" style="filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.4));"></i>
-                                <div class="fw-bold text-white fs-5">HR & Operations Dashboard</div>
-                                <div class="text-white-50 small">10 Năm Dữ Liệu • Tỷ Lệ Biến Động Nhân Sự • DAX Iterators</div>
+                        <div class="project-media position-relative" style="background: radial-gradient(circle at 50% 50%, #581c87 0%, #090d16 85%);">
+                            <div class="d-flex align-items-center justify-content-center w-100 h-100 p-3">
+                                <svg width="100%" height="160" viewBox="0 0 460 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 440px;">
+                                    <rect x="20" y="15" width="420" height="130" rx="12" fill="#0f172a" stroke="rgba(168,85,247,0.25)" stroke-width="1.5"/>
+                                    <rect x="20" y="15" width="420" height="28" rx="12" fill="#1e293b"/>
+                                    <circle cx="36" cy="29" r="4" fill="#ef4444"/>
+                                    <circle cx="48" cy="29" r="4" fill="#f59e0b"/>
+                                    <circle cx="60" cy="29" r="4" fill="#10b981"/>
+                                    <text x="80" y="33" fill="#cbd5e1" font-size="10" font-weight="600">HR Analytics &amp; Operations Executive Dashboard (2014-2023)</text>
+
+                                    <!-- Gauge Chart Mockup -->
+                                    <path d="M50 115 A 40 40 0 0 1 130 115" stroke="#1e293b" stroke-width="10" fill="none"/>
+                                    <path d="M50 115 A 40 40 0 0 1 105 80" stroke="#c084fc" stroke-width="10" fill="none"/>
+                                    <text x="90" y="112" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">14.2%</text>
+                                    <text x="90" y="125" fill="#94a3b8" font-size="8" text-anchor="middle">Turnover Rate</text>
+
+                                    <!-- 10-Year Trend Bars Mockup -->
+                                    <rect x="150" y="55" width="140" height="75" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+                                    <text x="160" y="70" fill="#94a3b8" font-size="9" font-weight="600">10-Year Retention Trend</text>
+                                    <rect x="165" y="95" width="10" height="25" fill="#818cf8" rx="2"/>
+                                    <rect x="182" y="90" width="10" height="30" fill="#818cf8" rx="2"/>
+                                    <rect x="199" y="82" width="10" height="38" fill="#818cf8" rx="2"/>
+                                    <rect x="216" y="85" width="10" height="35" fill="#818cf8" rx="2"/>
+                                    <rect x="233" y="78" width="10" height="42" fill="#c084fc" rx="2"/>
+                                    <rect x="250" y="74" width="10" height="46" fill="#c084fc" rx="2"/>
+                                    <rect x="267" y="70" width="10" height="50" fill="#34d399" rx="2"/>
+
+                                    <!-- Operational Metric Cards -->
+                                    <rect x="305" y="55" width="120" height="34" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+                                    <text x="315" y="68" fill="#94a3b8" font-size="8">Đi làm đúng giờ</text>
+                                    <text x="315" y="83" fill="#34d399" font-size="11" font-weight="700">96.8% Punctual</text>
+
+                                    <rect x="305" y="96" width="120" height="34" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+                                    <text x="315" y="109" fill="#94a3b8" font-size="8">Kỹ thuật DAX</text>
+                                    <text x="315" y="124" fill="#c084fc" font-size="11" font-weight="700">Per-Row Iterators</text>
+                                </svg>
                             </div>
-                            <span class="project-category-badge"><i class="fas fa-chart-column me-1"></i> Vận Hành & Nhân Sự</span>
+                            <span class="project-category-badge"><i class="fas fa-chart-column me-1"></i> Vận Hành &amp; Nhân Sự</span>
                         </div>
                         <div class="project-body">
-                            <h3 class="project-title">HR Turnover & Operations Analytics Dashboard</h3>
-                            <p class="project-desc">
-                                Xây dựng Dashboard Vận hành & Phân tích chuyên sâu từ tập dữ liệu lịch sử 10 năm (2014-2023). Sử dụng các công thức DAX lặp theo dòng (per-row iterators) đo lường chính xác Turnover Rate, Retention Rate, Punctuality Rate, và đánh giá áp lực vận hành trên từng chi nhánh cửa hàng.
-                            </p>
+                            <h3 class="project-title">HR Turnover &amp; Operations Analytics Dashboard</h3>
+                            
+                            <!-- Scannable Meta Box -->
+                            <div class="project-meta-box">
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-problem"><i class="fas fa-bullseye"></i> Bài toán</span>
+                                    <span class="project-meta-val">Đo lường chính xác tỷ lệ biến động nhân sự và chi phí thay thế nhân viên trong chuỗi vận hành 10 năm (2014-2023).</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-solution"><i class="fas fa-bolt"></i> Giải pháp</span>
+                                    <span class="project-meta-val">Thiết kế Data Model Star Schema, sử dụng DAX iterators đo lường Turnover Rate, Retention Rate và áp lực vận hành theo từng chi nhánh.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-impact"><i class="fas fa-chart-line"></i> Kết quả</span>
+                                    <span class="project-meta-val"><strong>Bộ báo cáo quản trị toàn diện</strong> cho Ban điều hành, xác định chính xác các điểm nóng nhân sự chi nhánh để can thiệp kịp thời.</span>
+                                </div>
+                            </div>
+
                             <div class="tech-pill-group">
                                 <span class="tech-pill">Power BI</span>
                                 <span class="tech-pill">Advanced DAX</span>
@@ -1956,15 +2282,26 @@
                 
                 <!-- Cert 1 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="cert-card">
-                        <div class="cert-badge-icon">
-                            <i class="fab fa-google"></i>
+                    <div class="cert-card flex-column align-items-start justify-content-between">
+                        <div class="d-flex align-items-center gap-3 w-100">
+                            <div class="cert-badge-icon" style="background: rgba(66, 133, 244, 0.15); color: #60a5fa; border: 1px solid rgba(66, 133, 244, 0.3);">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Google Data Analytics</h5>
+                                <div class="cert-issuer small text-secondary">Google Career Certificates</div>
+                            </div>
                         </div>
-                        <div class="cert-info">
-                            <h5>Google Data Analytics</h5>
-                            <div class="cert-issuer">Google • Coursera</div>
+                        <div class="d-flex flex-wrap gap-1 my-3">
+                            <span class="tech-pill">SQL &amp; BigQuery</span>
+                            <span class="tech-pill">Spreadsheets</span>
+                            <span class="tech-pill">Data Cleaning</span>
+                            <span class="tech-pill">Tableau</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between w-100 pt-2 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                            <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-info me-1"></i> SST6G2YQ544R</span>
                             <a href="https://www.credly.com/badges/70adfc2b-cf90-45d7-a73e-b5a9f860880e/linked_in_profile" target="_blank" class="btn-verify-badge">
-                                <i class="fas fa-certificate"></i> Xác thực Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i>
+                                <i class="fas fa-certificate"></i> Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i>
                             </a>
                         </div>
                     </div>
@@ -1972,15 +2309,26 @@
 
                 <!-- Cert 2 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="cert-card">
-                        <div class="cert-badge-icon" style="background: linear-gradient(135deg, rgba(52, 168, 83, 0.2), rgba(66, 133, 244, 0.2)); color: #34d399;">
-                            <i class="fas fa-brain"></i>
+                    <div class="cert-card flex-column align-items-start justify-content-between">
+                        <div class="d-flex align-items-center gap-3 w-100">
+                            <div class="cert-badge-icon" style="background: rgba(52, 168, 83, 0.15); color: #34d399; border: 1px solid rgba(52, 168, 83, 0.3);">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Google Advanced Data Analytics</h5>
+                                <div class="cert-issuer small text-secondary">Google Career Certificates</div>
+                            </div>
                         </div>
-                        <div class="cert-info">
-                            <h5>Google Advanced Data Analytics</h5>
-                            <div class="cert-issuer">Google • Coursera</div>
+                        <div class="d-flex flex-wrap gap-1 my-3">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Machine Learning</span>
+                            <span class="tech-pill">Statistical Testing</span>
+                            <span class="tech-pill">Predictive Modeling</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between w-100 pt-2 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                            <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-success me-1"></i> 5021a342...</span>
                             <a href="https://www.credly.com/badges/5021a342-b898-4488-907a-e08e8d1922ca/linked_in_profile" target="_blank" class="btn-verify-badge">
-                                <i class="fas fa-certificate"></i> Xác thực Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i>
+                                <i class="fas fa-certificate"></i> Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i>
                             </a>
                         </div>
                     </div>
@@ -1988,15 +2336,26 @@
 
                 <!-- Cert 3 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="cert-card">
-                        <div class="cert-badge-icon" style="background: linear-gradient(135deg, rgba(251, 188, 5, 0.2), rgba(234, 67, 53, 0.2)); color: #fbbf24;">
-                            <i class="fas fa-chart-pie"></i>
+                    <div class="cert-card flex-column align-items-start justify-content-between">
+                        <div class="d-flex align-items-center gap-3 w-100">
+                            <div class="cert-badge-icon" style="background: rgba(251, 188, 5, 0.15); color: #fbbf24; border: 1px solid rgba(251, 188, 5, 0.3);">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Google Business Intelligence</h5>
+                                <div class="cert-issuer small text-secondary">Google Career Certificates</div>
+                            </div>
                         </div>
-                        <div class="cert-info">
-                            <h5>Google Business Intelligence</h5>
-                            <div class="cert-issuer">Google • Coursera</div>
+                        <div class="d-flex flex-wrap gap-1 my-3">
+                            <span class="tech-pill">Power BI &amp; Tableau</span>
+                            <span class="tech-pill">Data Modeling</span>
+                            <span class="tech-pill">Executive Viz</span>
+                            <span class="tech-pill">ETL Pipelines</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between w-100 pt-2 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                            <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-warning me-1"></i> UYYQ9R3V7J03</span>
                             <a href="https://www.credly.com/badges/e0f8dca8-a5e6-4699-b914-f09f65e35862/public_url" target="_blank" class="btn-verify-badge">
-                                <i class="fas fa-certificate"></i> Xác thực Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i>
+                                <i class="fas fa-certificate"></i> Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i>
                             </a>
                         </div>
                     </div>
