@@ -673,38 +673,57 @@
             border-color: var(--accent-cyan);
         }
 
-        /* Skill Cards */
+        /* Skill Cards & Evidence */
         .skill-group-card {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            border-radius: 18px;
-            padding: 24px;
+            border-radius: 20px;
+            padding: 26px;
             height: 100%;
-            transition: all 0.3s ease;
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .skill-group-card:hover {
-            border-color: rgba(56, 189, 248, 0.3);
-            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), 0 0 25px rgba(56, 189, 248, 0.12);
         }
 
         .skill-group-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 18px;
+            gap: 14px;
+            margin-bottom: 8px;
         }
 
         .skill-group-icon {
             font-size: 1.4rem;
             color: var(--accent-cyan);
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .skill-group-title {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #ffffff;
             margin: 0;
+        }
+
+        .skill-group-subtitle {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            line-height: 1.45;
         }
 
         .skill-item-tag {
@@ -712,9 +731,9 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-glass);
             color: var(--text-primary);
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             margin: 3px;
             transition: 0.2s;
@@ -724,6 +743,154 @@
             border-color: var(--accent-cyan);
             color: var(--accent-cyan);
             background: rgba(56, 189, 248, 0.08);
+        }
+
+        .skill-evidence-box {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            padding: 16px 18px;
+            margin-top: 18px;
+            flex-grow: 1;
+        }
+
+        .skill-evidence-title {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .evidence-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            font-size: 0.86rem;
+        }
+
+        .evidence-item {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .evidence-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .evidence-item::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        .evidence-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .evidence-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Proficiency Bars & Radar Styles */
+        .proficiency-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 28px;
+            height: 100%;
+        }
+
+        .proficiency-bar-wrapper {
+            margin-bottom: 14px;
+        }
+
+        .proficiency-bar-wrapper:last-child {
+            margin-bottom: 0;
+        }
+
+        .proficiency-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 0.86rem;
+        }
+
+        .proficiency-label {
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .proficiency-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .proficiency-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-size: 0.82rem;
+        }
+
+        .badge-level {
+            font-size: 0.68rem;
+            padding: 2px 8px;
+            border-radius: 50px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .level-advanced {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .level-proficient {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .level-intermediate {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .proficiency-bar-bg {
+            height: 7px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .proficiency-bar-fill {
+            height: 100%;
+            border-radius: 50px;
+            background: var(--gradient-primary);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Contact Section */
@@ -1229,130 +1396,351 @@
     <section id="skills">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="section-tag">Hệ Sinh Thái Kỹ Năng</span>
-                <h2 class="section-title">Kỹ Năng & Công Cụ Chuyên Môn</h2>
+                <span class="section-tag">Hệ Sinh Thái Kỹ Năng & Năng Lực</span>
+                <h2 class="section-title">Kỹ Năng Chuyên Môn & Đánh Giá Năng Lực</h2>
                 <p class="section-subtitle">
-                    Bộ kỹ năng kết hợp giữa nền tảng kỹ thuật công nghệ thông tin và tư duy phân tích chiến lược kinh doanh.
+                    Phân loại 4 trụ cột chuyên môn (Data, Engineer, Analyst, Soft Skills) kèm minh chứng thực chiến và biểu đồ đánh giá mức độ thành thạo khách quan.
                 </p>
             </div>
 
+            <!-- Row 1: Competency Radar Chart & Proficiency Bars -->
+            <div class="row g-4 mb-5">
+                <!-- Left: Multi-dimensional Radar Chart -->
+                <div class="col-lg-5">
+                    <div class="proficiency-card d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="skill-group-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <div>
+                                    <h3 class="skill-group-title">Radar Năng Lực Đa Chiều</h3>
+                                    <p class="text-secondary small mb-0">Đánh giá cân bằng giữa Data, BI & Engineering</p>
+                                </div>
+                            </div>
+                            <div style="position: relative; height: 310px; width: 100%;">
+                                <canvas id="skillsRadarChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="text-center pt-3 border-top" style="border-color: rgba(255,255,255,0.08) !important;">
+                            <span class="text-secondary small">
+                                <i class="fas fa-info-circle text-info me-1"></i> Dựa trên hiệu suất thực tế từ đồ án capstone, NCKH và dự án doanh nghiệp.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Detailed Proficiency Progress Bars -->
+                <div class="col-lg-7">
+                    <div class="proficiency-card">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="skill-group-icon">
+                                    <i class="fas fa-chart-simple"></i>
+                                </div>
+                                <div>
+                                    <h3 class="skill-group-title">Mức Độ Thành Thạo Kỹ Năng</h3>
+                                    <p class="text-secondary small mb-0">Thang đo định lượng theo dự án và chứng chỉ quốc tế</p>
+                                </div>
+                            </div>
+                            <span class="badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);">
+                                <i class="fas fa-check-circle me-1"></i> Khách quan
+                            </span>
+                        </div>
+
+                        <!-- Progress Bar Items -->
+                        <div class="proficiency-bar-wrapper">
+                            <div class="proficiency-info">
+                                <span class="proficiency-label">SQL & Truy Vấn Tối Ưu (T-SQL, PostgreSQL, Window Funcs)</span>
+                                <div class="proficiency-meta">
+                                    <span class="badge-level level-advanced">Advanced</span>
+                                    <span class="proficiency-value">90%</span>
+                                </div>
+                            </div>
+                            <div class="proficiency-bar-bg">
+                                <div class="proficiency-bar-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="proficiency-bar-wrapper">
+                            <div class="proficiency-info">
+                                <span class="proficiency-label">Power BI & Advanced DAX (Star Schema, Iterators, Drill-Through)</span>
+                                <div class="proficiency-meta">
+                                    <span class="badge-level level-advanced">Advanced</span>
+                                    <span class="proficiency-value">88%</span>
+                                </div>
+                            </div>
+                            <div class="proficiency-bar-bg">
+                                <div class="proficiency-bar-fill" style="width: 88%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="proficiency-bar-wrapper">
+                            <div class="proficiency-info">
+                                <span class="proficiency-label">Phân Tích Nghiệp Vụ & Thống Kê (Banking, Supply Chain, Youden's J)</span>
+                                <div class="proficiency-meta">
+                                    <span class="badge-level level-advanced">Advanced</span>
+                                    <span class="proficiency-value">85%</span>
+                                </div>
+                            </div>
+                            <div class="proficiency-bar-bg">
+                                <div class="proficiency-bar-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="proficiency-bar-wrapper">
+                            <div class="proficiency-info">
+                                <span class="proficiency-label">Python for Data Analysis (Pandas, NumPy, GeoPandas, EDA)</span>
+                                <div class="proficiency-meta">
+                                    <span class="badge-level level-proficient">Proficient</span>
+                                    <span class="proficiency-value">84%</span>
+                                </div>
+                            </div>
+                            <div class="proficiency-bar-bg">
+                                <div class="proficiency-bar-fill" style="width: 84%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="proficiency-bar-wrapper">
+                            <div class="proficiency-info">
+                                <span class="proficiency-label">Data Warehousing & Mô Hình Hóa (3NF, Star Schema, ELT)</span>
+                                <div class="proficiency-meta">
+                                    <span class="badge-level level-proficient">Proficient</span>
+                                    <span class="proficiency-value">82%</span>
+                                </div>
+                            </div>
+                            <div class="proficiency-bar-bg">
+                                <div class="proficiency-bar-fill" style="width: 82%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="proficiency-bar-wrapper">
+                            <div class="proficiency-info">
+                                <span class="proficiency-label">Quản Trị Dự Án & Data Storytelling (PM Docs, Versioning)</span>
+                                <div class="proficiency-meta">
+                                    <span class="badge-level level-proficient">Proficient</span>
+                                    <span class="proficiency-value">82%</span>
+                                </div>
+                            </div>
+                            <div class="proficiency-bar-bg">
+                                <div class="proficiency-bar-fill" style="width: 82%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="proficiency-bar-wrapper">
+                            <div class="proficiency-info">
+                                <span class="proficiency-label">Streaming Architecture (Kafka Ingestion, MinIO Lakehouse)</span>
+                                <div class="proficiency-meta">
+                                    <span class="badge-level level-intermediate">Intermediate</span>
+                                    <span class="proficiency-value">76%</span>
+                                </div>
+                            </div>
+                            <div class="proficiency-bar-bg">
+                                <div class="proficiency-bar-fill" style="width: 76%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="proficiency-bar-wrapper">
+                            <div class="proficiency-info">
+                                <span class="proficiency-label">MLOps & Computer Vision (Docker, MLflow, CVAT Pipeline)</span>
+                                <div class="proficiency-meta">
+                                    <span class="badge-level level-intermediate">Intermediate</span>
+                                    <span class="proficiency-value">75%</span>
+                                </div>
+                            </div>
+                            <div class="proficiency-bar-bg">
+                                <div class="proficiency-bar-fill" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: 4 Skill Pillars with Concrete Evidence & Proof -->
             <div class="row g-4">
-                <!-- Group 1: SQL & Database -->
-                <div class="col-md-6 col-lg-4">
+                <!-- Pillar 1: DATA -->
+                <div class="col-md-6 col-lg-6">
                     <div class="skill-group-card">
                         <div class="skill-group-header">
                             <i class="fas fa-database skill-group-icon"></i>
-                            <h3 class="skill-group-title">SQL & Data Warehousing</h3>
+                            <div>
+                                <h3 class="skill-group-title">1. DATA (Dữ Liệu & Mô Hình Hóa)</h3>
+                                <span class="text-secondary small">Quản trị, mô hình hóa & chuẩn hóa kiến trúc dữ liệu</span>
+                            </div>
                         </div>
-                        <div>
+                        <div class="skill-group-subtitle">
+                            Các kỹ năng cốt lõi về cơ sở dữ liệu quan hệ, thiết kế kho dữ liệu (DWH), kiểm soát chất lượng và tối ưu hóa truy vấn:
+                        </div>
+                        <div class="mb-3">
                             <span class="skill-item-tag">SQL (T-SQL, PostgreSQL, MySQL)</span>
                             <span class="skill-item-tag">CTEs & Subqueries</span>
                             <span class="skill-item-tag">Window Functions</span>
-                            <span class="skill-item-tag">Data Modeling</span>
                             <span class="skill-item-tag">Star Schema / Snowflake</span>
-                            <span class="skill-item-tag">Chuẩn hóa 3NF</span>
-                            <span class="skill-item-tag">Query Optimization</span>
+                            <span class="skill-item-tag">Chuẩn Hóa 3NF</span>
+                            <span class="skill-item-tag">Data Quality & Cleaning</span>
+                            <span class="skill-item-tag">Data Warehousing (DWH)</span>
                             <span class="skill-item-tag">OLTP & OLAP</span>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Group 2: Business Intelligence -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="skill-group-card">
-                        <div class="skill-group-header">
-                            <i class="fas fa-chart-line skill-group-icon"></i>
-                            <h3 class="skill-group-title">Business Intelligence & Viz</h3>
-                        </div>
-                        <div>
-                            <span class="skill-item-tag">Microsoft Power BI</span>
-                            <span class="skill-item-tag">Advanced DAX (Iterators)</span>
-                            <span class="skill-item-tag">Data Modeling (Star)</span>
-                            <span class="skill-item-tag">Executive Dashboard Design</span>
-                            <span class="skill-item-tag">Drill-Through & Bookmarks</span>
-                            <span class="skill-item-tag">Excel & Google Sheets</span>
-                            <span class="skill-item-tag">Power Query</span>
-                            <span class="skill-item-tag">Google Looker Studio</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Group 3: Programming & Data Science -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="skill-group-card">
-                        <div class="skill-group-header">
-                            <i class="fab fa-python skill-group-icon"></i>
-                            <h3 class="skill-group-title">Python & Data Analysis</h3>
-                        </div>
-                        <div>
-                            <span class="skill-item-tag">Python</span>
-                            <span class="skill-item-tag">Pandas & NumPy</span>
-                            <span class="skill-item-tag">Exploratory Data Analysis (EDA)</span>
-                            <span class="skill-item-tag">GeoPandas (Spatial Data)</span>
-                            <span class="skill-item-tag">Matplotlib / Seaborn</span>
-                            <span class="skill-item-tag">FastAPI</span>
-                            <span class="skill-item-tag">Streamlit App</span>
-                            <span class="skill-item-tag">Automation Scripts</span>
+                        <!-- Minh Chứng Đi Kèm -->
+                        <div class="skill-evidence-box">
+                            <div class="skill-evidence-title">
+                                <i class="fas fa-clipboard-check"></i> Minh Chứng Thực Tế (Evidence)
+                            </div>
+                            <ul class="evidence-list">
+                                <li class="evidence-item">
+                                    <strong>KPIM Bank Customer 360</strong>: Thiết kế mô hình Star Schema chuẩn doanh nghiệp, tối ưu bảng Fact Transaction và Dim Customer, tính toán phân khúc khách hàng qua T-SQL/DAX.
+                                    <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem dự án</a>
+                                </li>
+                                <li class="evidence-item">
+                                    <strong>NCKH Phân Tích Giao Thông HUMG</strong>: Chuẩn hóa lược đồ CSDL quan hệ 3NF quản lý hơn 1.000 điểm đo đếm camera và lưu lượng giao thông không dư thừa dữ liệu.
+                                    <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem NCKH</a>
+                                </li>
+                                <li class="evidence-item">
+                                    <strong>Chứng chỉ Google Data Analytics</strong>: Hoàn thành chứng chỉ chuyên nghiệp quốc tế về làm sạch, kiểm thử tính toàn vẹn (Data Integrity) và truy vấn trên BigQuery.
+                                    <a href="https://coursera.org/verify/professional-cert/SST6G2YQ544R" target="_blank" rel="noopener noreferrer" class="evidence-link ms-1"><i class="fas fa-external-link-alt"></i> Xác thực chứng chỉ</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Group 4: MLOps & Data Engineering -->
-                <div class="col-md-6 col-lg-4">
+                <!-- Pillar 2: ENGINEER -->
+                <div class="col-md-6 col-lg-6">
                     <div class="skill-group-card">
                         <div class="skill-group-header">
                             <i class="fas fa-server skill-group-icon"></i>
-                            <h3 class="skill-group-title">Data Engineering & MLOps</h3>
+                            <div>
+                                <h3 class="skill-group-title">2. ENGINEER (Kỹ Nghệ Dữ Liệu & MLOps)</h3>
+                                <span class="text-secondary small">Xây dựng luồng dữ liệu thời gian thực & hệ thống ML phục vụ</span>
+                            </div>
                         </div>
-                        <div>
-                            <span class="skill-item-tag">Apache Kafka (Streaming)</span>
-                            <span class="skill-item-tag">MinIO (Data Lake)</span>
+                        <div class="skill-group-subtitle">
+                            Năng lực kỹ nghệ xây dựng pipeline streaming, container hóa dịch vụ và quy trình vận hành mô hình máy học:
+                        </div>
+                        <div class="mb-3">
+                            <span class="skill-item-tag">Apache Kafka (Streaming Ingestion)</span>
+                            <span class="skill-item-tag">MinIO (S3 Lakehouse / Parquet)</span>
                             <span class="skill-item-tag">Docker & Docker Compose</span>
-                            <span class="skill-item-tag">MLflow Tracking</span>
+                            <span class="skill-item-tag">FastAPI Model Serving</span>
+                            <span class="skill-item-tag">MLflow Experiment Tracking</span>
                             <span class="skill-item-tag">Prometheus & Grafana</span>
                             <span class="skill-item-tag">Evidently AI (Data Drift)</span>
-                            <span class="skill-item-tag">ETL / ELT Pipelines</span>
+                            <span class="skill-item-tag">CVAT & Annotation Pipeline</span>
+                        </div>
+
+                        <!-- Minh Chứng Đi Kèm -->
+                        <div class="skill-evidence-box">
+                            <div class="skill-evidence-title">
+                                <i class="fas fa-clipboard-check"></i> Minh Chứng Thực Tế (Evidence)
+                            </div>
+                            <ul class="evidence-list">
+                                <li class="evidence-item">
+                                    <strong>Hệ Thống Streaming MLOps Clickstream</strong>: Thiết kế luồng Kafka chịu tải 1.000 tx/giây, đẩy dữ liệu về MinIO lưu trữ Parquet theo lô thời gian, container hóa toàn bộ bằng Docker Compose.
+                                    <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem dự án</a>
+                                </li>
+                                <li class="evidence-item">
+                                    <strong>Chương Trình AI Thực Chiến Vingroup (L2-3)</strong>: Thiết lập pipeline gán nhãn COCO-17, kiểm tra cấu trúc dữ liệu thị giác máy tính với CVAT và triển khai mô hình Tracking/ReID.
+                                    <a href="#experience" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem lộ trình</a>
+                                </li>
+                                <li class="evidence-item">
+                                    <strong>Giám Sát Hệ Thống & Trôi Dạt Dữ Liệu</strong>: Kết nối Prometheus đo lường độ trễ API, Grafana hiển thị metric thời gian thực và Evidently AI cảnh báo phân phối dữ liệu thay đổi.
+                                    <a href="https://github.com/nolanminhdinh/Capstone-Streaming-MLOps-Pipeline-for-Real-Time-E-Commerce-Clickstream-Anomaly-Detection" target="_blank" rel="noopener noreferrer" class="evidence-link ms-1"><i class="fab fa-github"></i> Xem GitHub Repo</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Group 5: Machine Learning & Modeling -->
-                <div class="col-md-6 col-lg-4">
+                <!-- Pillar 3: ANALYST -->
+                <div class="col-md-6 col-lg-6">
                     <div class="skill-group-card">
                         <div class="skill-group-header">
-                            <i class="fas fa-microchip skill-group-icon"></i>
-                            <h3 class="skill-group-title">Machine Learning & Computer Vision</h3>
+                            <i class="fas fa-chart-line skill-group-icon"></i>
+                            <div>
+                                <h3 class="skill-group-title">3. ANALYST (Phân Tích Dữ Liệu & BI)</h3>
+                                <span class="text-secondary small">Khai phá insight, thống kê kinh doanh & báo cáo trực quan</span>
+                            </div>
                         </div>
-                        <div>
-                            <span class="skill-item-tag">Computer Vision</span>
-                            <span class="skill-item-tag">CVAT & Annotation</span>
-                            <span class="skill-item-tag">Segment Anything (SAM)</span>
-                            <span class="skill-item-tag">Video Tracking (MOT / ReID)</span>
-                            <span class="skill-item-tag">COCO-17 Keypoint Pose</span>
-                            <span class="skill-item-tag">Scikit-learn</span>
-                            <span class="skill-item-tag">LightGBM & XGBoost</span>
-                            <span class="skill-item-tag">Time Series Forecasting</span>
-                            <span class="skill-item-tag">Deep Learning (CNN, Bi-LSTM)</span>
-                            <span class="skill-item-tag">Attention Mechanism</span>
+                        <div class="skill-group-subtitle">
+                            Phân tích sâu dữ liệu định lượng, xây dựng dashboard tương tác hỗ trợ ra quyết định kinh doanh chiến lược:
+                        </div>
+                        <div class="mb-3">
+                            <span class="skill-item-tag">Microsoft Power BI</span>
+                            <span class="skill-item-tag">Advanced DAX (CALCULATE, Iterators)</span>
+                            <span class="skill-item-tag">Python EDA (Pandas, NumPy, Seaborn)</span>
+                            <span class="skill-item-tag">Phân Tích Youden's J (Tín dụng)</span>
+                            <span class="skill-item-tag">Phân Tích Chuỗi Cung Ứng (ABC/XYZ)</span>
+                            <span class="skill-item-tag">Mô Hình Phân Khúc RFM</span>
+                            <span class="skill-item-tag">HR Turnover & Chi Phí Nghỉ Việc</span>
+                            <span class="skill-item-tag">Advanced Excel & Financial Modeling</span>
+                        </div>
+
+                        <!-- Minh Chứng Đi Kèm -->
+                        <div class="skill-evidence-box">
+                            <div class="skill-evidence-title">
+                                <i class="fas fa-clipboard-check"></i> Minh Chứng Thực Tế (Evidence)
+                            </div>
+                            <ul class="evidence-list">
+                                <li class="evidence-item">
+                                    <strong>KPIM Bank 360 Dashboard</strong>: Ma trận bán chéo (Cross-Sell) 6 phòng ban, áp dụng chỉ số Youden's J xác định điểm cắt nợ xấu tối ưu 491 điểm (J=0.55) tăng khả năng thu hồi vốn.
+                                    <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem báo cáo</a>
+                                </li>
+                                <li class="evidence-item">
+                                    <strong>Dashboard Biến Động Nhân Sự (HR) & Chuỗi Cung Ứng</strong>: Phân tích 10 năm dữ liệu nhân sự, mô hình hóa chi phí thay thế nhân sự và phân loại tồn kho ABC/XYZ phục vụ ban giám đốc.
+                                    <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem chi tiết</a>
+                                </li>
+                                <li class="evidence-item">
+                                    <strong>Google Advanced Data Analytics & BI Certificate</strong>: Nắm vững kỹ thuật phân tích thống kê hồi quy, phân tích phân cụm và quy chuẩn trực quan hóa số liệu trực tiếp.
+                                    <a href="https://coursera.org/verify/professional-cert/UYYQ9R3V7J03" target="_blank" rel="noopener noreferrer" class="evidence-link ms-1"><i class="fas fa-external-link-alt"></i> Xác thực chứng chỉ</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Group 6: Analytics & Domain Knowledge -->
-                <div class="col-md-6 col-lg-4">
+                <!-- Pillar 4: SOFT SKILL -->
+                <div class="col-md-6 col-lg-6">
                     <div class="skill-group-card">
                         <div class="skill-group-header">
-                            <i class="fas fa-calculator skill-group-icon"></i>
-                            <h3 class="skill-group-title">Nghiệp Vụ & Thống Kê</h3>
+                            <i class="fas fa-users-cog skill-group-icon"></i>
+                            <div>
+                                <h3 class="skill-group-title">4. SOFT SKILL (Kỹ Năng Mềm & Quản Trị)</h3>
+                                <span class="text-secondary small">Giao tiếp số liệu, giải quyết vấn đề & quản lý tiến độ</span>
+                            </div>
                         </div>
-                        <div>
-                            <span class="skill-item-tag">Phân tích Chuỗi Cung Ứng</span>
-                            <span class="skill-item-tag">Phân khúc Khách hàng 360°</span>
-                            <span class="skill-item-tag">Thống kê Youden's J (Nợ xấu)</span>
-                            <span class="skill-item-tag">Phân loại ABC/XYZ</span>
-                            <span class="skill-item-tag">Mô hình RFM</span>
-                            <span class="skill-item-tag">A/B Testing & Giả thuyết</span>
-                            <span class="skill-item-tag">Phân tích Biến động Nhân sự (HR)</span>
+                        <div class="skill-group-subtitle">
+                            Khả năng kết nối giữa ngôn ngữ kỹ thuật và ngôn ngữ kinh doanh, dẫn dắt câu chuyện qua từng bảng biểu:
+                        </div>
+                        <div class="mb-3">
+                            <span class="skill-item-tag">Business Acumen (Banking, Retail, HR)</span>
+                            <span class="skill-item-tag">Data Storytelling (Trình Bày Dữ Liệu)</span>
+                            <span class="skill-item-tag">Lập Tài Liệu Quản Trị Dự Án (PM Docs)</span>
+                            <span class="skill-item-tag">Phân Tích Nguyên Nhân Gốc (RCA)</span>
+                            <span class="skill-item-tag">Làm Việc Nhóm & Phối Hợp Đa Bộ Phận</span>
+                            <span class="skill-item-tag">Thuyết Trình Bảo Vệ Đề Tài</span>
+                            <span class="skill-item-tag">Quản Lý Tiến Độ & Quản Lý Phiên Bản</span>
+                        </div>
+
+                        <!-- Minh Chứng Đi Kèm -->
+                        <div class="skill-evidence-box">
+                            <div class="skill-evidence-title">
+                                <i class="fas fa-clipboard-check"></i> Minh Chứng Thực Tế (Evidence)
+                            </div>
+                            <ul class="evidence-list">
+                                <li class="evidence-item">
+                                    <strong>Tài Liệu Quản Trị Dự Án KPIM Compaclass</strong>: Soạn thảo hệ thống tài liệu PM Docs, nhật ký kiểm soát phiên bản (Version Log) và bộ tiêu chí chấp thuận báo cáo kinh doanh rõ ràng.
+                                    <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem dự án</a>
+                                </li>
+                                <li class="evidence-item">
+                                    <strong>Bảo Vệ Đề Tài NCKH Trước Hội Đồng</strong>: Thuyết trình giải pháp phân tích giao thông trước Hội đồng Khoa học HUMG, đạt giải Nhì NCKH cấp Trường năm 2024.
+                                    <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem thành tích</a>
+                                </li>
+                                <li class="evidence-item">
+                                    <strong>Làm Việc Nhóm Đội Ngũ AI Thực Chiến Vingroup</strong>: Phối hợp quy trình sprint agile, rà soát chất lượng nhãn chéo và phản hồi code review trong nhóm nghiên cứu.
+                                    <a href="#experience" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> Xem kinh nghiệm</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1779,6 +2167,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Copy to clipboard helper with toast
         function copyToClipboard(text, message) {
@@ -1847,6 +2236,86 @@
                     }
                 }
             });
+        });
+
+        // Initialize Chart.js Radar Chart for Competency Assessment
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctxRadar = document.getElementById('skillsRadarChart');
+            if (ctxRadar && typeof Chart !== 'undefined') {
+                new Chart(ctxRadar, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'SQL & DWH',
+                            'Power BI & DAX',
+                            'Business Analytics',
+                            'Python & EDA',
+                            'Data Engineering',
+                            'MLOps & Vision'
+                        ],
+                        datasets: [{
+                            label: 'Thành thạo (%)',
+                            data: [90, 88, 85, 84, 76, 75],
+                            backgroundColor: 'rgba(56, 189, 248, 0.22)',
+                            borderColor: '#38bdf8',
+                            borderWidth: 2,
+                            pointBackgroundColor: '#818cf8',
+                            pointBorderColor: '#ffffff',
+                            pointHoverBackgroundColor: '#ffffff',
+                            pointHoverBorderColor: '#38bdf8',
+                            pointRadius: 4,
+                            pointHoverRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(15, 23, 42, 0.92)',
+                                titleColor: '#38bdf8',
+                                bodyColor: '#f8fafc',
+                                borderColor: 'rgba(56, 189, 248, 0.3)',
+                                borderWidth: 1,
+                                padding: 10,
+                                cornerRadius: 8,
+                                callbacks: {
+                                    label: function(context) {
+                                        return ` Mức độ: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    color: 'rgba(255, 255, 255, 0.12)'
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.08)'
+                                },
+                                pointLabels: {
+                                    color: '#cbd5e1',
+                                    font: {
+                                        family: "'Plus Jakarta Sans', sans-serif",
+                                        size: 11,
+                                        weight: '600'
+                                    }
+                                },
+                                ticks: {
+                                    display: false,
+                                    stepSize: 20
+                                },
+                                suggestedMin: 40,
+                                suggestedMax: 100
+                            }
+                        }
+                    }
+                });
+            }
         });
     </script>
 </body>
