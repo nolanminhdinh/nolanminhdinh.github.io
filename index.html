@@ -1778,23 +1778,32 @@
                             <div class="timeline-company" style="color: #fbbf24;"><i class="fas fa-building-flag me-2"></i>Vingroup • AI Enterprise Cohort 4</div>
                             <div class="glass-panel p-4 mb-3" style="border-color: rgba(245, 158, 11, 0.3);">
                                 <div class="exp-chip-group">
+                                    <span class="exp-chip exp-chip-gold"><i class="fas fa-crown"></i> Build Phase Lead</span>
                                     <span class="exp-chip exp-chip-gold"><i class="fas fa-certificate"></i> Level 2 &amp; 3</span>
+                                    <span class="exp-chip"><i class="fas fa-layer-group"></i> Hybrid Power BI</span>
                                     <span class="exp-chip"><i class="fas fa-video"></i> Video Tracking (MOT / ReID)</span>
                                     <span class="exp-chip"><i class="fas fa-vector-square"></i> COCO-17 Keypoint Pose</span>
-                                    <span class="exp-chip"><i class="fas fa-shield-halved"></i> Privacy Masks</span>
-                                    <span class="exp-chip"><i class="fas fa-check-double"></i> CVAT Structural Validator</span>
+                                    <span class="exp-chip"><i class="fas fa-check-double"></i> CVAT REST API</span>
                                 </div>
                                 <ul class="timeline-highlights">
                                     <li>
                                         <strong>Advanced Enterprise AI Training:</strong> Qualified through technical assessments into <strong>Level 2 &amp; 3</strong> of Vingroup AI Bootcamp, specializing in Computer Vision and industrial-grade dataset curation.
                                     </li>
                                     <li>
+                                        <strong>Build Phase Team Lead (Auto Annotation Reporter):</strong> Led a 5-member team engineering an automated reporting pipeline (CVAT REST API + GitHub API) and a 5-page Hybrid Power BI dashboard saving 2–4h per weekly review session.
+                                    </li>
+                                    <li>
                                         <strong>Tooling &amp; Model Benchmark Evaluation:</strong> Established automated Structural Validator tests with CVAT; evaluated benchmarks across Video Tracking, Multi-Object Tracking (MOT), and Re-Identification (ReID).
                                     </li>
                                 </ul>
-                                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill border border-warning border-opacity-25 mt-2">
-                                    <i class="fas fa-award me-1"></i> Vingroup AI Bootcamp - Level 2 &amp; 3
-                                </span>
+                                <div class="d-flex flex-wrap gap-2 mt-2">
+                                    <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill border border-warning border-opacity-25">
+                                        <i class="fas fa-award me-1"></i> Vingroup AI Bootcamp - Level 2 &amp; 3
+                                    </span>
+                                    <a href="#projects" class="btn-verify-badge">
+                                        <i class="fas fa-arrow-right"></i> View Build Phase Project
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -2336,8 +2345,8 @@
                                     <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> View Research</a>
                                 </li>
                                 <li class="evidence-item">
-                                    <strong>Vingroup AI Team Collaboration</strong>: Coordinated in agile sprint cycles, performed peer annotation reviews, and actively participated in group code reviews.
-                                    <a href="#experience" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> View Experience</a>
+                                    <strong>Vingroup AI Build Phase Lead</strong>: Led 5-member cross-functional team, established WBS/RACI governance, managed GitHub milestones, and delivered automated reporting pipeline.
+                                    <a href="#projects" class="evidence-link ms-1"><i class="fas fa-arrow-right"></i> View Build Phase</a>
                                 </li>
                             </ul>
                         </div>
@@ -2454,7 +2463,104 @@
                     </div>
                 </div>
 
-                <!-- Project 2: KPIM Bank Customer 360 -->
+                <!-- Project 2: Build Phase - Auto Annotation Reporter -->
+                <div class="col-lg-6 project-item" data-category="bi mlops">
+                    <div class="project-card">
+                        <div class="project-media position-relative" style="background: radial-gradient(circle at 50% 50%, #0f766e 0%, #090d16 85%);">
+                            <div class="d-flex align-items-center justify-content-center w-100 h-100 p-3">
+                                <svg width="100%" height="160" viewBox="0 0 460 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 440px;">
+                                    <rect x="15" y="15" width="430" height="130" rx="12" fill="#0f172a" stroke="rgba(20,184,166,0.3)" stroke-width="1.5"/>
+                                    <rect x="15" y="15" width="430" height="26" rx="12" fill="#1e293b"/>
+                                    <circle cx="31" cy="28" r="4" fill="#ef4444"/>
+                                    <circle cx="43" cy="28" r="4" fill="#f59e0b"/>
+                                    <circle cx="55" cy="28" r="4" fill="#10b981"/>
+                                    <text x="75" y="32" fill="#cbd5e1" font-size="10" font-weight="600">CVAT &amp; GitHub Sync • Hybrid Power BI Architecture</text>
+
+                                    <!-- Node 1: Ingestion (CVAT + GitHub) -->
+                                    <rect x="25" y="52" width="85" height="42" rx="8" fill="#134e4a" stroke="#2dd4bf" stroke-width="1.5"/>
+                                    <text x="67" y="69" fill="#2dd4bf" font-size="9.5" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', monospace">CVAT REST</text>
+                                    <text x="67" y="83" fill="#99f6e4" font-size="8" text-anchor="middle">API v2 + GH</text>
+
+                                    <!-- Arrow 1 -->
+                                    <path d="M112 73 H 133" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="3 2"/>
+                                    <polygon points="133,70 139,73 133,76" fill="#2dd4bf"/>
+
+                                    <!-- Node 2: Python Engine -->
+                                    <rect x="142" y="52" width="100" height="42" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+                                    <text x="192" y="69" fill="#38bdf8" font-size="9.5" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', monospace">PYTHON ETL</text>
+                                    <text x="192" y="83" fill="#94a3b8" font-size="8" text-anchor="middle">Velocity &amp; DeepLink</text>
+
+                                    <!-- Arrow 2 -->
+                                    <path d="M244 73 H 265" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3 2"/>
+                                    <polygon points="265,70 271,73 265,76" fill="#38bdf8"/>
+
+                                    <!-- Node 3: Power BI Star Schema -->
+                                    <rect x="274" y="52" width="95" height="42" rx="8" fill="#78350f" stroke="#fbbf24" stroke-width="1.5"/>
+                                    <text x="321" y="69" fill="#fbbf24" font-size="9.5" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', monospace">POWER BI</text>
+                                    <text x="321" y="83" fill="#fde68a" font-size="8" text-anchor="middle">Star Schema 9T</text>
+
+                                    <!-- Arrow 3 -->
+                                    <path d="M371 73 H 388" stroke="#fbbf24" stroke-width="2" stroke-dasharray="3 2"/>
+                                    <polygon points="388,70 394,73 388,76" fill="#fbbf24"/>
+
+                                    <!-- Node 4: Alerts / Meeting -->
+                                    <rect x="397" y="52" width="40" height="42" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+                                    <text x="417" y="70" fill="#a5b4fc" font-size="9" font-weight="700" text-anchor="middle">BOT</text>
+                                    <text x="417" y="83" fill="#64748b" font-size="7.5" text-anchor="middle">TG/PR</text>
+
+                                    <!-- Bottom Metrics & Status Pill -->
+                                    <rect x="25" y="105" width="180" height="25" rx="6" fill="rgba(45,212,191,0.12)" stroke="rgba(45,212,191,0.3)"/>
+                                    <circle cx="36" cy="117" r="3.5" fill="#2dd4bf"/>
+                                    <text x="45" y="121" fill="#5eead4" font-size="8.5" font-weight="600">Saved 2–4h / Review Meeting</text>
+
+                                    <rect x="215" y="105" width="222" height="25" rx="6" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.3)"/>
+                                    <circle cx="226" cy="117" r="3.5" fill="#fbbf24"/>
+                                    <text x="235" y="121" fill="#fde68a" font-size="8.5" font-weight="600">Dual QA Framework &amp; 20 DAX Measures</text>
+                                </svg>
+                            </div>
+                            <span class="project-category-badge"><i class="fas fa-cubes-stacked text-info me-1"></i> Data Operations • Hybrid BI</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Build Phase: Data Annotation Operations &amp; Hybrid Power BI Pipeline</h3>
+                            
+                            <!-- Scannable Meta Box -->
+                            <div class="project-meta-box">
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-problem"><i class="fas fa-bullseye"></i> Problem</span>
+                                    <span class="project-meta-val">Fragmented tracking across CVAT &amp; GitHub; 2–4 hours spent manually compiling metrics before weekly mentor reviews, with missed edge cases and no quantitative QA velocity metrics.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-solution"><i class="fas fa-bolt"></i> Solution</span>
+                                    <span class="project-meta-val">As Project Lead, engineered an end-to-end automated pipeline &amp; Hybrid BI model: Python ETL pulling CVAT REST API v2 &amp; GitHub GraphQL, modeled a 9-table Star Schema with 20 DAX measures across 5 Power BI report pages, automated Jinja2/LLM report drafting, and scheduled GitHub Actions dispatch with Telegram alerts.</span>
+                                </div>
+                                <div class="project-meta-row">
+                                    <span class="project-meta-label meta-label-impact"><i class="fas fa-chart-line"></i> Impact</span>
+                                    <span class="project-meta-val"><strong>Saved 2–4 hours per review session</strong> through 100% automated aggregation, generated instant CVAT frame deep links for dispute resolution, and established a dual quality evaluation framework (Ground Truth + Reviewer Audit).</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-pill-group">
+                                <span class="tech-pill">Python ETL</span>
+                                <span class="tech-pill">CVAT REST API v2</span>
+                                <span class="tech-pill">GitHub GraphQL</span>
+                                <span class="tech-pill">Power BI (Star Schema)</span>
+                                <span class="tech-pill">Advanced DAX (20 Measures)</span>
+                                <span class="tech-pill">GitHub Actions Cron</span>
+                                <span class="tech-pill">Telegram Bot</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nolanminhdinh/auto-annotation-reporter" target="_blank" class="btn-project-link btn-project-github">
+                                    <i class="fab fa-github"></i> GitHub Repository
+                                </a>
+                                <a href="images/workflow-hybrid-powerbi.svg" target="_blank" class="btn-project-link btn-project-demo">
+                                    <i class="fas fa-diagram-project"></i> Hybrid Architecture (SVG)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: KPIM Bank Customer 360 -->
                 <div class="col-lg-6 project-item" data-category="bi">
                     <div class="project-card">
                         <div class="project-media position-relative" style="background: radial-gradient(circle at 50% 50%, #1e3a8a 0%, #090d16 85%);">
@@ -3188,7 +3294,7 @@
 
                 projectItems.forEach(item => {
                     const category = item.getAttribute('data-category');
-                    if (filterValue === 'all' || category === filterValue) {
+                    if (filterValue === 'all' || category === filterValue || (category && category.split(' ').includes(filterValue))) {
                         item.style.display = 'block';
                         item.style.opacity = '0';
                         setTimeout(() => {
