@@ -997,6 +997,196 @@
             transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Vingroup AI Style Compact Competency Profile */
+        .profile-section-badge {
+            background: rgba(249, 115, 22, 0.15);
+            color: #fb923c;
+            border: 1px solid rgba(249, 115, 22, 0.35);
+            font-size: 0.72rem;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        .category-block {
+            margin-bottom: 10px;
+        }
+
+        .category-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #94a3b8;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pill-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .vg-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .vg-pill.active {
+            background: #ea580c;
+            color: #ffffff;
+            border: 1px solid #f97316;
+            box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
+        }
+
+        .vg-pill.active i {
+            font-size: 0.65rem;
+            font-weight: 900;
+        }
+
+        .vg-pill.inactive {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #94a3b8;
+        }
+
+        .vg-pill:hover {
+            transform: translateY(-1px);
+        }
+
+        /* 1-5 Slider Scale Box */
+        .slider-scale-box {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .slider-scale-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .slider-scale-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #f97316;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .slider-scale-legend {
+            font-size: 0.68rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 9px;
+        }
+
+        .slider-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .slider-name {
+            flex: 0 0 38%;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .slider-track {
+            flex-grow: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .slider-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #ea580c);
+            border-radius: 10px;
+        }
+
+        .slider-dot {
+            width: 11px;
+            height: 11px;
+            background: #f97316;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+        }
+
+        .slider-score {
+            flex: 0 0 24px;
+            text-align: right;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #f97316;
+        }
+
+        /* Profile Meta Footer */
+        .profile-meta-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 576px) {
+            .slider-name {
+                flex: 0 0 44%;
+                font-size: 0.74rem;
+            }
+            .profile-meta-strip {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
         /* Contact Section */
         .contact-card {
             background: var(--bg-card);
@@ -1561,125 +1751,158 @@
                 </div>
 
                 <!-- Right: Detailed Proficiency Progress Bars -->
+                <!-- Right: Compact Vingroup AI Competency Profile & Sliders -->
                 <div class="col-lg-7">
-                    <div class="proficiency-card">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="skill-group-icon">
-                                    <i class="fas fa-chart-simple"></i>
+                    <div class="proficiency-card d-flex flex-column justify-content-between">
+                        <div>
+                            <!-- Header -->
+                            <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom" style="border-color: rgba(255,255,255,0.08) !important;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="skill-group-icon" style="background: rgba(249, 115, 22, 0.12); color: #f97316; border-color: rgba(249, 115, 22, 0.25);">
+                                        <i class="fas fa-id-card-clip"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="skill-group-title" style="font-size: 1.15rem;">Hồ Sơ Năng Lực &amp; Kỹ Năng</h3>
+                                        <p class="text-secondary small mb-0">Chuẩn hóa theo khung đánh giá Vingroup AI &amp; DAX/SQL thực chiến</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 class="skill-group-title">Mức Độ Thành Thạo Kỹ Năng</h3>
-                                    <p class="text-secondary small mb-0">Thang đo định lượng theo dự án và chứng chỉ quốc tế</p>
+                                <span class="profile-section-badge">
+                                    <i class="fas fa-certificate text-warning"></i> Chuẩn Vingroup AI L2-3
+                                </span>
+                            </div>
+
+                            <!-- Categorized Skill Tags (Vingroup Profile Style) -->
+                            <div class="mb-3">
+                                <!-- Group 1: BI & DATA -->
+                                <div class="category-block">
+                                    <div class="category-title">
+                                        <i class="fas fa-database text-warning"></i> DATA &amp; BUSINESS INTELLIGENCE
+                                    </div>
+                                    <div class="pill-wrap">
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> SQL (T-SQL, PostgreSQL)</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Power BI &amp; DAX</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Data Modeling (Star Schema)</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Phân Tích Nghiệp Vụ</span>
+                                        <span class="vg-pill inactive">Excel Nâng Cao</span>
+                                    </div>
+                                </div>
+
+                                <!-- Group 2: DATA ENGINEERING -->
+                                <div class="category-block">
+                                    <div class="category-title">
+                                        <i class="fas fa-network-wired text-info"></i> DATA ENGINEERING &amp; PIPELINES
+                                    </div>
+                                    <div class="pill-wrap">
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Python (Pandas/NumPy)</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> ETL / ELT Pipeline</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Apache Kafka</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> MinIO S3 Lakehouse</span>
+                                        <span class="vg-pill inactive">Data Quality &amp; CDC</span>
+                                    </div>
+                                </div>
+
+                                <!-- Group 3: AI & COMPUTER VISION -->
+                                <div class="category-block">
+                                    <div class="category-title">
+                                        <i class="fas fa-brain text-danger"></i> AI &amp; COMPUTER VISION (VINGROUP L2-3)
+                                    </div>
+                                    <div class="pill-wrap">
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Computer Vision</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> CVAT Tooling</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Video Tracking (MOT)</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Pose Estimation (COCO-17)</span>
+                                        <span class="vg-pill inactive">Annotation QC</span>
+                                    </div>
+                                </div>
+
+                                <!-- Group 4: LEADERSHIP & MANAGEMENT -->
+                                <div class="category-block">
+                                    <div class="category-title">
+                                        <i class="fas fa-users-gear text-success"></i> LEADERSHIP &amp; PROBLEM SOLVING
+                                    </div>
+                                    <div class="pill-wrap">
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Quản Trị Dự Án Agile</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Data Storytelling</span>
+                                        <span class="vg-pill active"><i class="fas fa-check"></i> Root Cause Analysis (RCA)</span>
+                                        <span class="vg-pill inactive">Giao Tiếp Liên Phòng Ban</span>
+                                    </div>
                                 </div>
                             </div>
-                            <span class="badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);">
-                                <i class="fas fa-check-circle me-1"></i> Khách quan
-                            </span>
+
+                            <!-- Minimalist 1-5 Slider Scale Box -->
+                            <div class="slider-scale-box">
+                                <div class="slider-scale-header">
+                                    <span class="slider-scale-title">
+                                        <i class="fas fa-sliders text-warning"></i> MỨC ĐỘ THÀNH THẠO (1 = CƠ BẢN · 5 = CHUYÊN GIA)
+                                    </span>
+                                    <span class="slider-scale-legend">Đánh giá thực nghiệm</span>
+                                </div>
+
+                                <div class="slider-row">
+                                    <span class="slider-name">SQL (T-SQL, PostgreSQL)</span>
+                                    <div class="slider-track">
+                                        <div class="slider-fill" style="width: 90%;"></div>
+                                        <div class="slider-dot" style="left: 90%;"></div>
+                                    </div>
+                                    <span class="slider-score">4.5</span>
+                                </div>
+
+                                <div class="slider-row">
+                                    <span class="slider-name">Power BI &amp; Advanced DAX</span>
+                                    <div class="slider-track">
+                                        <div class="slider-fill" style="width: 90%;"></div>
+                                        <div class="slider-dot" style="left: 90%;"></div>
+                                    </div>
+                                    <span class="slider-score">4.5</span>
+                                </div>
+
+                                <div class="slider-row">
+                                    <span class="slider-name">Phân Tích Nghiệp Vụ &amp; Thống Kê</span>
+                                    <div class="slider-track">
+                                        <div class="slider-fill" style="width: 80%;"></div>
+                                        <div class="slider-dot" style="left: 80%;"></div>
+                                    </div>
+                                    <span class="slider-score">4.0</span>
+                                </div>
+
+                                <div class="slider-row">
+                                    <span class="slider-name">Python for Analytics &amp; Pipeline</span>
+                                    <div class="slider-track">
+                                        <div class="slider-fill" style="width: 80%;"></div>
+                                        <div class="slider-dot" style="left: 80%;"></div>
+                                    </div>
+                                    <span class="slider-score">4.0</span>
+                                </div>
+
+                                <div class="slider-row">
+                                    <span class="slider-name">Streaming Lakehouse (Kafka, MinIO)</span>
+                                    <div class="slider-track">
+                                        <div class="slider-fill" style="width: 76%;"></div>
+                                        <div class="slider-dot" style="left: 76%;"></div>
+                                    </div>
+                                    <span class="slider-score">3.8</span>
+                                </div>
+
+                                <div class="slider-row">
+                                    <span class="slider-name">AI Tooling &amp; CV (CVAT, MOT)</span>
+                                    <div class="slider-track">
+                                        <div class="slider-fill" style="width: 76%;"></div>
+                                        <div class="slider-dot" style="left: 76%;"></div>
+                                    </div>
+                                    <span class="slider-score">3.8</span>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Progress Bar Items -->
-                        <div class="proficiency-bar-wrapper">
-                            <div class="proficiency-info">
-                                <span class="proficiency-label">SQL & Truy Vấn Tối Ưu (T-SQL, PostgreSQL, Window Funcs)</span>
-                                <div class="proficiency-meta">
-                                    <span class="badge-level level-advanced">Advanced</span>
-                                    <span class="proficiency-value">90%</span>
-                                </div>
+                        <!-- Metadata Footer Strip (Vingroup Profile Style) -->
+                        <div class="profile-meta-strip">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fas fa-bullseye text-warning"></i>
+                                <span><strong>Vai trò trọng tâm:</strong> Data Analyst • Analytics / Data Quality Engineer</span>
                             </div>
-                            <div class="proficiency-bar-bg">
-                                <div class="proficiency-bar-fill" style="width: 90%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="proficiency-bar-wrapper">
-                            <div class="proficiency-info">
-                                <span class="proficiency-label">Power BI & Advanced DAX (Star Schema, Iterators, Drill-Through)</span>
-                                <div class="proficiency-meta">
-                                    <span class="badge-level level-advanced">Advanced</span>
-                                    <span class="proficiency-value">88%</span>
-                                </div>
-                            </div>
-                            <div class="proficiency-bar-bg">
-                                <div class="proficiency-bar-fill" style="width: 88%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="proficiency-bar-wrapper">
-                            <div class="proficiency-info">
-                                <span class="proficiency-label">Phân Tích Nghiệp Vụ & Thống Kê (Banking, Supply Chain, Youden's J)</span>
-                                <div class="proficiency-meta">
-                                    <span class="badge-level level-advanced">Advanced</span>
-                                    <span class="proficiency-value">85%</span>
-                                </div>
-                            </div>
-                            <div class="proficiency-bar-bg">
-                                <div class="proficiency-bar-fill" style="width: 85%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="proficiency-bar-wrapper">
-                            <div class="proficiency-info">
-                                <span class="proficiency-label">Python for Data Analysis (Pandas, NumPy, GeoPandas, EDA)</span>
-                                <div class="proficiency-meta">
-                                    <span class="badge-level level-proficient">Proficient</span>
-                                    <span class="proficiency-value">84%</span>
-                                </div>
-                            </div>
-                            <div class="proficiency-bar-bg">
-                                <div class="proficiency-bar-fill" style="width: 84%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="proficiency-bar-wrapper">
-                            <div class="proficiency-info">
-                                <span class="proficiency-label">Data Warehousing & Mô Hình Hóa (3NF, Star Schema, ELT)</span>
-                                <div class="proficiency-meta">
-                                    <span class="badge-level level-proficient">Proficient</span>
-                                    <span class="proficiency-value">82%</span>
-                                </div>
-                            </div>
-                            <div class="proficiency-bar-bg">
-                                <div class="proficiency-bar-fill" style="width: 82%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="proficiency-bar-wrapper">
-                            <div class="proficiency-info">
-                                <span class="proficiency-label">Quản Trị Dự Án & Data Storytelling (PM Docs, Versioning)</span>
-                                <div class="proficiency-meta">
-                                    <span class="badge-level level-proficient">Proficient</span>
-                                    <span class="proficiency-value">82%</span>
-                                </div>
-                            </div>
-                            <div class="proficiency-bar-bg">
-                                <div class="proficiency-bar-fill" style="width: 82%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="proficiency-bar-wrapper">
-                            <div class="proficiency-info">
-                                <span class="proficiency-label">Streaming Architecture (Kafka Ingestion, MinIO Lakehouse)</span>
-                                <div class="proficiency-meta">
-                                    <span class="badge-level level-intermediate">Intermediate</span>
-                                    <span class="proficiency-value">76%</span>
-                                </div>
-                            </div>
-                            <div class="proficiency-bar-bg">
-                                <div class="proficiency-bar-fill" style="width: 76%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="proficiency-bar-wrapper">
-                            <div class="proficiency-info">
-                                <span class="proficiency-label">MLOps & Computer Vision (Docker, MLflow, CVAT Pipeline)</span>
-                                <div class="proficiency-meta">
-                                    <span class="badge-level level-intermediate">Intermediate</span>
-                                    <span class="proficiency-value">75%</span>
-                                </div>
-                            </div>
-                            <div class="proficiency-bar-bg">
-                                <div class="proficiency-bar-fill" style="width: 75%;"></div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fas fa-business-time text-info"></i>
+                                <span><strong>Kinh nghiệm:</strong> 0.5+ năm thực chiến (Vingroup AI &amp; KPIM)</span>
                             </div>
                         </div>
                     </div>
