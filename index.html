@@ -710,50 +710,81 @@
             color: #a5b4fc;
         }
 
-        /* Certificate Cards */
+        /* Certificate Cards with Visual Document Previews */
         .cert-card {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            border-radius: 18px;
-            padding: 24px;
+            border-radius: 20px;
+            overflow: hidden;
             display: flex;
-            align-items: center;
-            gap: 20px;
+            flex-direction: column;
             height: 100%;
-            transition: all 0.3s ease;
+            transition: all 0.35s ease;
         }
 
         .cert-card:hover {
-            border-color: rgba(56, 189, 248, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: rgba(56, 189, 248, 0.45);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(56, 189, 248, 0.12);
         }
 
-        .cert-badge-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(66, 133, 244, 0.2), rgba(234, 67, 53, 0.2));
-            border: 1px solid rgba(66, 133, 244, 0.3);
+        .cert-img-wrapper {
+            position: relative;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .cert-img-preview {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .cert-img-wrapper:hover .cert-img-preview {
+            transform: scale(1.04);
+        }
+
+        .cert-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(9, 13, 22, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            color: #60a5fa;
-            flex-shrink: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(2px);
         }
 
-        .cert-info h5 {
-            font-size: 1.05rem;
+        .cert-img-wrapper:hover .cert-img-overlay {
+            opacity: 1;
+        }
+
+        .btn-view-cert-zoom {
+            background: var(--gradient-primary);
+            color: #090d16;
+            font-size: 0.8rem;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 4px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+            user-select: none;
         }
 
-        .cert-issuer {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
+        .cert-body-content {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .btn-verify-badge {
@@ -775,6 +806,76 @@
             background: var(--accent-cyan);
             color: #090d16;
             border-color: var(--accent-cyan);
+        }
+
+        /* Certificate Lightbox Modal */
+        .cert-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 7, 15, 0.88);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cert-modal-backdrop.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .cert-modal-dialog {
+            background: #0f172a;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 20px;
+            max-width: 950px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75), 0 0 30px rgba(56, 189, 248, 0.15);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-modal-backdrop.active .cert-modal-dialog {
+            transform: scale(1);
+        }
+
+        .cert-modal-header {
+            padding: 16px 22px;
+            background: rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cert-modal-body {
+            padding: 18px;
+            background: #090d16;
+            text-align: center;
+        }
+
+        .cert-modal-img {
+            max-width: 100%;
+            max-height: 72vh;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cert-modal-footer {
+            padding: 14px 22px;
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         /* Skill Cards & Evidence */
@@ -2500,83 +2601,143 @@
 
             <div class="row g-4 justify-content-center">
                 
-                <!-- Cert 1 -->
+                <!-- Cert 1: Google Data Analytics -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="cert-card flex-column align-items-start justify-content-between">
-                        <div class="d-flex align-items-center gap-3 w-100">
-                            <div class="cert-badge-icon" style="background: rgba(66, 133, 244, 0.15); color: #60a5fa; border: 1px solid rgba(66, 133, 244, 0.3);">
-                                <i class="fab fa-google"></i>
+                    <div class="cert-card">
+                        <!-- Visual Certificate Preview -->
+                        <div class="cert-img-wrapper" onclick="openCertModal('images/cert_doc_google_da.png', 'Google Data Analytics Professional Certificate', 'https://coursera.org/verify/professional-cert/SST6G2YQ544R', 'https://www.credly.com/badges/70adfc2b-cf90-45d7-a73e-b5a9f860880e/linked_in_profile')">
+                            <img src="images/cert_doc_google_da.png" alt="Giấy chứng nhận Google Data Analytics - Minh Đinh Công" class="cert-img-preview" loading="lazy">
+                            <div class="cert-img-overlay">
+                                <span class="btn-view-cert-zoom">
+                                    <i class="fas fa-magnifying-glass-plus"></i> Xem Giấy Chứng Nhận
+                                </span>
                             </div>
-                            <div>
-                                <h5 class="mb-1">Google Data Analytics</h5>
-                                <div class="cert-issuer small text-secondary">Google Career Certificates</div>
+                            <span class="position-absolute top-0 start-0 m-2 badge" style="background: rgba(15, 23, 42, 0.88); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); font-size: 0.68rem; backdrop-filter: blur(4px);">
+                                <i class="fab fa-google text-primary me-1"></i> Google Verified
+                            </span>
+                        </div>
+                        <div class="cert-body-content">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="text-secondary small">Google Career Certificates</span>
+                                <span class="badge" style="background: rgba(56, 189, 248, 0.12); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.25); font-size: 0.68rem;">
+                                    8 Khóa Chuyên Sâu
+                                </span>
                             </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-1 my-3">
-                            <span class="tech-pill">SQL &amp; BigQuery</span>
-                            <span class="tech-pill">Spreadsheets</span>
-                            <span class="tech-pill">Data Cleaning</span>
-                            <span class="tech-pill">Tableau</span>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between w-100 pt-2 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
-                            <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-info me-1"></i> SST6G2YQ544R</span>
-                            <a href="https://www.credly.com/badges/70adfc2b-cf90-45d7-a73e-b5a9f860880e/linked_in_profile" target="_blank" class="btn-verify-badge">
-                                <i class="fas fa-certificate"></i> Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i>
-                            </a>
+                            <h5 class="mb-2" style="font-size: 1.1rem; font-weight: 700; color: #ffffff;">Google Data Analytics</h5>
+                            <p class="text-secondary small mb-3" style="line-height: 1.5;">
+                                Nắm vững quy trình phân tích dữ liệu chuẩn Google: thu thập, làm sạch, truy vấn SQL BigQuery và trực quan hóa chuyên nghiệp.
+                            </p>
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="tech-pill">SQL &amp; BigQuery</span>
+                                <span class="tech-pill">Spreadsheets</span>
+                                <span class="tech-pill">Tableau</span>
+                                <span class="tech-pill">Data Cleansing</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                                <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-info me-1"></i> SST6G2YQ544R</span>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn-verify-badge" onclick="openCertModal('images/cert_doc_google_da.png', 'Google Data Analytics Professional Certificate', 'https://coursera.org/verify/professional-cert/SST6G2YQ544R', 'https://www.credly.com/badges/70adfc2b-cf90-45d7-a73e-b5a9f860880e/linked_in_profile')" style="cursor: pointer;">
+                                        <i class="fas fa-eye"></i> Xem bản gốc
+                                    </button>
+                                    <a href="https://www.credly.com/badges/70adfc2b-cf90-45d7-a73e-b5a9f860880e/linked_in_profile" target="_blank" class="btn-verify-badge">
+                                        <i class="fas fa-certificate"></i> Credly
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Cert 2 -->
+                <!-- Cert 2: Google Advanced Data Analytics -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="cert-card flex-column align-items-start justify-content-between">
-                        <div class="d-flex align-items-center gap-3 w-100">
-                            <div class="cert-badge-icon" style="background: rgba(52, 168, 83, 0.15); color: #34d399; border: 1px solid rgba(52, 168, 83, 0.3);">
-                                <i class="fab fa-google"></i>
+                    <div class="cert-card">
+                        <!-- Visual Certificate Preview -->
+                        <div class="cert-img-wrapper" onclick="openCertModal('images/cert_doc_google_ada.png', 'Google Advanced Data Analytics Professional Certificate', null, 'https://www.credly.com/badges/5021a342-b898-4488-907a-e08e8d1922ca/linked_in_profile')">
+                            <img src="images/cert_doc_google_ada.png" alt="Giấy chứng nhận Google Advanced Data Analytics - Minh Đinh Công" class="cert-img-preview" loading="lazy">
+                            <div class="cert-img-overlay">
+                                <span class="btn-view-cert-zoom">
+                                    <i class="fas fa-magnifying-glass-plus"></i> Xem Giấy Chứng Nhận
+                                </span>
                             </div>
-                            <div>
-                                <h5 class="mb-1">Google Advanced Data Analytics</h5>
-                                <div class="cert-issuer small text-secondary">Google Career Certificates</div>
+                            <span class="position-absolute top-0 start-0 m-2 badge" style="background: rgba(15, 23, 42, 0.88); color: #34d399; border: 1px solid rgba(52, 168, 83, 0.3); font-size: 0.68rem; backdrop-filter: blur(4px);">
+                                <i class="fab fa-google text-success me-1"></i> Google Verified
+                            </span>
+                        </div>
+                        <div class="cert-body-content">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="text-secondary small">Google Career Certificates</span>
+                                <span class="badge" style="background: rgba(52, 168, 83, 0.12); color: #34d399; border: 1px solid rgba(52, 168, 83, 0.25); font-size: 0.68rem;">
+                                    7 Khóa Chuyên Sâu
+                                </span>
                             </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-1 my-3">
-                            <span class="tech-pill">Python</span>
-                            <span class="tech-pill">Machine Learning</span>
-                            <span class="tech-pill">Statistical Testing</span>
-                            <span class="tech-pill">Predictive Modeling</span>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between w-100 pt-2 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
-                            <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-success me-1"></i> 5021a342...</span>
-                            <a href="https://www.credly.com/badges/5021a342-b898-4488-907a-e08e8d1922ca/linked_in_profile" target="_blank" class="btn-verify-badge">
-                                <i class="fas fa-certificate"></i> Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i>
-                            </a>
+                            <h5 class="mb-2" style="font-size: 1.1rem; font-weight: 700; color: #ffffff;">Google Advanced Data Analytics</h5>
+                            <p class="text-secondary small mb-3" style="line-height: 1.5;">
+                                Phân tích thống kê nâng cao, kiểm định giả thuyết và xây dựng các mô hình Machine Learning dự báo bằng ngôn ngữ Python.
+                            </p>
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Machine Learning</span>
+                                <span class="tech-pill">Statistical Testing</span>
+                                <span class="tech-pill">Predictive Modeling</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                                <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-success me-1"></i> 5021a342...</span>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn-verify-badge" onclick="openCertModal('images/cert_doc_google_ada.png', 'Google Advanced Data Analytics Professional Certificate', null, 'https://www.credly.com/badges/5021a342-b898-4488-907a-e08e8d1922ca/linked_in_profile')" style="cursor: pointer;">
+                                        <i class="fas fa-eye"></i> Xem bản gốc
+                                    </button>
+                                    <a href="https://www.credly.com/badges/5021a342-b898-4488-907a-e08e8d1922ca/linked_in_profile" target="_blank" class="btn-verify-badge">
+                                        <i class="fas fa-certificate"></i> Credly
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Cert 3 -->
+                <!-- Cert 3: Google Business Intelligence -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="cert-card flex-column align-items-start justify-content-between">
-                        <div class="d-flex align-items-center gap-3 w-100">
-                            <div class="cert-badge-icon" style="background: rgba(251, 188, 5, 0.15); color: #fbbf24; border: 1px solid rgba(251, 188, 5, 0.3);">
-                                <i class="fab fa-google"></i>
+                    <div class="cert-card">
+                        <!-- Visual Certificate Preview -->
+                        <div class="cert-img-wrapper" onclick="openCertModal('images/cert_doc_google_bi.png', 'Google Business Intelligence Professional Certificate', 'https://coursera.org/verify/professional-cert/UYYQ9R3V7J03', 'https://www.credly.com/badges/e0f8dca8-a5e6-4699-b914-f09f65e35862/public_url')">
+                            <img src="images/cert_doc_google_bi.png" alt="Giấy chứng nhận Google Business Intelligence - Minh Đinh Công" class="cert-img-preview" loading="lazy">
+                            <div class="cert-img-overlay">
+                                <span class="btn-view-cert-zoom">
+                                    <i class="fas fa-magnifying-glass-plus"></i> Xem Giấy Chứng Nhận
+                                </span>
                             </div>
-                            <div>
-                                <h5 class="mb-1">Google Business Intelligence</h5>
-                                <div class="cert-issuer small text-secondary">Google Career Certificates</div>
+                            <span class="position-absolute top-0 start-0 m-2 badge" style="background: rgba(15, 23, 42, 0.88); color: #fbbf24; border: 1px solid rgba(251, 188, 5, 0.3); font-size: 0.68rem; backdrop-filter: blur(4px);">
+                                <i class="fab fa-google text-warning me-1"></i> Google Verified
+                            </span>
+                        </div>
+                        <div class="cert-body-content">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="text-secondary small">Google Career Certificates</span>
+                                <span class="badge" style="background: rgba(251, 188, 5, 0.12); color: #fbbf24; border: 1px solid rgba(251, 188, 5, 0.25); font-size: 0.68rem;">
+                                    3 Khóa Chuyên Sâu
+                                </span>
                             </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-1 my-3">
-                            <span class="tech-pill">Power BI &amp; Tableau</span>
-                            <span class="tech-pill">Data Modeling</span>
-                            <span class="tech-pill">Executive Viz</span>
-                            <span class="tech-pill">ETL Pipelines</span>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between w-100 pt-2 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
-                            <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-warning me-1"></i> UYYQ9R3V7J03</span>
-                            <a href="https://www.credly.com/badges/e0f8dca8-a5e6-4699-b914-f09f65e35862/public_url" target="_blank" class="btn-verify-badge">
-                                <i class="fas fa-certificate"></i> Credly <i class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i>
-                            </a>
+                            <h5 class="mb-2" style="font-size: 1.1rem; font-weight: 700; color: #ffffff;">Google Business Intelligence</h5>
+                            <p class="text-secondary small mb-3" style="line-height: 1.5;">
+                                Thiết kế mô hình dữ liệu Star Schema, đường ống ELT, tối ưu báo cáo Dashboard phục vụ ra quyết định chiến lược cho lãnh đạo.
+                            </p>
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="tech-pill">Power BI &amp; Tableau</span>
+                                <span class="tech-pill">Star Schema</span>
+                                <span class="tech-pill">BigQuery SQL</span>
+                                <span class="tech-pill">ETL Pipelines</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+                                <span class="text-secondary small font-monospace"><i class="fas fa-id-badge text-warning me-1"></i> UYYQ9R3V7J03</span>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn-verify-badge" onclick="openCertModal('images/cert_doc_google_bi.png', 'Google Business Intelligence Professional Certificate', 'https://coursera.org/verify/professional-cert/UYYQ9R3V7J03', 'https://www.credly.com/badges/e0f8dca8-a5e6-4699-b914-f09f65e35862/public_url')" style="cursor: pointer;">
+                                        <i class="fas fa-eye"></i> Xem bản gốc
+                                    </button>
+                                    <a href="https://www.credly.com/badges/e0f8dca8-a5e6-4699-b914-f09f65e35862/public_url" target="_blank" class="btn-verify-badge">
+                                        <i class="fas fa-certificate"></i> Credly
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2744,10 +2905,87 @@
         <span id="toastMessage">Đã sao chép vào bộ nhớ tạm!</span>
     </div>
 
+    <!-- Certificate Lightbox Modal -->
+    <div id="certModal" class="cert-modal-backdrop" onclick="closeCertModal(event)">
+        <div class="cert-modal-dialog" onclick="event.stopPropagation()">
+            <div class="cert-modal-header">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fab fa-google text-primary" style="font-size: 1.2rem;"></i>
+                    <h5 id="certModalTitle" class="mb-0 text-white" style="font-size: 1.05rem;">Giấy Chứng Nhận Chuyên Môn</h5>
+                </div>
+                <button type="button" class="btn-close btn-close-white" onclick="closeCertModal()" aria-label="Close"></button>
+            </div>
+            <div class="cert-modal-body">
+                <img id="certModalImg" src="" alt="Giấy chứng nhận chuyên môn Google" class="cert-modal-img">
+            </div>
+            <div class="cert-modal-footer">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35);">
+                        <i class="fas fa-circle-check me-1"></i> Xác thực chính thức: Minh Đinh Công
+                    </span>
+                </div>
+                <div class="d-flex gap-2">
+                    <a id="certModalCourseraBtn" href="#" target="_blank" class="btn-verify-badge" style="display: none;">
+                        <i class="fas fa-graduation-cap"></i> Xác thực Coursera
+                    </a>
+                    <a id="certModalCredlyBtn" href="#" target="_blank" class="btn-verify-badge">
+                        <i class="fas fa-certificate"></i> Huy hiệu Credly
+                    </a>
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="closeCertModal()">
+                        Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        // Certificate Modal Lightbox
+        function openCertModal(imgSrc, title, courseraUrl, credlyUrl) {
+            const modal = document.getElementById('certModal');
+            const modalImg = document.getElementById('certModalImg');
+            const modalTitle = document.getElementById('certModalTitle');
+            const courseraBtn = document.getElementById('certModalCourseraBtn');
+            const credlyBtn = document.getElementById('certModalCredlyBtn');
+
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title;
+
+            if (courseraUrl) {
+                courseraBtn.href = courseraUrl;
+                courseraBtn.style.display = 'inline-flex';
+            } else {
+                courseraBtn.style.display = 'none';
+            }
+
+            if (credlyUrl) {
+                credlyBtn.href = credlyUrl;
+                credlyBtn.style.display = 'inline-flex';
+            } else {
+                credlyBtn.style.display = 'none';
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertModal(e) {
+            if (!e || e.target.id === 'certModal' || e.target.classList.contains('btn-close') || e.target.tagName === 'BUTTON') {
+                const modal = document.getElementById('certModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCertModal();
+            }
+        });
+
         // Copy to clipboard helper with toast
         function copyToClipboard(text, message) {
             navigator.clipboard.writeText(text).then(function() {
