@@ -24,6 +24,8 @@ Tham khảo cách giới thiệu chuyên môn và tổ chức nội dung từ [Y
 
 Hình vẽ trong `images/design/` là minh họa ý tưởng, không phải ảnh dashboard hoặc dữ liệu đo lường trực tiếp. Bối cảnh và kết quả dự án được giữ từ portfolio gốc; cần cập nhật cùng tài liệu minh chứng khi dự án thay đổi.
 
+Ảnh nền dự án giao thông `images/urban-traffic-hanoi.jpg` do chủ portfolio lựa chọn từ [Manorland](https://manorland.vn/wp-content/uploads/2026/06/duong-pham-van-dong-thuoc-phuong-nao-sau-sap-nhap-o-dau-ha-noi-1024x538.jpg). Giữ nguyên thông tin bản đồ Google hiển thị trong ảnh.
+
 ## Đưa lên GitHub Pages
 
 Đặt các tệp và thư mục trong repo `nolanminhdinh.github.io`, giữ nguyên đường dẫn tương đối. Không cần thay đổi cấu hình build hoặc thêm dịch vụ hosting. Font được tải từ Google Fonts và có font dự phòng.

@@ -560,9 +560,15 @@ em {
 .project-cover:hover .cover-open {
   transform:rotate(45deg)
 }
+.project-cover.traffic {
+  background:#e7eee9
+}
 .traffic img {
-  filter:saturate(.45);
-  opacity:.9
+  object-fit:contain
+}
+.traffic .cover-open {
+  top:16px;
+  bottom:auto
 }
 .map-label {
   position:absolute;
